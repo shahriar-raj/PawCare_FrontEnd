@@ -11,18 +11,12 @@ export function Login() {
     };
     return (
         <div>
-            <Card style={{ width: "750" }}>
+            <Card id="logincard">
                 <h1>Login</h1>
                 <Form
                     name="basic"
-                    labelCol={{
-                        span: 8,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
                     style={{
-                        maxWidth: 600,
+                        maxWidth: 800,
                     }}
                     initialValues={{
                         remember: false,
@@ -47,6 +41,7 @@ export function Login() {
                     <Form.Item
                         label="Password"
                         name="password"
+                        style={{ width: 400 }}
                         rules={[
                             {
                                 required: true,
@@ -60,21 +55,13 @@ export function Login() {
                     <Form.Item
                         name="remember"
                         valuePropName="checked"
-                        wrapperCol={{
-                            offset: 8,
-                            span: 16,
-                        }}
                     >
                         <Checkbox>Remember me</Checkbox>
                     </Form.Item>
 
                     <Form.Item
-                        wrapperCol={{
-                            offset: 8,
-                            span: 16,
-                        }}
                     >
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" >
                             Submit
                         </Button>
                     </Form.Item>
