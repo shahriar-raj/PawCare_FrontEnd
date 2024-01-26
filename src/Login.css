@@ -1,6 +1,18 @@
 #logincard {
-    width: 800px;
-    margin-left: 50px;
+    width: 580px;
+    margin-left: 450px;
     margin-top: 50px;
     text-align: center;
+    align-items: center;
+    font: 15px sans-serif;
+}
+
+/* #username {
+    width: 500px;
+    font: 1em sans-serif;
+}
+
+#password {
+    width: 500px;
+    font: 1em sans-serif; */
 }

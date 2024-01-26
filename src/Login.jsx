@@ -3,12 +3,40 @@ import { useState } from 'react'
 import { Button, Checkbox, Form, Input, Card } from 'antd';
 import './Login.css'
 export function Login() {
-    const onFinish = (values) => {
-        console.log('Success:', values['username']);
+    const onFinish = async (values) => {
+        console.log('Success:', values);
+
+        try {
+            let obj = {
+                username: values['username'],
+                password: values['password']
+            }
+            const response = await fetch('http://44.222.207.156:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+                console.log("Message: " + data['message']);
+                // Handle response here
+            } else {
+                // Handle HTTP errors here
+                console.error("HTTP Error:", response);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            // Handle network errors here
+        }
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
     return (
         <div>
             <Card id="logincard">
@@ -16,7 +44,7 @@ export function Login() {
                 <Form
                     name="basic"
                     style={{
-                        maxWidth: 800,
+                        // maxWidth: 800,
                     }}
                     initialValues={{
                         remember: false,
@@ -28,6 +56,7 @@ export function Login() {
                     <Form.Item
                         label="Username"
                         name="username"
+                        style={{ width: 500 }}
                         rules={[
                             {
                                 required: true,
@@ -41,7 +70,7 @@ export function Login() {
                     <Form.Item
                         label="Password"
                         name="password"
-                        style={{ width: 400 }}
+                        style={{ width: 500 }}
                         rules={[
                             {
                                 required: true,
