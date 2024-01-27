@@ -10,9 +10,10 @@ export function Login(props) {
 
         try {
             let obj = {
-                username: values['username'],
+                email: values['email'],
                 password: values['password']
             }
+            console.log(obj);
             const response = await fetch('http://44.222.207.156:3000/login', {
                 method: 'POST',
                 headers: {
@@ -21,10 +22,11 @@ export function Login(props) {
                 body: JSON.stringify(obj),
             });
 
+
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-                props.setData(obj);
+                props.setData(data);
                 navigate('/profile');
                 // Handle response here
             }
@@ -47,9 +49,11 @@ export function Login(props) {
     return (
         <div>
             <Card id="logincard">
-                <h1>Login</h1>
+                <h1 style={{ fontFamily: "Baloo Da" }}>Login</h1>
                 <Form
                     name="basic"
+                    layout="vertical"
+                    size="large"
                     initialValues={{
                         remember: false,
                     }}
@@ -59,23 +63,23 @@ export function Login(props) {
                 >
 
                     <Form.Item
-                        label="Username"
-                        name="username"
-                        style={{ width: 500 }}
+                        label="Email"
+                        name="email"
+                        style={{ width: 500, borderColor: "#192928" }}
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your username!',
+                                message: 'Please input your Email!',
                             },
                         ]}
                     >
-                        <Input placeholder="Enter your Username" />
+                        <Input placeholder="Enter your Email" />
                     </Form.Item>
 
                     <Form.Item
                         label="Password"
                         name="password"
-                        style={{ width: 500 }}
+                        style={{ width: 500, borderColor: "#192928" }}
                         rules={[
                             {
                                 required: true,
@@ -95,12 +99,11 @@ export function Login(props) {
 
                     <Form.Item
                     >
-                        <Button type="primary" htmlType="submit" >
-                            Submit
+                        <Button style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} htmlType="submit" >
+                            Login
                         </Button>
                     </Form.Item>
                 </Form>
-
             </Card>
         </div>
     );

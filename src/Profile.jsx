@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 export function Profile(props) {
+
     return (
         <div className="profilediv">
             <div className='profileImg'>
@@ -11,10 +12,7 @@ export function Profile(props) {
             </div>
             <h1>About</h1>
             Hello World
-            props: {props.data.username}
-            <br></br>
-            password: {props.data.password}
-            
+            props: {props.data.message}
         </div>
     )
 }

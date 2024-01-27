@@ -7,6 +7,7 @@ import './App.css';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Divider, Flex, Radio } from 'antd';
 import { Login } from './Login.jsx';
+import { Registration } from './Registration.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -15,6 +16,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login data={data} setData={setData} />} />
+          <Route path="/reg" element={<Registration data={data} setData={setData} />} />
           <Route path="/profile" element={<Profile data={data} setData={setData} />} />
         </Routes>
       </Router>

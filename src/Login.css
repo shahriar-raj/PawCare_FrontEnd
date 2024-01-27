@@ -1,9 +1,10 @@
 #logincard {
     width: 100%;
-    margin-left: 120%;
-    margin-right: 30%;
+    margin-left: 150%;
     margin-top: 20%;
     text-align: center;
     align-items: center;
     font: 15px sans-serif;
+    background-color: #cedfb9;
+    border-color: #cedfb9;
 }
