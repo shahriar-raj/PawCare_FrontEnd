@@ -10,7 +10,7 @@ const CircleImage = ({ src, alt, diameter }) => {
         justifyContent: 'center', // Center the image horizontally
         alignItems: 'center', // Center the image vertically
         objectFit: 'cover', // Ensure the image covers the container without stretching
-        backgroundColor: 'white' // Set a background color in case the image is missing or slow to load
+        backgroundColor: 'white', // Set a background color in case the image is missing or slow to load
     };
 
     return (
