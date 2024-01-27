@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from 'react'
 import { Button, Checkbox, Form, Input, Card } from 'antd';
-import './Login.css'
-export function Login() {
+import './Login.css';
+import { useNavigate } from "react-router-dom";
+export function Login(props) {
+    const navigate = useNavigate();
     const onFinish = async (values) => {
         console.log('Success:', values);
 
@@ -22,11 +24,14 @@ export function Login() {
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-                if (data['message'] !== "Login successful") {
-                    alert("Invalid Credentials");
-                }
+                props.setData(obj);
+                navigate('/about');
                 // Handle response here
-            } else {
+            }
+            else if (response.status === 401) {
+                alert("Incorrect Username or Password")
+            }
+            else {
                 // Handle HTTP errors here
                 console.error("HTTP Error:", response);
             }
