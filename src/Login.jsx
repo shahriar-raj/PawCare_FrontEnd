@@ -25,7 +25,7 @@ export function Login(props) {
                 const data = await response.json();
                 console.log(data);
                 props.setData(obj);
-                navigate('/about');
+                navigate('/profile');
                 // Handle response here
             }
             else if (response.status === 401) {
