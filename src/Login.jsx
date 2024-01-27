@@ -48,6 +48,9 @@ export function Login(props) {
 
     return (
         <div>
+            <div className="loginheader">
+                <img src="src/assets/logo.png" alt="Logo" width="265px" />
+            </div>
             <Card id="logincard">
                 <h1 style={{ fontFamily: "Baloo Da" }}>Login</h1>
                 <Form

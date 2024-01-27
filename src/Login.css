@@ -1,10 +1,19 @@
 #logincard {
     width: 100%;
     margin-left: 150%;
-    margin-top: 20%;
+    margin-top: 5%;
     text-align: center;
     align-items: center;
     font: 15px sans-serif;
     background-color: #cedfb9;
     border-color: #cedfb9;
+}
+
+.loginheader {
+    height: 10%;
+    width: 270%;
+    background-color: #192928;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
