@@ -22,7 +22,9 @@ export function Login() {
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-                console.log("Message: " + data['message']);
+                if (data['message'] !== "Login successful") {
+                    alert("Invalid Credentials");
+                }
                 // Handle response here
             } else {
                 // Handle HTTP errors here
@@ -43,9 +45,6 @@ export function Login() {
                 <h1>Login</h1>
                 <Form
                     name="basic"
-                    style={{
-                        // maxWidth: 800,
-                    }}
                     initialValues={{
                         remember: false,
                     }}
@@ -53,6 +52,7 @@ export function Login() {
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
+
                     <Form.Item
                         label="Username"
                         name="username"
@@ -64,7 +64,7 @@ export function Login() {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input placeholder="Enter your Username" />
                     </Form.Item>
 
                     <Form.Item
@@ -78,7 +78,7 @@ export function Login() {
                             },
                         ]}
                     >
-                        <Input.Password />
+                        <Input.Password placeholder="Enter your password" />
                     </Form.Item>
 
                     <Form.Item
@@ -95,6 +95,7 @@ export function Login() {
                         </Button>
                     </Form.Item>
                 </Form>
+
             </Card>
         </div>
     );
