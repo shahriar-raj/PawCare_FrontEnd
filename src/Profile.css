@@ -9,9 +9,10 @@
 .container {
     display: grid;
     grid-template-columns: 33% 1fr;
+    max-height: 900px;
     /* width: 100vw; */
     /* 33% for the first column, and the rest (1fr) for the second */
-    height: 70vh;
+    /* height: 70vh; */
     /* This makes the container take the full height of the viewport. Adjust as needed. */
 }
 
@@ -29,7 +30,7 @@
 .second-column {
     border-left: 3px solid #192928;
     display: grid;
-    grid-template-rows: 30% 30%;
+    grid-template-rows: 30% 60%;
     /* width: 100%; */
     /* background-color: #e8e8e8; */
     /* Just for visual differentiation, you can change or remove this */

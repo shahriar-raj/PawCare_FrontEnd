@@ -174,7 +174,11 @@ export function Registration() {
             </Button>
           </Form.Item>
         </Form>
+        <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={() => navigate('/')}>
+          Back
+        </Button>
       </Card>
+
     </div>
   );
 }

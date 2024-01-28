@@ -11,7 +11,10 @@ export function Profile(props) {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
-
+    const navigate = useNavigate();
+    const handleLog = () => {
+        navigate('/');
+    }
     useEffect(() => {
         // Function to fetch data from the API
         const fetchData = async () => {
@@ -46,7 +49,14 @@ export function Profile(props) {
             <div className="container">
                 <div className="profileheader">
                     <img src="src/assets/logo.png" alt="Logo" width="265px" />
+                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                        Logout
+                    </Button>
+                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} >
+                        Donation
+                    </Button>
                 </div>
+
                 <br />
                 <div className="first-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
