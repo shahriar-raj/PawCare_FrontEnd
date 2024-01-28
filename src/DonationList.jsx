@@ -31,9 +31,14 @@ export function DonationList(props) {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-        };
-
+        }
         // Call the fetchData function
         fetchData();
     }, []);
+
+    return (
+        <div>
+
+        </div>
+    )
 }
