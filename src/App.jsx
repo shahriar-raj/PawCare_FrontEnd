@@ -9,6 +9,7 @@ import { Button, Divider, Flex, Radio } from 'antd';
 import { Login } from './Login.jsx';
 import { Registration } from './Registration.jsx';
 import { AddPet } from './AddPet.jsx';
+import { DonationList } from './DonationList.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -20,6 +21,8 @@ export default function App() {
           <Route path="/register" element={<Registration data={data} setData={setData} />} />
           <Route path="/profile" element={<Profile data={data} setData={setData} />} />
           <Route path="/addpet" element={<AddPet data={data} setData={setData} />} />
+          <Route path="/donation" element={<DonationList data={data} setData={setData} />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
       {/* <Login /> */}
