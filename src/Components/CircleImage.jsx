@@ -15,7 +15,7 @@ const CircleImage = ({ src, alt, diameter }) => {
 
     return (
         <div style={style}>
-            <img src={src} alt={alt} style={{ width: '100%', height: 'auto' }} />
+            <img src={src} alt={alt} style={{ width: '90%', height: 'auto' }} />
         </div>
     );
 };

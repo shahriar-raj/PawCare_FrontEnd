@@ -1,8 +1,61 @@
-.profileImg {
+/* .profileImg {
     margin-top: 20%;
     margin-left: 20%;
 }
 
-.profilediv{
+.profilediv {
     background-color: "blue";
+} */
+.container {
+    display: grid;
+    grid-template-columns: 33% 1fr;
+    width: 100vw;
+    /* 33% for the first column, and the rest (1fr) for the second */
+    height: 90vh;
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+.first-column {
+    .profileImg {
+        margin-top: 10%;
+        margin-left: 37.5%;
+    }
+
+    /* background-color: #f8f8f8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the first column here */
+}
+
+.second-column {
+    border-left: 2px solid #000;
+    /* background-color: #e8e8e8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the second column here */
+}
+
+.name {
+    text-align: center;
+    color: #212121;
+    font-family: "Baloo Da";
+}
+
+.p_button {
+    margin-top: 5%;
+    margin-left: 35%;
+    width: 35%;
+    height: 6%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.profileheader {
+    height: 70%;
+    width: 100vw;
+    background-color: #192928;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
