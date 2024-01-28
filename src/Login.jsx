@@ -48,66 +48,73 @@ export function Login(props) {
 
     return (
         <div>
-            <div className="loginheader">
-                <img src="src/assets/logo.png" alt="Logo" width="265px" />
+            <div className="container_login">
+                <div className="loginheader">
+                    <img src="src/assets/logo.png" alt="Logo" width="265px" />
+                </div>
+                <br />
+                <div className="image_col">
+                    <img src="src/assets/Banner.png" width={"100%"} />
+                </div>
+                <div className="login_card">
+                    <Card id="logincard">
+                        <h1 style={{ fontFamily: "Baloo Da" }}>Login</h1>
+                        <Form
+                            name="basic"
+                            layout="vertical"
+                            size="large"
+                            initialValues={{
+                                remember: false,
+                            }}
+                            onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
+                            autoComplete="off"
+                        >
+                            <h4 style={{ fontFamily: "Baloo Da", marginBottom: "2%", textAlign: "left" }}>Email:</h4>
+                            <Form.Item
+
+                                name="email"
+                                style={{ paddingLeft: "10%", width: 600, borderColor: "#192928" }}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your Email!',
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Enter your Email" />
+                            </Form.Item>
+                            <h4 style={{ fontFamily: "Baloo Da" }}>Password:</h4>
+                            <Form.Item
+                                name="password"
+                                style={{ paddingLeft: "10%", width: 600, borderColor: "#192928" }}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Please input your password!',
+                                    },
+                                ]}
+                            >
+                                <Input.Password placeholder="Enter your password" />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="remember"
+                                valuePropName="checked"
+                            >
+                                <Checkbox>Remember me</Checkbox>
+                            </Form.Item>
+
+                            <Form.Item
+                            >
+                                <Button style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} htmlType="submit" >
+                                    Login
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </Card>
+                </div>
             </div>
-            <Card id="logincard">
-                <h1 style={{ fontFamily: "Baloo Da" }}>Login</h1>
-                <Form
-                    name="basic"
-                    layout="vertical"
-                    size="large"
-                    initialValues={{
-                        remember: false,
-                    }}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
-                >
-
-                    <Form.Item
-                        label="Email"
-                        name="email"
-                        style={{ width: 500, borderColor: "#192928" }}
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Email!',
-                            },
-                        ]}
-                    >
-                        <Input placeholder="Enter your Email" />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        style={{ width: 500, borderColor: "#192928" }}
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                    >
-                        <Input.Password placeholder="Enter your password" />
-                    </Form.Item>
-
-                    <Form.Item
-                        name="remember"
-                        valuePropName="checked"
-                    >
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
-
-                    <Form.Item
-                    >
-                        <Button style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} htmlType="submit" >
-                            Login
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Card>
         </div>
     );
 }

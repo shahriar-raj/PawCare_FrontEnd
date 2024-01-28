@@ -1,6 +1,5 @@
 #logincard {
-    width: 100%;
-    margin-left: 150%;
+    margin-left: 20%;
     margin-top: 5%;
     text-align: center;
     align-items: center;
@@ -10,10 +9,34 @@
 }
 
 .loginheader {
-    height: 10%;
-    width: 270%;
+    height: 70%;
+    width: 100vw;
     background-color: #192928;
     padding-left: 10%;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+
+.container_login {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    width: 100vw;
+    /* 33% for the first column, and the rest (1fr) for the second */
+    height: 90vh;
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+.image_col {
+    margin-left: 20%;
+    margin-top: 20%;
+    /* background-color: #f8f8f8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the first column here */
+}
+
+.login_card {
+    border-left: 3px solid #192928;
+    /* background-color: #e8e8e8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the second column here */
 }
