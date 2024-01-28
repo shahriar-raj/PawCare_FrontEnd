@@ -149,11 +149,31 @@
 
 
 
-
+/* Style for the 'View Profile' button */
 .view-profile-btn {
     background-color: #CEDFB9; /* Light Green background */
     color: #192928; /* Dark Green text */
     border: none;
-    margin-right: auto;
-    /* You may need additional styling depending on your design */
+    height: 70%; /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    padding: 0 15px;
+    /* If you want to make the button smaller and fit to content */
+    /* width: auto; */
+    /* padding: 5px 10px; */
+    /* For a full-width button, remove the width property */
+    margin-left: 500px; /* Add some space between the details and button */
+}
+
+.view-profile-btn:hover{
+    background-color: #CEDFB9 !; /* Light Green background */
+    color: #192928; /* Dark Green text */
+    border: none;
+    height: 50%; /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    padding: 0 15px;
+    /* If you want to make the button smaller and fit to content */
+    /* width: auto; */
+    /* padding: 5px 10px; */
+    /* For a full-width button, remove the width property */
+    margin-left: 500px; /* Add some space between the details and button */
 }
