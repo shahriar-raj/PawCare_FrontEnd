@@ -6,6 +6,7 @@ import { Button, Divider, Flex, Radio } from 'antd';
 import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 
 export function Profile(props) {
     const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ export function Profile(props) {
         const fetchData = async () => {
             try {
                 let obj = {
-                    userID: props.data.userID,
+                    userID: localStorage.getItem('userID'),
                 }
                 const response = await fetch('http://44.222.207.156:3000/profile', {
                     method: 'POST',
@@ -90,7 +91,9 @@ export function Profile(props) {
                         }
                     </div>
                     <div className="row bottom-row">
-                        <p>Bottom Row Content...</p>
+                        <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                            Add Pet
+                        </Button>
                     </div>
                 </div>
             </div>

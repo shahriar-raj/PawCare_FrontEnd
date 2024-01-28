@@ -28,6 +28,7 @@ export function Login(props) {
                 const data = await response.json();
                 console.log(data);
                 props.setData(data);
+                localStorage.setItem('userID', data.userID);
                 navigate('/profile');
                 // Handle response here
             }
