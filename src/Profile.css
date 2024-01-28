@@ -150,6 +150,35 @@
 
 
 /* Style for the 'View Profile' button */
+
+
+.view-profile-btn {
+    background-color: #CEDFB9; /* Light Green background */
+    color: #192928; /* Dark Green text */
+    border: none;
+    margin-left: auto; /* Align the button to the right */
+    
+    font-size: 1.2em; /* Larger font size */
+    border-radius: 8px; /* Rounded corners for the button */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    /* Additional styles to match your design, adjust as necessary */
+    
+}
+
+/* You may also want to add :hover and :focus styles for better user interaction */
+.view-profile-btn:hover {
+    background-color: #b5d6a7; /* Slightly different color on hover */
+    /* Other hover styles */
+}
+
+.view-profile-btn:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 2px #9ecaed; /* Custom focus style */
+    /* Other focus styles */
+}
+
+
+
 .view-profile-btn {
     background-color: #CEDFB9; /* Light Green background */
     color: #192928; /* Dark Green text */
@@ -161,7 +190,7 @@
     /* width: auto; */
     /* padding: 5px 10px; */
     /* For a full-width button, remove the width property */
-    margin-left: 500px; /* Add some space between the details and button */
+    margin-left: 475px; /* Add some space between the details and button */
 }
 
 .view-profile-btn:hover{
@@ -175,5 +204,5 @@
     /* width: auto; */
     /* padding: 5px 10px; */
     /* For a full-width button, remove the width property */
-    margin-left: 500px; /* Add some space between the details and button */
+    margin-left: 475px; /* Add some space between the details and button */
 }
