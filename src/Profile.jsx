@@ -92,9 +92,9 @@ export function Profile(props) {
                                             <div className="pet-info">
                                                 <Avatar size={100} src="./assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
-                                                    <h1 className="pet-name">TOM</h1>
-                                                    <p className="pet-breed">German Shepherd</p>
-                                                    <p className="pet-age">Age: 4 Years</p>
+                                                    <h1 className="pet-name">{item.Name}</h1>
+                                                    <p className="pet-breed">{item.Breed}</p>
+                                                    <p className="pet-age">Age: {item.Age}</p>
                                                 </div>
                                             </div>
                                             <Button className="view-profile-btn" type="primary">

@@ -21,7 +21,7 @@ export function AddPet(props) {
                 AdoptionStatus: "Adopted",
             }
             console.log(obj);
-            const response = await fetch('http://44.222.207.156:3000/addPet', {
+            const response = await fetch('http://44.222.207.156:3000/profile/addPet', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export function AddPet(props) {
             });
 
             if (response.ok) {
-                console.log(data);
+
                 props.setData(obj.UserID);
                 navigate('/profile');
             }
