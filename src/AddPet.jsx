@@ -117,7 +117,7 @@ export function AddPet(props) {
                         <Button type="primary" htmlType="submit">
                             Add Pet
                         </Button>
-                        <Button type="primary" htmlType="submit" id="back-btn">
+                        <Button type="primary" onClick={() => { navigate('/profile') }} id="back-btn">
                             Back
                         </Button>
                     </Form.Item>

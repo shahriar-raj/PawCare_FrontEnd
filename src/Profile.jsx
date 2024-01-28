@@ -56,7 +56,7 @@ export function Profile(props) {
                     <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
                         Logout
                     </Button>
-                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} >
+                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
                         Donation
                     </Button>
                 </div>
@@ -82,7 +82,7 @@ export function Profile(props) {
                 </div>
                 <div className="second-column">
                     <div className="row top-row">
-                        <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1>
+                        {/* <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1> */}
                         {
                             data.map((item) => (
                                 <div key={item.PetID} className='pet-card-container'>

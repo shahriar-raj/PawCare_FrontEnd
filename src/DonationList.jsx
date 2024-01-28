@@ -10,6 +10,7 @@ import { PlusOutlined } from '@ant-design/icons';
 
 export function DonationList(props) {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         // Function to fetch data from the API
         const fetchData = async () => {
@@ -27,7 +28,8 @@ export function DonationList(props) {
                 const result = await response.json(); // Assuming the response is in JSON format
 
                 // Update state with the result
-                setData(result.userDetails.userPets);
+                setData(result);
+                console.log(result);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -38,7 +40,37 @@ export function DonationList(props) {
 
     return (
         <div>
+            <div className="container">
+                <div className="profileheader">
+                    <img src="src/assets/logo.png" alt="Logo" width="265px" />
+                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={() => { navigate('/') }}>
+                        Logout
+                    </Button>
+                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/profile') }} >
+                        Profile
+                    </Button>
+                </div>
+                <br />
+                <div className="donationbody">
+                    <div className="donationbodyleft">
+                        {data.map((donation) => (
+                            <Card style={{ width: '50%', backgroundColor: "#192928", marginTop: "5%" }} key={donation.DonationID}>
+                                <Card.Img variant="top" src={donation.Image} />
+                                <Card.Body>
+                                    <Card.Title>{donation.Username}</Card.Title>
+                                    <Card.Text>
+                                        {donation.Description}
+                                    </Card.Text>
+                                    <Button variant="primary">Donate</Button>
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </div>
+                    <div className="donationbodyright">
 
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
