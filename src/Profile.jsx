@@ -3,10 +3,12 @@ import CircleImage from './Components/CircleImage';
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { Button, Divider, Flex, Radio } from 'antd';
+import { Card } from 'react-bootstrap';
 
 
 export function Profile(props) {
-
+    const arr = props.data.userDetails.userPets;
+    console.log(arr);
     return (
         <div>
             <div className="container">
@@ -33,9 +35,17 @@ export function Profile(props) {
                     </Button>
                 </div>
                 <div className="second-column">
-                    <h1>About</h1>
-                    Hello World
-                    props: {props.data.message}
+                    <br />
+                    {
+                        arr.map((item) =>
+                            <div key={item.PetID}>
+                                <Card style={{ backgroundColor: "black" }}>
+                                    <Card.Body>Pet Name: {item.Name}</Card.Body>
+                                </Card>
+                                <br />
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>

@@ -70,7 +70,7 @@ export function Login(props) {
                             onFinishFailed={onFinishFailed}
                             autoComplete="off"
                         >
-                            <h4 style={{ fontFamily: "Baloo Da", marginBottom: "2%", textAlign: "left" }}>Email:</h4>
+                            <h3 style={{ fontFamily: "Baloo Da", marginBottom: "2%", textAlign: "left", paddingLeft: "10%" }}>Email:</h3>
                             <Form.Item
 
                                 name="email"
@@ -84,7 +84,7 @@ export function Login(props) {
                             >
                                 <Input placeholder="Enter your Email" />
                             </Form.Item>
-                            <h4 style={{ fontFamily: "Baloo Da" }}>Password:</h4>
+                            <h3 style={{ fontFamily: "Baloo Da", marginBottom: "2%", textAlign: "left", paddingLeft: "10%" }}>Password:</h3>
                             <Form.Item
                                 name="password"
                                 style={{ paddingLeft: "10%", width: 600, borderColor: "#192928" }}
