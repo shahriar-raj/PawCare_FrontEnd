@@ -44,11 +44,13 @@
   
   .add-pet-form-container .ant-btn-primary {
     background-color: #CEDFB9; /* Light green background */
-    border-color: #CEDFB9; /* Light green border */
+   
     color: #192928; /* Dark green text */
     height: 40px;
     font-size: 16px;
     font-weight: 500;
+    
+    
   }
   
   .add-pet-form-container .ant-btn-primary:hover,
@@ -57,3 +59,28 @@
     border-color: #b2d8a3; /* Slightly lighter green border on hover/focus */
   }
   
+
+  #back-btn{
+    background-color: #FF5252; /* Light green background */
+    
+    color: #192928; /* Dark green text */
+    height: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
+
+
+  /* Custom style for Radio components */
+.ant-radio-wrapper {
+  color: #CEDFB9; /* Light Green text color */
+}
+
+/* You may also want to style the Radio button itself when checked */
+.ant-radio-checked .ant-radio-inner {
+  border-color: #CEDFB9; /* Light Green border color for checked state */
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  background-color: #CEDFB9; /* Light Green background color for the dot inside the radio when checked */
+}
