@@ -16,7 +16,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login data={data} setData={setData} />} />
-          <Route path="/reg" element={<Registration data={data} setData={setData} />} />
+          <Route path="/register" element={<Registration data={data} setData={setData} />} />
           <Route path="/profile" element={<Profile data={data} setData={setData} />} />
         </Routes>
       </Router>

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Button, Checkbox, Form, Input, Card } from 'antd';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+
 export function Login(props) {
     const navigate = useNavigate();
     const onFinish = async (values) => {
@@ -44,6 +45,10 @@ export function Login(props) {
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+    };
+    const handleClick = () => {
+        navigate('/register');
+        // More complex logic here...
     };
 
     return (
@@ -113,6 +118,12 @@ export function Login(props) {
                             </Form.Item>
                         </Form>
                     </Card>
+                    <div style={{ fontFamily: "Baloo Da", color: "Red", marginLeft: "45%" }}>                        Don't Have an Account?
+                        <Button style={{ backgroundColor: "#cedfb9", color: "blue", fontFamily: "Baloo Da" }} onClick={handleClick} >
+                            Register
+                        </Button>
+                    </div>
+
                 </div>
             </div>
         </div>
