@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './Registration.css'; // Make sure to include the correct path to your CSS file
+import { useNavigate } from "react-router-dom";
 
 // Import your image if necessary - make sure the path is correct
 // import image from './assets/cat1.png';
@@ -11,21 +12,57 @@ const { Option } = Select;
 
 export function Registration() {
   const [form] = Form.useForm();
-
-  const onFinish = (values) => {
+  const navigate = useNavigate();
+  const onFinish = async (values) => {
     console.log('Received values of form:', values);
+    try {
+      let obj = {
+        username: values['name'],
+        email: values['email'],
+        password: values['password'],
+        role: "User",
+        address: values['address'],
+      }
+      console.log(obj);
+      const response = await fetch('http://44.222.207.156:3000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
+      });
+
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        // props.setData(data);
+        navigate('/');
+        // Handle response here
+      }
+      else if (response.status === 401) {
+        alert("Registration Failed")
+      }
+      else {
+        // Handle HTTP errors here
+        console.error("HTTP Error:", response);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle network errors here
+    }
   };
 
   // Custom request method for Upload component - implement actual upload logic here
-  const dummyRequest = ({ file, onSuccess }) => {
-    setTimeout(() => {
-      onSuccess("ok");
-    }, 0);
-  };
+  // const dummyRequest = ({ file, onSuccess }) => {
+  //   setTimeout(() => {
+  //     onSuccess("ok");
+  //   }, 0);
+  // };
 
   return (
     <div className="registration-form-container">
-        <h1 className="registration-header">Registration</h1>
+      <h1 className="registration-header">Registration</h1>
       <Card className="registration-card">
         <Form
           form={form}
@@ -35,17 +72,9 @@ export function Registration() {
           scrollToFirstError
         >
           <Form.Item
-            name="firstName"
-            label="First Name"
-            rules={[{ required: true, message: 'Please input your first name!' }]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="lastName"
-            label="Last Name"
-            rules={[{ required: true, message: 'Please input your last name!' }]}
+            name="name"
+            label="Name"
+            rules={[{ required: true, message: 'Please input your name!' }]}
           >
             <Input />
           </Form.Item>
@@ -95,32 +124,15 @@ export function Registration() {
             <Input.Password />
           </Form.Item>
 
-
-
-
-
-
-
-
-
-
           <Form.Item
             name="phone"
             label="Phone Number"
             rules={[{ required: true, message: 'Please input your phone number!' }]}
           >
-            <Input addonBefore="+1" style={{ width: '100%' }} />
+            <Input addonBefore="+880" style={{ width: '100%' }} />
           </Form.Item>
 
-          <Form.Item
-            name="birthdate"
-            label="Birthdate"
-            rules={[{ required: true, message: 'Please select your birthdate!' }]}
-          >
-            <DatePicker style={{ width: '100%' }} />
-          </Form.Item>
-
-          <Form.Item
+          {/* <Form.Item
             name="gender"
             label="Gender"
             rules={[{ required: true, message: 'Please select your gender!' }]}
@@ -130,7 +142,7 @@ export function Registration() {
               <Option value="female">Female</Option>
               <Option value="other">Other</Option>
             </Select>
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item
             name="address"
@@ -140,7 +152,7 @@ export function Registration() {
             <Input />
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             name="profilePicture"
             label="Upload Profile Picture"
             valuePropName="fileList"
@@ -154,10 +166,10 @@ export function Registration() {
             <Upload name="logo" listType="picture" customRequest={dummyRequest}>
               <Button icon={<UploadOutlined />}>Click to upload (optional)</Button>
             </Upload>
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} htmlType="submit">
               Register
             </Button>
           </Form.Item>

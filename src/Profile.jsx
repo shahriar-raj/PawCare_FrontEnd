@@ -21,7 +21,7 @@ export function Profile(props) {
 
                     </div>
                     <h2 className="name">{props.data.userDetails.Username}</h2>
-                    <h2 className="name">{props.data.userDetails.Address}</h2>
+                    <h3 className="name">{props.data.userDetails.Address}</h3>
                     <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
                         Notifications
                     </Button>
