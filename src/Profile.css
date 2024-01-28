@@ -9,9 +9,9 @@
 .container {
     display: grid;
     grid-template-columns: 33% 1fr;
-    width: 100vw;
+    /* width: 100vw; */
     /* 33% for the first column, and the rest (1fr) for the second */
-    height: 90vh;
+    height: 70vh;
     /* This makes the container take the full height of the viewport. Adjust as needed. */
 }
 
@@ -28,6 +28,9 @@
 
 .second-column {
     border-left: 3px solid #192928;
+    display: grid;
+    grid-template-rows: 30% 30%;
+    /* width: 100%; */
     /* background-color: #e8e8e8; */
     /* Just for visual differentiation, you can change or remove this */
     /* Add your styling for the second column here */
@@ -43,7 +46,7 @@
     margin-top: 5%;
     margin-left: 35%;
     width: 35%;
-    height: 6%;
+    height: 3%;
     border: none;
     border-radius: 8px;
     font-size: 1.5em;
@@ -62,10 +65,23 @@
 
 .petCard {
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 15%;
     width: 60%;
     height: 90%;
     border-radius: 8px;
     background-color: #192928;
     border-color: #192928;
+}
+
+.row {
+    /* Just for visibility */
+    overflow-y: auto;
+    /* Enables vertical scrolling if content overflows */
+}
+
+.bottom-row {
+    max-height: 10%;
+    padding-left: 35%;
+    padding-top: 0%;
+    margin-top: 2%;
 }
