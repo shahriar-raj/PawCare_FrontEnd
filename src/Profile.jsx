@@ -19,7 +19,7 @@ export function Profile(props) {
                 <div className="first-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
                     <div className='profileImg'>
-                        <CircleImage src="src/assets/Vector.png" alt="Profile Picture" diameter="120px" />
+                        <CircleImage src="./src/assets/Vector.png" alt="Profile Picture" diameter="120px" />
 
                     </div>
                     <h2 className="name">{props.data.userDetails.Username}</h2>
@@ -36,13 +36,13 @@ export function Profile(props) {
                 </div>
                 <div className="second-column">
                     <br />
+                    <div></div>
                     {
                         arr.map((item) =>
                             <div key={item.PetID}>
-                                <Card style={{ backgroundColor: "black" }}>
+                                <Card className="petCard" >
                                     <Card.Body>Pet Name: {item.Name}</Card.Body>
                                 </Card>
-                                <br />
                             </div>
                         )
                     }
