@@ -1,0 +1,59 @@
+.add-pet-form-container {
+    width: 50%;
+    margin-left: 50% ;
+    padding: 50px;
+    background-color: #192928; /* Dark green background */
+    color: #CEDFB9; /* Light green text */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .add-pet-form-header {
+    color: #192928; /* Light green text */
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 400px;
+  }
+  
+  .add-pet-form-container .ant-form-item-label > label {
+    color: #CEDFB9; /* Light green text */
+  }
+  
+  .add-pet-form-container .ant-form-item-control-input input,
+  .add-pet-form-container .ant-form-item-control-input .ant-input-number,
+  .add-pet-form-container .ant-select-selector {
+    background-color: #192928; /* Dark green background */
+    border-color: #CEDFB9; /* Light green border */
+    color: #CEDFB9; /* Light green text */
+  }
+  
+  .add-pet-form-container .ant-form-item-control-input input::placeholder,
+  .add-pet-form-container .ant-form-item-control-input .ant-input-number::placeholder,
+  .add-pet-form-container .ant-select-selector::placeholder {
+    color: #CEDFB9; /* Light green placeholder text */
+  }
+  
+  .add-pet-form-container .ant-form-item-control-input input:focus,
+  .add-pet-form-container .ant-form-item-control-input .ant-input-number:focus,
+  .add-pet-form-container .ant-select-selector:focus {
+    border-color: #b2d8a3; /* Lighter green border for focus */
+    box-shadow: none; /* Remove the default Ant Design focus shadow */
+  }
+  
+  .add-pet-form-container .ant-btn-primary {
+    background-color: #CEDFB9; /* Light green background */
+    border-color: #CEDFB9; /* Light green border */
+    color: #192928; /* Dark green text */
+    height: 40px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .add-pet-form-container .ant-btn-primary:hover,
+  .add-pet-form-container .ant-btn-primary:focus {
+    background-color: #b2d8a3; /* Slightly lighter green background on hover/focus */
+    border-color: #b2d8a3; /* Slightly lighter green border on hover/focus */
+  }
+  

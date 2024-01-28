@@ -64,15 +64,7 @@
     padding-bottom: 2%;
 }
 
-.petCard {
-    margin-top: 5%;
-    margin-left: 15%;
-    width: 60%;
-    height: 90%;
-    border-radius: 8px;
-    background-color: #192928;
-    border-color: #192928;
-}
+
 
 .row {
     /* Just for visibility */
@@ -99,15 +91,20 @@
 
 
 
-
-
-
 .petCard {
-    background-color: #192928; /* Dark Green background */
-    color: #CEDFB9; /* Light Green text */
-    border-radius: 20px; /* Rounded corners */
+    margin-top: 5%;
+    margin-left: 15%;
+    width: 60%;
+    height: 10%;
+    border-radius: 20px;
+    background-color: #192928;
+    border-color: #192928;
+    color: #CEDFB9;
     margin-bottom: -40px;
 }
+
+
+
 
 .pet-info {
     display: flex;
@@ -149,22 +146,14 @@
 
 
 
-.pet-details {
-    display: flex;
-    flex-direction: column;
-    max-width: calc(100% - 150px); /* Adjust width based on avatar and button size */
-}
 
-.pet-name {
-    font-size: 1.5em; /* Adjust the size as needed */
-    font-weight: bold;
-    color: #CEDFB9; /* Light Green text for the name */
-}
+
 
 
 .view-profile-btn {
     background-color: #CEDFB9; /* Light Green background */
     color: #192928; /* Dark Green text */
     border: none;
+    margin-right: auto;
     /* You may need additional styling depending on your design */
 }

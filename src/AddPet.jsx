@@ -52,68 +52,74 @@ export function AddPet(props) {
     };
 
     return (
-        <Form
-            form={form}
-            name="add-pet-form"
-            onFinish={onFinish}
-            layout="vertical"
-            initialValues={{
-                modifier: 'public',
-            }}
-        >
-            <Form.Item
-                name="name"
-                label="Pet's Name"
-                rules={[{ required: true, message: "Please input your pet's name!" }]}
-            >
-                <Input />
-            </Form.Item>
+        <div>
 
-            <Form.Item
-                name="type"
-                label="Pet's Type"
-                rules={[{ required: true, message: "Please select your pet's type!" }]}
-            >
-                <Select placeholder="Select a type">
-                    <Select.Option value="dog">Dog</Select.Option>
-                    <Select.Option value="cat">Cat</Select.Option>
-                    <Select.Option value="bird">Bird</Select.Option>
-                    <Select.Option value="other">Other</Select.Option>
-                </Select>
-            </Form.Item>
+            <h1 className="add-pet-form-header"> Add Pet Form </h1>
+            <div className="add-pet-form-container">
+                <Form
+                    form={form}
+                    name="add-pet-form"
+                    onFinish={onFinish}
+                    layout="vertical"
+                    initialValues={{
+                        modifier: 'public',
+                    }}
+                >
+                    <Form.Item
+                        name="name"
+                        label="Pet's Name"
+                        rules={[{ required: true, message: "Please input your pet's name!" }]}
+                    >
+                        <Input />
+                    </Form.Item>
 
-            <Form.Item
-                name="breed"
-                label="Pet's Breed"
-                rules={[{ required: true, message: "Please input your pet's breed!" }]}
-            >
-                <Input />
-            </Form.Item>
+                    <Form.Item
+                        name="type"
+                        label="Pet's Type"
+                        rules={[{ required: true, message: "Please select your pet's type!" }]}
+                    >
+                        <Select placeholder="Select a type">
+                            <Select.Option value="dog">Dog</Select.Option>
+                            <Select.Option value="cat">Cat</Select.Option>
+                            <Select.Option value="bird">Bird</Select.Option>
+                            <Select.Option value="other">Other</Select.Option>
+                        </Select>
+                    </Form.Item>
 
-            <Form.Item
-                name="age"
-                label="Pet's Age (Years)"
-                rules={[{ required: true, message: "Please input your pet's age!" }]}
-            >
-                <InputNumber min={0} max={100} />
-            </Form.Item>
+                    <Form.Item
+                        name="breed"
+                        label="Pet's Breed"
+                        rules={[{ required: true, message: "Please input your pet's breed!" }]}
+                    >
+                        <Input />
+                    </Form.Item>
 
-            <Form.Item
-                name="gender"
-                label="Pet's Gender"
-                rules={[{ required: true, message: "Please select your pet's gender!" }]}
-            >
-                <Radio.Group>
-                    <Radio value="M">M</Radio>
-                    <Radio value="F">F</Radio>
-                </Radio.Group>
-            </Form.Item>
+                    <Form.Item
+                        name="age"
+                        label="Pet's Age (Years)"
+                        rules={[{ required: true, message: "Please input your pet's age!" }]}
+                    >
+                        <InputNumber min={0} max={100} />
+                    </Form.Item>
 
-            <Form.Item>
-                <Button type="primary" htmlType="submit">
-                    Add Pet
-                </Button>
-            </Form.Item>
-        </Form>
+                    <Form.Item
+                        name="gender"
+                        label="Pet's Gender"
+                        rules={[{ required: true, message: "Please select your pet's gender!" }]}
+                    >
+                        <Radio.Group>
+                            <Radio value="M">M</Radio>
+                            <Radio value="F">F</Radio>
+                        </Radio.Group>
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                            Add Pet
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </div>
     );
 }
