@@ -2,7 +2,7 @@ import React from 'react';
 import CircleImage from './Components/CircleImage';
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
-import { Button, Divider, Flex, Radio } from 'antd';
+import { Button, Divider, Flex, Radio,Avatar } from 'antd';
 import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -79,12 +79,25 @@ export function Profile(props) {
                 </div>
                 <div className="second-column">
                     <div className="row top-row">
-                        <br />
+                        {/* <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1> */}
                         {
                             data.map((item) => (
-                                <div key={item.PetID}>
+                                <div key={item.PetID} className='pet-card-container'>
                                     <Card className="petCard" >
-                                        <Card.Body>Pet Name: {item.Name}   Pet Type: {item.Type}</Card.Body>
+                                        <Card.Body>
+                                            {/* Pet Name: {item.Name}   Pet Type: {item.Type} */}
+                                            <div className="pet-info">
+                                                <Avatar size={100} src="./assets/cutu.png" className="pet-avatar" />
+                                                <div className="pet-details">
+                                                    <h1 className="pet-name">TOM</h1> 
+                                                    <p className="pet-breed">German Shepherd</p> 
+                                                    <p className="pet-age">Age: 4 Years</p> 
+                                                </div>
+                                            </div>
+                                            <Button className="view-profile-btn" type="primary">
+                                                View Profile
+                                            </Button>
+                                        </Card.Body>
                                     </Card>
                                 </div>
                             ))

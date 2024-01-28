@@ -86,3 +86,85 @@
     padding-top: 0%;
     margin-top: 2%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.petCard {
+    background-color: #192928; /* Dark Green background */
+    color: #CEDFB9; /* Light Green text */
+    border-radius: 20px; /* Rounded corners */
+    margin-bottom: -40px;
+}
+
+.pet-info {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 25px; /* Space between avatar and details */
+}
+
+.pet-avatar {
+    /* If you need specific styles for the avatar, add them here */
+}
+
+.pet-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-name {
+    font-size: 1.50em; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #CEDFB9; /* Light Green text for the name */
+}
+
+.pet-breed, .pet-age {
+    font-size: 0.8em;
+    margin: -2px; /* Remove default margins */
+    color: #CEDFB9; /* Light Green text for details */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pet-details {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 150px); /* Adjust width based on avatar and button size */
+}
+
+.pet-name {
+    font-size: 1.5em; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #CEDFB9; /* Light Green text for the name */
+}
+
+
+.view-profile-btn {
+    background-color: #CEDFB9; /* Light Green background */
+    color: #192928; /* Dark Green text */
+    border: none;
+    /* You may need additional styling depending on your design */
+}
