@@ -91,7 +91,7 @@ export function Profile(props) {
                         }
                     </div>
                     <div className="row bottom-row">
-                        <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                        <Button type="dashed" style={{ width: "40%", height: "60%", marginTop: "5%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
                     </div>
