@@ -2,7 +2,7 @@ import React from 'react';
 import CircleImage from './Components/CircleImage';
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
-import { Button, Divider, Flex, Radio,Avatar } from 'antd';
+import { Button, Divider, Flex, Radio, Avatar } from 'antd';
 import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -15,6 +15,9 @@ export function Profile(props) {
     const navigate = useNavigate();
     const handleLog = () => {
         navigate('/');
+    }
+    const add = () => {
+        navigate('/addPet');
     }
     useEffect(() => {
         // Function to fetch data from the API
@@ -89,9 +92,9 @@ export function Profile(props) {
                                             <div className="pet-info">
                                                 <Avatar size={100} src="./assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
-                                                    <h1 className="pet-name">TOM</h1> 
-                                                    <p className="pet-breed">German Shepherd</p> 
-                                                    <p className="pet-age">Age: 4 Years</p> 
+                                                    <h1 className="pet-name">TOM</h1>
+                                                    <p className="pet-breed">German Shepherd</p>
+                                                    <p className="pet-age">Age: 4 Years</p>
                                                 </div>
                                             </div>
                                             <Button className="view-profile-btn" type="primary">

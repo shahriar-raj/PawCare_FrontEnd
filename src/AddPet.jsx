@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload } from 'antd';
+import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload, InputNumber, Radio } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './AddPet.css'; // Make sure to include the correct path to your CSS file
 import { useNavigate } from "react-router-dom";
@@ -13,11 +13,11 @@ export function AddPet(props) {
         try {
             let obj = {
                 UserID: localStorage.getItem('userID'),
-                Name: values['petName'],
-                Type: values['petType'],
-                Breed: values['petBreed'],
-                Age: values['petAge'],
-                Gender: values['petGender'],
+                Name: values['name'],
+                Type: values['type'],
+                Breed: values['breed'],
+                Age: values['age'],
+                Gender: values['gender'],
                 AdoptionStatus: "Adopted",
             }
             console.log(obj);
