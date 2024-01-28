@@ -108,14 +108,17 @@ export function AddPet(props) {
                         rules={[{ required: true, message: "Please select your pet's gender!" }]}
                     >
                         <Radio.Group>
-                            <Radio value="M">M</Radio>
-                            <Radio value="F">F</Radio>
+                            <Radio value="M">Male</Radio>
+                            <Radio value="F">Female</Radio>
                         </Radio.Group>
                     </Form.Item>
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit">
                             Add Pet
+                        </Button>
+                        <Button type="primary" htmlType="submit" id="back-btn">
+                            Back
                         </Button>
                     </Form.Item>
                 </Form>
