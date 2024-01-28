@@ -90,7 +90,7 @@ export function Profile(props) {
                                         <Card.Body>
                                             {/* Pet Name: {item.Name}   Pet Type: {item.Type} */}
                                             <div className="pet-info">
-                                                <Avatar size={100} src="./assets/cutu.png" className="pet-avatar" />
+                                                <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
                                                     <p className="pet-breed">{item.Breed}</p>
