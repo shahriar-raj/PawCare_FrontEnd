@@ -106,7 +106,7 @@
 
 
 
-.pet-info {
+.pet-info-profile {
     display: flex;
     align-items: center; /* Center items vertically */
     gap: 25px; /* Space between avatar and details */

@@ -89,7 +89,7 @@ export function Profile(props) {
                                     <Card className="petCard" >
                                         <Card.Body>
                                             {/* Pet Name: {item.Name}   Pet Type: {item.Type} */}
-                                            <div className="pet-info">
+                                            <div className="pet-info-profile">
                                                 <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
@@ -97,7 +97,12 @@ export function Profile(props) {
                                                     <p className="pet-age">Age: {item.Age}</p>
                                                 </div>
                                             </div>
-                                            <Button className="view-profile-btn" type="primary">
+                                            <Button className="view-profile-btn" type="primary" onClick={()=>{
+                                                localStorage.setItem('petID', item.PetID);
+                                                localStorage.setItem('petName', item.Name);
+                                                localStorage.setItem('petAge', item.Age);
+                                                localStorage.setItem('petBreed', item.Breed);
+                                                navigate('/petprofile')}}>
                                                 View Profile
                                             </Button>
                                         </Card.Body>

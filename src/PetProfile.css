@@ -1,0 +1,135 @@
+.pet-profile-container {
+    width: 130%;
+    max-width: 800px;
+    margin-left: 110%;
+    margin-top: 10%;
+    background-color: #192928;
+    padding: 20px;
+    border-radius: 8px;
+    color: #CEDFB9;
+}
+
+.header {
+    text-align: center;
+    color: #CEDFB9;
+}
+
+.divider {
+    border-top: 1px solid #CEDFB9;
+}
+
+.pet-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.pet-avatar {
+    border: 2px solid #CEDFB9;
+}
+
+.pet-details {
+    flex-grow: 1;
+}
+
+.pet-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ant-tabs-nav {
+    margin-bottom: 16px;
+}
+
+
+
+.add-button {
+    background-color: #CEDFB9;
+    color: #192928;
+    margin-top: 20px;
+    border: none;
+}
+
+.add-button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Override the background of the tab content */
+.ant-tabs-content-holder {
+    background-color: #CEDFB9;
+    /* Dark green background */
+    color: #192928;
+    /* Light green font color */
+    font-weight: 750;
+    border-radius: 10px;
+
+}
+
+
+/* You may need to adjust other styles to ensure consistency */
+.pet-breed,
+.pet-age {
+    margin-bottom: 3px;
+    /* Decrease the bottom margin to reduce the gap */
+    margin-left: 5px;
+    font-weight: 250;
+    /* Normal font weight for other details */
+
+}
+
+
+.item-date {
+    background-color: #192928;
+    color: #CEDFB9;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 3px;
+    font-weight: 600;
+
+}
+
+.item-disease {
+    font-weight: 400;
+}
+
+
+.ant-tabs-tab {
+    color: #CEDFB9 !important;
+}
+
+
+/* Optional: If you want to change the hover color as well */
+.ant-tabs-tab:hover .ant-tabs-tab-btn {
+    color: #CEDFB9 !important;
+    font-weight: 600;
+}
+
+/* Override the ant design tab ink bar color */
+.ant-tabs-ink-bar {
+    background-color: #CEDFB9 !important;
+    /* Light green color as used before */
+}
+
+/* Override the ant design tab text color */
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    background-color: #CEDFB9 !important;
+    color: #192928 !important;
+    border-radius: 3px;
+    padding: 10px 10px;
+    font-weight: 600;
+}
