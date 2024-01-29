@@ -60,8 +60,11 @@ export function DonationList(props) {
                                     <Card.Title>{donation.Username} </Card.Title>
                                     <Card.Text>
                                         {donation.Description} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Received Amount: {donation.ReceivedAmount} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Amount: {donation.TotalAmount} <img src="./src/assets/cutu.png" height={"50px"}/> <br />
-                                        <Button variant="primary">Details</Button>
-                                        <Button variant="primary" style={{ marginLeft: "50%", marginTop: "2%" }}>Donate</Button>
+                                        <Button style={{backgroundColor: "#cedfb9", borderColor:"#192928"}} onClick={()=>{
+                                            localStorage.setItem('DonationID', donation.DonationID);
+                                            navigate('/donationdetails');
+                                        }}>Details</Button>
+                                        <Button style={{backgroundColor: "#cedfb9", borderColor:"#192928", marginLeft: "50%", marginTop: "2%" }}>Donate</Button>
 
                                     </Card.Text>
 

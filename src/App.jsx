@@ -11,6 +11,7 @@ import { Registration } from './Registration.jsx';
 import { AddPet } from './AddPet.jsx';
 import { DonationList } from './DonationList.jsx';
 import { PetProfile } from './PetProfile.jsx';
+import { DonationDetail } from './DonationDetail.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/addpet" element={<AddPet data={data} setData={setData} />} />
           <Route path="/donation" element={<DonationList data={data} setData={setData} />} />
           <Route path="/petprofile" element={<PetProfile data={data} setData={setData} />} />
+          <Route path="/donationdetails" element={<DonationDetail data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
