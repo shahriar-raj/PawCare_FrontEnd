@@ -54,14 +54,16 @@ export function DonationList(props) {
                 <div className="donationbody">
                     <div className="donationbodyleft">
                         {data.map((donation) => (
-                            <Card style={{ width: '50%', backgroundColor: "#192928", marginTop: "5%" }} key={donation.DonationID}>
+                            <Card style={{ width: '200%', backgroundColor: "#192928", marginTop: "5%", marginLeft: "10%", borderRadius: "10px" }} key={donation.DonationID}>
                                 <Card.Img variant="top" src={donation.Image} />
                                 <Card.Body>
                                     <Card.Title>{donation.Username}</Card.Title>
                                     <Card.Text>
-                                        {donation.Description}
+                                        {donation.Description} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Received Amount: {donation.ReceivedAmount} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Amount: {donation.TotalAmount}  <br />
+                                        <Button variant="primary">Details</Button>
+                                        <Button variant="primary" style={{ marginLeft: "10%", marginTop: "2%" }}>Donate</Button>
                                     </Card.Text>
-                                    <Button variant="primary">Donate</Button>
+
                                 </Card.Body>
                             </Card>
                         ))}
@@ -71,6 +73,6 @@ export function DonationList(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
