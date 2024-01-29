@@ -69,7 +69,7 @@ export function DonationDetail(props) {
                             </span>
                         </div>
                         <div className="back-button">
-                            <Button className="go-back-btn">
+                            <Button className="go-back-btn" onClick={()=>{navigate('/donation')}}>
                                 <LeftOutlined /> Go Back
                             </Button>
                         </div>
@@ -94,7 +94,7 @@ export function DonationDetail(props) {
                                 <Col span={12}>
                                     <h4 className="greenColor">Progress :</h4> <br />
                                     {steps.map((step) => (
-                                        <div key={step.SubStepNumber} style={{ fontFamily: "Baloo Da", fontSize: "large" }} >
+                                        <div key={step.SubStepNumber} style={{fontFamily:"Baloo Da", fontSize:"large"}} >
                                             {step.Checked
                                                 ? <p style={{ color: "green" }}><CheckOutlined />{step.Reason}</p>
                                                 : <p style={{ color: "red" }}><CloseOutlined />{step.Reason}</p>
