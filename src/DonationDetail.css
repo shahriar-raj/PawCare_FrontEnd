@@ -1,0 +1,80 @@
+.dd-loginheader {
+    height: 20%;
+    width: 100vw;
+    background-color: #192928;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.dd-container_login {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    width: 100vw;
+    /* 33% for the first column, and the rest (1fr) for the second */
+    height: 90vh;
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DonationDetails.css */
+
+.donation-details-container {
+    width: 75%;
+    padding: 24px;
+}
+
+.back-button {
+    margin-bottom: 24px;
+}
+
+.details-header {
+    margin-bottom: 24px;
+}
+
+.verified {
+    color: rgb(66, 145, 66);
+}
+
+
+
+
+
+
+
+/* Styles for the images list to wrap images */
+.images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the space between images */
+}
+
+
+.ant-card-body{
+    background-color: #CEDFB9 ;
+}
+
+
+.donation-detail-top {
+    background-color: #192928;
+    width: 120%;
+
+}
