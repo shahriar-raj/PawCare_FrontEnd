@@ -69,7 +69,7 @@ export function DonationDetail(props) {
                             </span>
                         </div>
                         <div className="back-button">
-                            <Button className="go-back-btn" onClick={() => { navigate('/donation') }}>
+                            <Button className="go-back-btn">
                                 <LeftOutlined /> Go Back
                             </Button>
                         </div>

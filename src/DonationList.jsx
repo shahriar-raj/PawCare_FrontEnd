@@ -53,20 +53,38 @@ export function DonationList(props) {
                 <br />
                 <div className="donationbody">
                     <div className="donationbodyleft">
+                        <p style={{ marginLeft: '30%', color: "#192928", fontFamily : 'Baloo Da', fontSize : '1.5em'}}> Donation Request List</p>
+                        <div style={{ height: '4px', backgroundColor: '#192928', marginLeft: '100px' , marginTop : '-20px'}}></div>
                         {data.map((donation) => (
-                            <Card style={{ width: '250%', backgroundColor: "#192928", marginTop: "8%", marginLeft: "10%", borderRadius: "10px", height: "5%" }} key={donation.DonationID}>
+                            <Card style={{ width: '250%', backgroundColor: "#192928", marginTop: "8%", marginLeft: "80%", borderRadius: "10px", height: "6%" }} key={donation.DonationID}>
                                 {/* <Card.Img variant="top" src={donation.Image} /> */}
                                 <Card.Body>
-                                    <Card.Title>{donation.Username} </Card.Title>
-                                    <Card.Text>
-                                        {donation.Description} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Received Amount: {donation.ReceivedAmount} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Amount: {donation.TotalAmount} <img src="./src/assets/cutu.png" height={"50px"}/> <br />
-                                        <Button style={{backgroundColor: "#cedfb9", borderColor:"#192928"}} onClick={()=>{
-                                            localStorage.setItem('DonationID', donation.DonationID);
-                                            navigate('/donationdetails');
-                                        }}>Details</Button>
-                                        <Button style={{backgroundColor: "#cedfb9", borderColor:"#192928", marginLeft: "50%", marginTop: "2%" }}>Donate</Button>
+                                    <span style={{color: '#CEDFB9'}}>Requested By</span>
+                                    <Card.Title style={{fontFamily : 'Baloo Da', fontSize : '2.0em'}}>{donation.Username} </Card.Title>
+                                        <Card.Text style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            
+                                                {donation.Description} <br/>
+                                                Received Amount: {donation.ReceivedAmount} <br />
+                                                Total Amount: {donation.TotalAmount}
+                                            
+                                            
+                                                <Avatar 
+                                                    src="./src/assets/cutu.png" 
+                                                    size={120} 
+                                                    alt="Pet" 
+                                                    style={{ position: 'relative', marginBottom: '50px' }} 
+                                                />
+                                            
 
-                                    </Card.Text>
+                                            
+                                                <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928"}} onClick={() => {
+                                                    localStorage.setItem('DonationID', donation.DonationID);
+                                                    navigate('/donationdetails');
+                                                }}>Details</Button>
+                                                <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928" }}>Donate</Button>
+                                            
+                                        </Card.Text>
+
 
                                 </Card.Body>
                             </Card>
