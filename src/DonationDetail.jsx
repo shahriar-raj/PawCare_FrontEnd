@@ -5,44 +5,21 @@ import { LeftOutlined, CheckCircleFilled } from '@ant-design/icons';
 import './DonationDetail.css';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
+import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 export function DonationDetail(props) {
     const navigate = useNavigate();
-    const [data, setData] = useState([]);
-    let donationDetails = {
-        name: "ECE Biral",
-        owner: "ECE",
-        amount: "5000",
-        description:
-            "The cat had a minor accident on 27/11/2023. So, we are requesting for donation of 5000 BDT. This will hopefully cover the expenses of the initial treatment and two months' medicines.",
-        verified: true,
-        images: [
-            "path/to/first/image.jpg", // Replace with actual paths
-            "path/to/second/image.jpg",
-            "path/to/third/image.jpg",
-            "path/to/fourth/image.jpg",
-        ],
-    };
-
+    const [data, setData] = useState('');
+    const [donationDetails, setDonationDetails] = useState('');
+    const [donationAmount, setDonationAmount] = useState(0);
     const description = 'This is a description.';
-    const steps = [
-        {
-            title: 'Finished',
-            description,
-        },
-        {
-            title: 'Finished',
-            description,
-        },
-        {
-            title: 'In Progress',
-            description,
-        },
-        {
-            title: 'Waiting',
-            description,
-        },
-    ];
+    const [steps, setSteps] = useState([]);
+    const donationimages = [
+        "path/to/image1.jpg",
+        "path/to/image2.jpg",
+        "path/to/image3.jpg",
+        "path/to/image4.jpg",
+    ]
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -59,13 +36,12 @@ export function DonationDetail(props) {
                     body: JSON.stringify(obj),
                 });
                 const result = await response.json(); // Assuming the response is in JSON format
-                donationDetails.name = "ECE Biral";
-                donationDetails.owner = result.UserName;
-                donationDetails.amount = result.TotalAmount;
-                donationDetails.description = result.Description;
                 // Update state with the result
-                setData(result);
-                console.log(result);
+                setData(result.donation.Username);
+                setDonationDetails(result.donation.Description);
+                setDonationAmount(result.donation.TotalAmount);
+                setSteps(result.subSteps);
+                console.log(steps);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -75,6 +51,7 @@ export function DonationDetail(props) {
     }, []);
 
     return (
+        // <div></div>
         <div className="donation-detail-top">
 
 
@@ -82,19 +59,17 @@ export function DonationDetail(props) {
             {/*  Donation Details */}
 
 
-            <div className="donation-detail-container" style={{ backgroundColor: "#CEDFB9", margin: '150px' }}>
+            <div className="donation-detail-container" style={{ backgroundColor: "#CEDFB9" }}>
                 <Card className="donation-detail-card" style={{ color: "#CEDFB9" }}>
                     <div className="card-header">
                         <div className="verified-by-admins">
-                            {donationDetails.verified && (
-                                <span className="verified" >
-                                    <h1 style={{ fontWeight: 100, color: '#CEDFB9' }}>  Donation Details</h1>
-                                    <h3 style={{ fontWeight: 50 }}> <CheckCircleFilled /> Verified By Admins</h3>
-                                </span>
-                            )}
+                            <span className="verified" >
+                                <h1 style={{ fontWeight: 100, color: '#CEDFB9' }}>  Donation Details</h1>
+                                <h3 style={{ fontWeight: 50 }}> <CheckCircleFilled /> Verified By Admins</h3>
+                            </span>
                         </div>
                         <div className="back-button">
-                            <Button className="go-back-btn">
+                            <Button className="go-back-btn" onClick={() => { navigate('/donation') }}>
                                 <LeftOutlined /> Go Back
                             </Button>
                         </div>
@@ -105,35 +80,34 @@ export function DonationDetail(props) {
 
 
                     <List>
-                        <List.Item className="detail-item">
-                            <strong>Name:</strong> {donationDetails.name}
-                        </List.Item>
                         <List.Item className="detail-item" >
-                            <strong>Owner/ Donation Requested By:</strong> {donationDetails.owner}
+                            <strong>Owner/ Donation Requested By:</strong> {data}
                         </List.Item>
                         <List.Item className="detail-item">
-                            <strong>Requested Amount:</strong> ৳ {donationDetails.amount}
+                            <strong>Requested Amount:</strong> ৳ {donationAmount}
                         </List.Item>
                         <List.Item className="detail-item">
-                            <strong>Description:</strong> {donationDetails.description}
+                            <strong>Description:</strong> {donationDetails}
                         </List.Item>
                         <List.Item>
                             <Row>
                                 <Col span={12}>
                                     <h4 className="greenColor">Progress :</h4> <br />
-                                    {/* Steps component */}
-                                    <Steps direction="vertical" current={1}>
-                                        {steps.map((step, index) => (
-                                            <Steps.Step key={index} title={step.title} description={step.description} />
-                                        ))}
-                                    </Steps>
+                                    {steps.map((step) => (
+                                        <div key={step.SubStepNumber} style={{ fontFamily: "Baloo Da", fontSize: "large" }} >
+                                            {step.Checked
+                                                ? <p style={{ color: "green" }}><CheckOutlined />{step.Reason}</p>
+                                                : <p style={{ color: "red" }}><CloseOutlined />{step.Reason}</p>
+                                            }
+                                        </div>
+                                    ))}
                                 </Col>
                                 <Col span={12}>
                                     {/* Images */}
                                     <div className="details-images">
                                         <h4 className="greenColor">Images:</h4>
                                         <div className="images-list">
-                                            {donationDetails.images.map((image, index) => (
+                                            {donationimages.map((image, index) => (
                                                 <Avatar
                                                     key={index}
                                                     shape="square"
