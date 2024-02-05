@@ -4,7 +4,7 @@
   /* Center horizontally */
   align-items: center;
   /* Center vertically */
-  height: 100vh;
+  /* height: 100vh; */
   /* Full height of the viewport */
   background-color: #192928;
   /* Dark green background */
@@ -12,9 +12,10 @@
 }
 
 .donation-detail-card {
-  min-width: 100%;
-  margin-top: 20%;
-  margin-left: 120%;
+  min-width: 40%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
   /* Adjust the width as needed */
   background-color: #192928;
   /* Dark green background */

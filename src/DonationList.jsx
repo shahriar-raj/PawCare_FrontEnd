@@ -41,7 +41,7 @@ export function DonationList(props) {
     return (
         <div>
             <div className="container">
-                <div className="profileheader">
+                <div className="donation_header">
                     <img src="src/assets/logo.png" alt="Logo" width="265px" />
                     <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={() => { navigate('/') }}>
                         Logout
@@ -54,17 +54,17 @@ export function DonationList(props) {
                 <div className="donationbody">
                     <div className="donationbodyleft">
                         <p style={{ marginLeft: '30%', color: "#192928", fontFamily : 'Baloo Da', fontSize : '1.5em'}}> Donation Request List</p>
-                        <div style={{ height: '4px', backgroundColor: '#192928', marginLeft: '100px' , marginTop : '-20px'}}></div>
+                        <hr/>
                         {data.map((donation) => (
-                            <Card style={{ width: '250%', backgroundColor: "#192928", marginTop: "8%", marginLeft: "80%", borderRadius: "10px", height: "6%" }} key={donation.DonationID}>
+                            <Card className='donation-card' key={donation.DonationID}>
                                 {/* <Card.Img variant="top" src={donation.Image} /> */}
                                 <Card.Body>
                                     <span style={{color: '#CEDFB9'}}>Requested By</span>
                                     <Card.Title style={{fontFamily : 'Baloo Da', fontSize : '2.0em'}}>{donation.Username} </Card.Title>
                                         <Card.Text style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             
-                                                {donation.Description} <br/>
-                                                Received Amount: {donation.ReceivedAmount} <br />
+                                                <strong>{donation.Description}</strong>
+                                                Received Amount: {donation.ReceivedAmount}
                                                 Total Amount: {donation.TotalAmount}
                                             
                                             

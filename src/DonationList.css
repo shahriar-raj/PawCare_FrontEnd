@@ -1,5 +1,26 @@
-.donationbody {
+/* .donationbody {
     display: grid;
     grid-template-columns: 70% 1fr;
     max-height: 900px;
+} */
+
+.donation-card {
+    width: 45%;
+    background-color: #192928;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    height: 6%;
+    
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+}
+
+.donation_header {
+    background-color: #192928;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
 }
