@@ -144,7 +144,7 @@
     /* Add some padding if needed */
     padding: 0 15px;
     margin-top: 2%;
-    margin-left: 70%;
+    margin-left: 6%;
     margin-bottom: 2%;
     transition: background-color 0.3s;
 }
@@ -171,4 +171,37 @@
 .p_button:hover {
     background-color: #033f3b !important;
     color: #CEDFB9;
+}
+
+.delete-profile-btn{
+    background-color: #f46d75 !important;
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
+    border: none;
+    /* margin-left: auto; */
+    /* Align the button to the right */
+    font-family: "Baloo Da";
+    font-size: 1.2em;
+    /* Larger font size */
+    border-radius: 8px;
+    /* Rounded corners for the button */
+    cursor: pointer;
+    height: 70%;
+    /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    padding: 0 15px;
+    margin-top: 2%;
+    margin-left: 60%;
+    margin-bottom: 2%;
+    transition: background-color 0.3s;
+}
+
+.delete-profile-btn:hover {
+    background-color: #cb1b1e !important;
+    /* Slightly different color on hover */
+    /* Other hover styles */
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
 }

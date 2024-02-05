@@ -6,7 +6,7 @@ import { Button, Divider, Flex, Radio, Avatar } from 'antd';
 import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined,DeleteOutlined } from '@ant-design/icons';
 
 export function Profile(props) {
     const [data, setData] = useState([]);
@@ -94,6 +94,15 @@ export function Profile(props) {
                                                     Age: {item.Age}
                                                 </div>
                                             </div>
+                                            <Button className="delete-profile-btn" type="primary" onClick={() => {
+                                                localStorage.setItem('petID', item.PetID);
+                                                localStorage.setItem('petName', item.Name);
+                                                localStorage.setItem('petAge', item.Age);
+                                                localStorage.setItem('petBreed', item.Breed);
+                                                navigate('/profile')
+                                            }}>
+                                               <DeleteOutlined />
+                                            </Button>
                                             <Button className="view-profile-btn" type="primary" onClick={() => {
                                                 localStorage.setItem('petID', item.PetID);
                                                 localStorage.setItem('petName', item.Name);
