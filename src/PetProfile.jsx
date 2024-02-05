@@ -40,8 +40,9 @@ export function PetProfile(props) {
                 <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
                 <div className="pet-details">
                     <h1 className="pet-name">{localStorage.getItem('petName')}</h1>
-                    <p className="pet-breed">{localStorage.getItem('petBreed')}</p>
-                    <p className="pet-age">Age: {localStorage.getItem('petAge')}</p>
+                    {localStorage.getItem('petBreed')}
+                    <br />
+                    Age: {localStorage.getItem('petAge')}
                 </div>
             </div>
             <Tabs defaultActiveKey="1" onChange={setActiveTab}>
@@ -54,10 +55,20 @@ export function PetProfile(props) {
                     />
                 </TabPane>
                 <TabPane tab="Allergy History" key="2">
-                    {/* Render allergy history */}
+                    <List
+                        dataSource={diseaseHistory}
+                        renderItem={item => (
+                            <List.Item><span className="item-date">{item.date}</span>  <span className="item-disease">{item.disease}</span></List.Item>
+                        )}
+                    />
                 </TabPane>
                 <TabPane tab="Vaccination History" key="3">
-                    {/* Render vaccination history */}
+                    <List
+                        dataSource={diseaseHistory}
+                        renderItem={item => (
+                            <List.Item><span className="item-date">{item.date}</span>  <span className="item-disease">{item.disease}</span></List.Item>
+                        )}
+                    />
                 </TabPane>
             </Tabs>
             <Button icon={<PlusSquareFilled style={{ fontSize: '15px' }} />} className="add-button">
