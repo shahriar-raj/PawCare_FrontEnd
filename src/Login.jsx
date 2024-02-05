@@ -15,7 +15,7 @@ export function Login(props) {
                 password: values['password']
             }
             console.log(obj);
-            const response = await fetch('http://44.222.207.156:3000/login', {
+            const response = await fetch('http://3.89.30.159:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,11 +54,10 @@ export function Login(props) {
 
     return (
         <div>
-            <div className="container_login">
-                <div className="loginheader">
-                    <img src="src/assets/logo.png" alt="Logo" width="265px" />
-                </div>
-                <br />
+            <div className="loginheader">
+                <img src="src/assets/logo.png" alt="Logo" width="20%" />
+            </div>
+            <div className="container_login" style={{ height: "100%" }}>
                 <div className="image_col">
                     <img src="src/assets/Banner.png" width={"100%"} />
                 </div>

@@ -1,80 +1,106 @@
-.dd-loginheader {
-    height: 20%;
-    width: 100vw;
-    background-color: #192928;
-    padding-left: 10%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+.donation-detail-container {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: 100vh;
+  /* Full height of the viewport */
+  background-color: #192928;
+  /* Dark green background */
+
 }
 
-.dd-container_login {
-    display: grid;
-    grid-template-columns: 40% 1fr;
-    width: 100vw;
-    /* 33% for the first column, and the rest (1fr) for the second */
-    height: 90vh;
-    /* This makes the container take the full height of the viewport. Adjust as needed. */
+.donation-detail-card {
+  min-width: 100%;
+  margin-top: 20%;
+  margin-left: 120%;
+  /* Adjust the width as needed */
+  background-color: #192928;
+  /* Dark green background */
+  color: #CEDFB9;
+  /* Light green text */
+}
+
+.card-header .verified {
+  font-size: 1.25rem;
+  /* Larger font size for bold text */
+  color: #CEDFB9;
+  /* Light green text */
+}
+
+/* Add custom styles for all the elements that need to be styled */
+/* For example, for the list items: */
+.detail-item {
+  color: #CEDFB9 !important;
+  /* Light green text */
+
+}
+
+.greenColor {
+  color: #CEDFB9
+}
+
+/* If you are using a global class prefix, you may need to use `.ant-list-item` instead of `.detail-item` */
+
+
+/* For the steps component inside the list: */
+.ant-steps-item-title {
+  /* Your styles for step titles */
+  color: #CEDFB9;
+  /* Light green text */
+}
+
+/* For the button: */
+.ant-btn-primary {
+  background-color: #CEDFB9;
+  /* Light green background */
+  border-color: #CEDFB9;
+  /* Light green border */
+  color: #192928;
+  /* Dark green text */
+}
+
+/* Ensure that the icon uses light green color */
+.anticon-check-circle {
+  color: #CEDFB9;
+}
+
+/* CSS file (DonationDetail.css) */
+.ant-steps-item-title {
+  color: #CEDFB9 !important;
+  /* Light green text for the title */
+}
+
+.ant-steps-item-description {
+  color: #879871 !important;
+  /* Light green text for the description */
+}
+
+.go-back-btn {
+  background-color: #e64141;
+  /* Light green background color */
+  color: #192928;
+  /* Dark green text color */
+  border: none;
+  /* Removes the border */
+  font-size: 16px;
+  /* Adjust the font size as needed */
+  padding: 6px 12px;
+  /* Adjust the padding as needed for size */
+  border-radius: 4px;
+  /* Optional: if you want rounded corners */
+  /* Add more styles as needed */
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* DonationDetails.css */
-
-.donation-details-container {
-    width: 75%;
-    padding: 24px;
-}
-
-.back-button {
-    margin-bottom: 24px;
-}
-
-.details-header {
-    margin-bottom: 24px;
-}
-
-.verified {
-    color: rgb(66, 145, 66);
-}
-
-
-
-
-
-
-
-/* Styles for the images list to wrap images */
-.images-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Adjust the space between images */
-}
-
-
-.ant-card-body{
-    background-color: #CEDFB9 ;
-}
-
-
-.donation-detail-top {
-    background-color: #192928;
-    width: 120%;
-
+/* Hover state of the button */
+.go-back-btn:hover {
+  background-color: #b9160b;
+  /* Keeps the background color the same */
+  color: #192928 !important;
+  /* Keeps the text color dark green and overrides default styles */
+  border-color: #CEDFB9 !important;
+  /* Optional: if you have a border and want to change its color on hover */
+  /* Add more styles as needed */
 }

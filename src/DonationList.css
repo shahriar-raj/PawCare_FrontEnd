@@ -1,5 +1,12 @@
-.donationbody {
-    display: grid;
-    grid-template-columns: 70% 1fr;
-    max-height: 900px;
+.donation-card {
+    width: 50%;
+    background-color: #192928;
+    margin-top: 8%;
+    margin-left: 8%;
+    border-radius: 10px;
+    height: 6%;
+    
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
 }

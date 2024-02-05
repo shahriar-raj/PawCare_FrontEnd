@@ -21,7 +21,7 @@ export function AddPet(props) {
                 AdoptionStatus: "Adopted",
             }
             console.log(obj);
-            const response = await fetch('http://44.222.207.156:3000/profile/addPet', {
+            const response = await fetch('http://3.89.30.159:3000/profile/addPet', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export function AddPet(props) {
 
                     <Form.Item
                         name="age"
-                        label="Pet's Age (Years)"
+                        label="Pet's Age (Months)"
                         rules={[{ required: true, message: "Please input your pet's age!" }]}
                     >
                         <InputNumber min={0} max={100} />
@@ -114,10 +114,10 @@ export function AddPet(props) {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button type="primary" htmlType="submit">
+                        <Button className="Add_pet" type="primary" htmlType="submit">
                             Add Pet
                         </Button>
-                        <Button type="primary" onClick={() => { navigate('/profile') }} id="back-btn">
+                        <Button className="Back_pet" type="primary" onClick={() => { navigate('/profile') }} id="back-btn">
                             Back
                         </Button>
                     </Form.Item>

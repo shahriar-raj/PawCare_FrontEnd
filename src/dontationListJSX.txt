@@ -56,15 +56,15 @@ export function DonationList(props) {
                         <p style={{ marginLeft: '30%', color: "#192928", fontFamily : 'Baloo Da', fontSize : '1.5em'}}> Donation Request List</p>
                         <div style={{ height: '4px', backgroundColor: '#192928', marginLeft: '100px' , marginTop : '-20px'}}></div>
                         {data.map((donation) => (
-                            <Card className='donation-card' key={donation.DonationID}>
+                            <Card style={{ width: '250%', backgroundColor: "#192928", marginTop: "8%", marginLeft: "80%", borderRadius: "10px", height: "6%" }} key={donation.DonationID}>
                                 {/* <Card.Img variant="top" src={donation.Image} /> */}
                                 <Card.Body>
                                     <span style={{color: '#CEDFB9'}}>Requested By</span>
                                     <Card.Title style={{fontFamily : 'Baloo Da', fontSize : '2.0em'}}>{donation.Username} </Card.Title>
                                         <Card.Text style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             
-                                                <strong>{donation.Description}</strong>
-                                                Received Amount: {donation.ReceivedAmount}
+                                                {donation.Description} <br/>
+                                                Received Amount: {donation.ReceivedAmount} <br />
                                                 Total Amount: {donation.TotalAmount}
                                             
                                             
