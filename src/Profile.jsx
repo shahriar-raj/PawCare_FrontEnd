@@ -26,7 +26,7 @@ export function Profile(props) {
                 let obj = {
                     userID: localStorage.getItem('userID'),
                 }
-                const response = await fetch('http://44.222.207.156:3000/profile', {
+                const response = await fetch('http://3.89.30.159:3000/profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -50,23 +50,20 @@ export function Profile(props) {
 
     return (
         <div>
-            <div className="container">
-                <div className="profileheader">
-                    <img src="src/assets/logo.png" alt="Logo" width="265px" />
-                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
-                        Logout
-                    </Button>
-                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                        Donation
-                    </Button>
-                </div>
-
-                <br />
+            <div className="profile_header">
+                <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                    Logout
+                </Button>
+                <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Donation
+                </Button>
+            </div>
+            <div className="container_profile">
                 <div className="first-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
                     <div className='profileImg'>
                         <CircleImage src="./src/assets/Vector.png" alt="Profile Picture" diameter="120px" />
-
                     </div>
                     <h2 className="name">{name}</h2>
                     <h3 className="name">{address}</h3>
@@ -93,16 +90,17 @@ export function Profile(props) {
                                                 <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
-                                                    <p className="pet-breed">{item.Breed}</p>
-                                                    <p className="pet-age">Age: {item.Age}</p>
+                                                    {item.Breed}<br/>
+                                                    Age: {item.Age}
                                                 </div>
                                             </div>
-                                            <Button className="view-profile-btn" type="primary" onClick={()=>{
+                                            <Button className="view-profile-btn" type="primary" onClick={() => {
                                                 localStorage.setItem('petID', item.PetID);
                                                 localStorage.setItem('petName', item.Name);
                                                 localStorage.setItem('petAge', item.Age);
                                                 localStorage.setItem('petBreed', item.Breed);
-                                                navigate('/petprofile')}}>
+                                                navigate('/petprofile')
+                                            }}>
                                                 View Profile
                                             </Button>
                                         </Card.Body>
@@ -112,7 +110,7 @@ export function Profile(props) {
                         }
                     </div>
                     <div className="row bottom-row">
-                        <Button type="dashed" style={{ width: "40%", height: "60%", marginTop: "5%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                        <Button type="dashed" style={{  width:"30%", height:"20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
                     </div>

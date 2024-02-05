@@ -1,3 +1,4 @@
+/* Checked */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,18 +6,22 @@
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 1);
-  background-color: #cedfb9;
 
+  background-color: #cedfb9;
+  /* display: flex;
+  min-width: 1536px; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* height: 100vh; */
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
   display: flex;
   place-items: left;
+  flex-direction: column;
   /* min-width: 320px;
   min-height: 100vh; */
 }

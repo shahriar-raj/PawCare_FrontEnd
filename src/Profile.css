@@ -6,31 +6,37 @@
 .profilediv {
     background-color: "blue";
 } */
-.container {
+.container_profile {
     display: grid;
     grid-template-columns: 33% 1fr;
-    max-height: 900px;
+    /* width: 100vw; */
+    height: 90vh;
+    /* max-height: 900px; */
     /* width: 100vw; */
     /* 33% for the first column, and the rest (1fr) for the second */
     /* height: 70vh; */
     /* This makes the container take the full height of the viewport. Adjust as needed. */
 }
 
-.first-column {
-    .profileImg {
-        margin-top: 10%;
-        margin-left: 37.5%;
-    }
+.profileImg {
+    padding-top: 0%;
+    padding-left: 37%;
+}
 
+.first-column {
+    padding-top: 2%;
+    height: 90vh;
     /* background-color: #f8f8f8; */
     /* Just for visual differentiation, you can change or remove this */
     /* Add your styling for the first column here */
 }
 
 .second-column {
+    padding-top: 5%;
     border-left: 3px solid #192928;
     display: grid;
-    grid-template-rows: 30% 60%;
+    grid-template-rows: 60% 40%;
+    height: 90vh;
     /* width: 100%; */
     /* background-color: #e8e8e8; */
     /* Just for visual differentiation, you can change or remove this */
@@ -44,10 +50,10 @@
 }
 
 .p_button {
-    margin-top: 5%;
-    margin-left: 35%;
+    margin-top: 4%;
+    margin-left: 32.5%;
     width: 35%;
-    height: 3%;
+    height: 7%;
     border: none;
     border-radius: 8px;
     font-size: 1.5em;
@@ -55,13 +61,12 @@
     text-align: center;
 }
 
-.profileheader {
-    height: 70%;
-    width: 100vw;
+.profile_header {
     background-color: #192928;
-    padding-left: 10%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
 }
 
 
@@ -73,26 +78,19 @@
 }
 
 .bottom-row {
-    max-height: 15%;
     padding-left: 35%;
-    padding-top: 0%;
-    margin-top: 2%;
+    padding-top: 2%;
+    /* margin-top: 2%; */
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.pet-avatar {
+    margin-top: 2%;
+    margin-left: 2%;
+    /* If you need specific styles for the avatar, add them here */
+}
 
 .petCard {
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: 15%;
     width: 60%;
     height: 10%;
@@ -100,20 +98,14 @@
     background-color: #192928;
     border-color: #192928;
     color: #CEDFB9;
-    margin-bottom: -40px;
 }
-
-
-
 
 .pet-info-profile {
     display: flex;
-    align-items: center; /* Center items vertically */
-    gap: 25px; /* Space between avatar and details */
-}
-
-.pet-avatar {
-    /* If you need specific styles for the avatar, add them here */
+    /* align-items: center; */
+    /* Center items vertically */
+    gap: 25px;
+    /* Space between avatar and details */
 }
 
 .pet-details {
@@ -122,87 +114,61 @@
 }
 
 .pet-name {
-    font-size: 1.50em; /* Adjust the size as needed */
+    font-size: 1.50em;
+    /* Adjust the size as needed */
     font-weight: bold;
-    color: #CEDFB9; /* Light Green text for the name */
+    color: #CEDFB9;
+    /* Light Green text for the name */
 }
-
-.pet-breed, .pet-age {
-    font-size: 0.8em;
-    margin: -2px; /* Remove default margins */
-    color: #CEDFB9; /* Light Green text for details */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 /* Style for the 'View Profile' button */
 
-
 .view-profile-btn {
-    background-color: #CEDFB9; /* Light Green background */
-    color: #192928; /* Dark Green text */
+    background-color: #CEDFB9;
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
     border: none;
-    margin-left: auto; /* Align the button to the right */
-    
-    font-size: 1.2em; /* Larger font size */
-    border-radius: 8px; /* Rounded corners for the button */
-    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
-    /* Additional styles to match your design, adjust as necessary */
-    
+    /* margin-left: auto; */
+    /* Align the button to the right */
+    font-family: "Baloo Da";
+    font-size: 1.2em;
+    /* Larger font size */
+    border-radius: 8px;
+    /* Rounded corners for the button */
+    cursor: pointer;
+    height: 70%;
+    /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    padding: 0 15px;
+    margin-top: 2%;
+    margin-left: 70%;
+    margin-bottom: 2%;
+    transition: background-color 0.3s;
 }
 
 /* You may also want to add :hover and :focus styles for better user interaction */
 .view-profile-btn:hover {
-    background-color: #b5d6a7; /* Slightly different color on hover */
+    background-color: #10514c !important;
+    /* Slightly different color on hover */
     /* Other hover styles */
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
 }
 
 .view-profile-btn:focus {
-    outline: none; /* Removes the default focus outline */
-    box-shadow: 0 0 0 2px #9ecaed; /* Custom focus style */
+    outline: none;
+    /* Removes the default focus outline */
+    box-shadow: 0 0 0 2px #b5d6a7;
+    background-color: rgb(10, 80, 80);
+    /* Custom focus style */
     /* Other focus styles */
 }
 
-
-
-.view-profile-btn {
-    background-color: #CEDFB9; /* Light Green background */
-    color: #192928; /* Dark Green text */
-    border: none;
-    height: 70%; /* Adjust height to match the card content */
-    /* Add some padding if needed */
-    padding: 0 15px;
-    /* If you want to make the button smaller and fit to content */
-    /* width: auto; */
-    /* padding: 5px 10px; */
-    /* For a full-width button, remove the width property */
-    margin-left: 475px; /* Add some space between the details and button */
-}
-
-.view-profile-btn:hover{
-    background-color: #CEDFB9 !; /* Light Green background */
-    color: #192928; /* Dark Green text */
-    border: none;
-    height: 50%; /* Adjust height to match the card content */
-    /* Add some padding if needed */
-    padding: 0 15px;
-    /* If you want to make the button smaller and fit to content */
-    /* width: auto; */
-    /* padding: 5px 10px; */
-    /* For a full-width button, remove the width property */
-    margin-left: 475px; /* Add some space between the details and button */
+.p_button:hover {
+    background-color: #033f3b !important;
+    color: #CEDFB9;
 }

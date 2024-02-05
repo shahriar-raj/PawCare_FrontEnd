@@ -1,7 +1,7 @@
 .add-pet-form-container {
-    width: 50%;
-    margin-left: 50% ;
-    padding: 50px;
+    width: 30%;
+    margin-left: 30% ;
+    padding: 4%;
     background-color: #192928; /* Dark green background */
     color: #CEDFB9; /* Light green text */
     border-radius: 15px;
@@ -13,8 +13,8 @@
     color: #192928; /* Light green text */
     font-size: 3.5em;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-left: 400px;
+    margin-bottom: 2%;
+    margin-left: 37%;
   }
   
   .add-pet-form-container .ant-form-item-label > label {
@@ -46,28 +46,32 @@
     background-color: #CEDFB9; /* Light green background */
    
     color: #192928; /* Dark green text */
-    height: 40px;
-    font-size: 16px;
+    height: 15%;
+    font-size: 18px;
     font-weight: 500;
     
     
   }
   
-  .add-pet-form-container .ant-btn-primary:hover,
-  .add-pet-form-container .ant-btn-primary:focus {
-    background-color: #b2d8a3; /* Slightly lighter green background on hover/focus */
+  .add-pet-form-container .Add_pet:hover {
+    background-color: #275d3c !important; /* Slightly lighter green background on hover/focus */
     border-color: #b2d8a3; /* Slightly lighter green border on hover/focus */
   }
   
+  .add-pet-form-container .Back_pet:hover {
+    background-color: #a01a1a !important; /* Slightly lighter green background on hover/focus */
+    border-color: #b2d8a3; /* Slightly lighter green border on hover/focus */
+    color: white !important;
+  }
 
   #back-btn{
     background-color: #FF5252; /* Light green background */
     
     color: #192928; /* Dark green text */
-    height: 40px;
+    /* height: 40px;
     font-size: 16px;
-    font-weight: 500;
-    margin-left: 10px;
+    font-weight: 500; */
+    margin-left: 5%;
   }
 
 

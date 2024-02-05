@@ -24,7 +24,7 @@ export function Registration() {
         address: values['address'],
       }
       console.log(obj);
-      const response = await fetch('http://44.222.207.156:3000/register', {
+      const response = await fetch('http://3.89.30.159:3000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export function Registration() {
         const data = await response.json();
         console.log(data);
         // props.setData(data);
-        navigate('/');
+        navigate('/otp_verification');
         // Handle response here
       }
       else if (response.status === 401) {

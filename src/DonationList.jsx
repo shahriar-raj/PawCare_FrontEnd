@@ -18,7 +18,7 @@ export function DonationList(props) {
                 let obj = {
                     userID: localStorage.getItem('userID'),
                 }
-                const response = await fetch('http://44.222.207.156:3000/donation', {
+                const response = await fetch('http://3.89.30.159:3000/donation', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
