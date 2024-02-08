@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from 'react';
 import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload, InputNumber, Radio, Modal } from 'antd';
 import { useNavigate } from "react-router-dom";
-import { CloseOutlined} from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import './OtpVerify.css';
 import Timer from './Timer';
 
 export function OtpVerify(props) {
+    const navigate = useNavigate();
     const [form] = Form.useForm();
     let obj;
     const onFinish = async (values) => {
@@ -29,14 +30,16 @@ export function OtpVerify(props) {
         });
         if (response.ok) {
             console.log("OTP Verified");
+            showModal();
         }
         else {
             console.error("HTTP Error:", response);
+            showErrorModal();
         }
     };
 
 
-    
+
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -50,29 +53,23 @@ export function OtpVerify(props) {
 
     const handleCancel = () => {
         setIsModalVisible(false);
+        navigate('/');
     };
-
-    // Now the button that triggers the modal
-    const successButton = (
-        <Button style={{ backgroundColor: "#19adad", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={showModal}>
-        PopUp Check
-        </Button>
-    );
 
     // The modal component
     const successModal = (
         <Modal title="Registration Successful" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[
-        <Button key="submit" type="primary" onClick={handleOk}>
-            Continue
-        </Button>,
+            <Button key="submit" type="primary" onClick={handleOk}>
+                Continue to Login
+            </Button>,
         ]}>
-        <div style={{textAlign: 'center', padding: '24px'}}>
-            <div className="tick-mark-container">
-            <div className="tick-mark">✔</div>
+            <div style={{ textAlign: 'center', padding: '24px' }}>
+                <div className="tick-mark-container">
+                    <div className="tick-mark">✔</div>
+                </div>
+                <p>Congratulations you account has been successfully created.</p>
+                <p>Thank you for signing up with us</p>
             </div>
-            <p>Congratulations you account has been successfully created.</p>
-            <p>Thank you for signing up with us</p>
-        </div>
         </Modal>
     );
 
@@ -81,42 +78,37 @@ export function OtpVerify(props) {
 
     const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
 
-const showErrorModal = () => {
-    setIsErrorModalVisible(true);
-};
+    const showErrorModal = () => {
+        setIsErrorModalVisible(true);
+    };
 
-const handleErrorOk = () => {
-    setIsErrorModalVisible(false);
-};
+    const handleErrorOk = () => {
+        setIsErrorModalVisible(false);
+        navigate('/otp_verification');
+    };
 
-const handleErrorCancel = () => {
-    setIsErrorModalVisible(false);
-};
+    const handleErrorCancel = () => {
+        setIsErrorModalVisible(false);
+    };
 
-// The button that triggers the error modal
-const errorButton = (
-    <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={showErrorModal}>
-        Error PopUp Check
-    </Button>
-);
 
-// The error modal component
-const errorModal = (
-    <Modal title="Registration Unsuccessful" visible={isErrorModalVisible} onOk={handleErrorOk} onCancel={handleErrorCancel} footer={[
-    <Button key="submit" type="primary" onClick={handleErrorOk}>
-        Try Again
-    </Button>,
-    ]}>
-    <div style={{textAlign: 'center', padding: '24px'}}>
-        <div className="error-mark-container">
-        <div className="error-mark">  ✖</div> 
-        {/* <CloseOutlined /> */}
-        </div>
-        <p>Unfortunately, your account could not be created.</p>
-        <p>Please try registering again.</p>
-    </div>
-    </Modal>
-);
+    // The error modal component
+    const errorModal = (
+        <Modal title="Registration Unsuccessful" visible={isErrorModalVisible} onOk={handleErrorOk} onCancel={handleErrorCancel} footer={[
+            <Button key="submit" type="primary" onClick={handleErrorOk}>
+                Close
+            </Button>,
+        ]}>
+            <div style={{ textAlign: 'center', padding: '24px' }}>
+                <div className="error-mark-container">
+                    <div className="error-mark">  ✖</div>
+                    {/* <CloseOutlined /> */}
+                </div>
+                <p>You have entered the wrong OTP</p>
+                <p>Please try again.</p>
+            </div>
+        </Modal>
+    );
 
 
 
@@ -147,11 +139,7 @@ const errorModal = (
                         Verify
                     </Button>
 
-                    
-                    {successButton}
                     {successModal}
-
-                    {errorButton}
                     {errorModal}
 
                 </Form.Item>
