@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload } from 'antd';
+import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload, Modal } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import './Registration.css'; // Make sure to include the correct path to your CSS file
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,23 @@ const { Option } = Select;
 export function Registration() {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    navigate('/');
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+
   const onFinish = async (values) => {
     console.log('Received values of form:', values);
     try {
@@ -59,6 +76,37 @@ export function Registration() {
   //     onSuccess("ok");
   //   }, 0);
   // };
+
+
+  // Now the button that triggers the modal
+  const popUpButton = (
+    <Button style={{ backgroundColor: "#19adad", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={showModal}>
+      PopUp Check
+    </Button>
+  );
+
+  // The modal component
+  const transactionModal = (
+    <Modal title="Registration Successful" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[
+      <Button key="submit" type="primary" onClick={handleOk}>
+        Continue
+      </Button>,
+    ]}>
+      <div style={{textAlign: 'center', padding: '24px'}}>
+        <div className="tick-mark-container">
+          <div className="tick-mark">✔</div>
+        </div>
+        <p>Congratulations you account has been successfully created.</p>
+        <p>Thank you for signing up with us</p>
+      </div>
+    </Modal>
+  );
+
+
+
+
+
+
 
   return (
     <div className="registration-form-container">
@@ -177,6 +225,10 @@ export function Registration() {
         <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={() => navigate('/')}>
           Back
         </Button>
+
+        {popUpButton}
+        {transactionModal}
+
       </Card>
 
     </div>

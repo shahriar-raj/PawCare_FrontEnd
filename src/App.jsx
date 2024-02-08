@@ -13,6 +13,7 @@ import { DonationList } from './DonationList.jsx';
 import { PetProfile } from './PetProfile.jsx';
 import { DonationDetail } from './DonationDetail.jsx';
 import { OtpVerify } from './OtpVerify.jsx';
+import { DonationPayment } from './DonationPayment.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -27,7 +28,8 @@ export default function App() {
           <Route path="/donation" element={<DonationList data={data} setData={setData} />} />
           <Route path="/petprofile" element={<PetProfile data={data} setData={setData} />} />
           <Route path="/donationdetails" element={<DonationDetail data={data} setData={setData} />} />
-          <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />               
+          <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />              
+          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />      
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

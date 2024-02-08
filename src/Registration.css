@@ -53,3 +53,15 @@ body {
   /* You can decrease the top and bottom padding if necessary */
   /* ... other styles ... */
 }
+
+.tick-mark-container {
+  display: inline-block;
+  border-radius: 50%; /* Makes the div circular */
+  background-color: #ccffcc; /* Light green background color */
+  padding: 20px; /* Adjust padding to scale the circle */
+}
+
+.tick-mark {
+  font-size: 60px;
+  color: green;
+}
