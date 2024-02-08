@@ -8,3 +8,30 @@
     width: 6%;
     margin-top: 2%;
 }
+
+.tick-mark-container {
+    display: inline-block;
+    border-radius: 50%; /* Makes the div circular */
+    background-color: #ccffcc; /* Light green background color */
+    padding: 20px; /* Adjust padding to scale the circle */
+  }
+  
+  .tick-mark {
+    font-size: 60px;
+    color: green;
+  }
+
+
+.error-mark-container {
+    display: inline-block;
+    border-radius: 50%; /* Makes the div circular */
+    background-color: #fcbfbf; /* Light red background color */
+    padding: 20px; /* Adjust padding to scale the circle */
+    border: none; /* Ensures no border is present */
+  }
+  
+  .error-mark {
+    font-size: 60px;
+    color: red ;
+  }
+  
