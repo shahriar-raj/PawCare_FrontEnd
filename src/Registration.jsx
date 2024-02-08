@@ -24,6 +24,7 @@ export function Registration() {
         address: values['address'],
       }
       console.log(obj);
+      localStorage.setItem('email',obj.email); 
       const response = await fetch('http://3.89.30.159:3000/register', {
         method: 'POST',
         headers: {
@@ -53,12 +54,6 @@ export function Registration() {
     }
   };
 
-  // Custom request method for Upload component - implement actual upload logic here
-  // const dummyRequest = ({ file, onSuccess }) => {
-  //   setTimeout(() => {
-  //     onSuccess("ok");
-  //   }, 0);
-  // };
 
   return (
     <div className="registration-form-container">

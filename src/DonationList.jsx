@@ -51,39 +51,37 @@ export function DonationList(props) {
                     </Button>
                 </div>
                 <br />
+                <p style={{ marginLeft: '30%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> Donation Request List</p>
+                <hr />
                 <div className="donationbody">
                     <div className="donationbodyleft">
-                        <p style={{ marginLeft: '30%', color: "#192928", fontFamily : 'Baloo Da', fontSize : '1.5em'}}> Donation Request List</p>
-                        <hr/>
                         {data.map((donation) => (
                             <Card className='donation-card' key={donation.DonationID}>
                                 {/* <Card.Img variant="top" src={donation.Image} /> */}
                                 <Card.Body>
-                                    <span style={{color: '#CEDFB9'}}>Requested By</span>
-                                    <Card.Title style={{fontFamily : 'Baloo Da', fontSize : '2.0em'}}>{donation.Username} </Card.Title>
-                                        <Card.Text style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                            
-                                                <strong>{donation.Description}</strong>
-                                                Received Amount: {donation.ReceivedAmount}
-                                                Total Amount: {donation.TotalAmount}
-                                            
-                                            
-                                                <Avatar 
-                                                    src="./src/assets/cutu.png" 
-                                                    size={120} 
-                                                    alt="Pet" 
-                                                    style={{ position: 'relative', marginBottom: '50px' }} 
-                                                />
-                                            
+                                    Requested By
+                                    <Avatar
+                                        src="./src/assets/cutu.png"
+                                        size={80}
+                                        alt="Pet"
+                                        style={{ position: 'relative', marginLeft: '70%' }}
+                                    />
+                                    <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{donation.Username} </Card.Title>
+                                    <Card.Text style={{ display: 'flex' }}>
 
-                                            
-                                                <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928"}} onClick={() => {
-                                                    localStorage.setItem('DonationID', donation.DonationID);
-                                                    navigate('/donationdetails');
-                                                }}>Details</Button>
-                                                <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928" }}>Donate</Button>
-                                            
-                                        </Card.Text>
+                                        {donation.Description}
+                                        <br />
+                                        Received Amount: {donation.ReceivedAmount}
+                                        <br />
+                                        Total Amount: {donation.TotalAmount}
+
+                                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "50%" }} onClick={() => {
+                                            localStorage.setItem('DonationID', donation.DonationID);
+                                            navigate('/donationdetails');
+                                        }}>Details</Button>
+                                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }}>Donate</Button>
+
+                                    </Card.Text>
 
 
                                 </Card.Body>
@@ -91,7 +89,7 @@ export function DonationList(props) {
                         ))}
                     </div>
                     <div className="donationbodyright">
-
+                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928",marginTop:"20%" }}>Apply For Donation</Button>
                     </div>
                 </div>
             </div>
