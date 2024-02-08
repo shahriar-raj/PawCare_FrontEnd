@@ -6,29 +6,30 @@ import Timer from './Timer';
 
 export function OtpVerify(props) {
     const [form] = Form.useForm();
+    let obj;
     const onFinish = async (values) => {
         try {
-            let obj = {
+            obj = {
                 email: localStorage.getItem('email'),
                 otp: values['otp']
             }
-
+            console.log(obj);
         } catch (error) {
             console.error("Error:", error);
             // Handle network errors here
         }
-        const response = await fetch('http://3.89.30.159:3000/register', {
+        const response = await fetch('http://3.89.30.159:3000/register/verifyOTP', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(obj),
         });
-        if(response.ok){
-            
+        if (response.ok) {
+            console.log("OTP Verified");
         }
-        else{
-
+        else {
+            console.error("HTTP Error:", response);
         }
     };
     return (
