@@ -6,7 +6,7 @@ import { Button, Divider, Flex, Radio, Avatar } from 'antd';
 import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { PlusOutlined,DeleteOutlined } from '@ant-design/icons';
+import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 
 export function Profile(props) {
     const [data, setData] = useState([]);
@@ -47,6 +47,28 @@ export function Profile(props) {
         // Call the fetchData function
         fetchData();
     }, []);
+
+    const deletePet = async (petID) => {
+        try {
+            console.log(petID);
+            let obj = {
+                userID: localStorage.getItem('userID'),
+                petID: petID
+            }
+            console.log(obj);
+            const response = await fetch('http://3.89.30.159:3000/profile/removePet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            const result = await response.json(); // Assuming the response is in JSON format
+            window.location.reload();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     return (
         <div>
@@ -90,18 +112,12 @@ export function Profile(props) {
                                                 <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
-                                                    {item.Breed}<br/>
+                                                    {item.Breed}<br />
                                                     Age: {item.Age}
                                                 </div>
                                             </div>
-                                            <Button className="delete-profile-btn" type="primary" onClick={() => {
-                                                localStorage.setItem('petID', item.PetID);
-                                                localStorage.setItem('petName', item.Name);
-                                                localStorage.setItem('petAge', item.Age);
-                                                localStorage.setItem('petBreed', item.Breed);
-                                                navigate('/profile')
-                                            }}>
-                                               <DeleteOutlined />
+                                            <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>
+                                                <DeleteOutlined />
                                             </Button>
                                             <Button className="view-profile-btn" type="primary" onClick={() => {
                                                 localStorage.setItem('petID', item.PetID);
@@ -119,7 +135,7 @@ export function Profile(props) {
                         }
                     </div>
                     <div className="row bottom-row">
-                        <Button type="dashed" style={{  width:"30%", height:"20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                        <Button type="dashed" style={{ width: "30%", height: "20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
                     </div>
