@@ -16,6 +16,7 @@ import { DonationApply } from './DonationApply.jsx';
 import { OtpVerify } from './OtpVerify.jsx';
 
 import { DonationPayment } from './DonationPayment.jsx';
+import { Forum } from './Forum.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -32,7 +33,8 @@ export default function App() {
           <Route path="/donationdetails" element={<DonationDetail data={data} setData={setData} />} />
           <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />    
           <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />            
-          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />          
+          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />        
+          <Route path="/forum" element={<Forum data={data} setData={setData} />} />  
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
