@@ -4,7 +4,9 @@ import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload } from 
 import { UploadOutlined } from '@ant-design/icons';
 import './Registration.css'; // Make sure to include the correct path to your CSS file
 import { useNavigate } from "react-router-dom";
-
+import { storage } from "./firebase";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
 // Import your image if necessary - make sure the path is correct
 // import image from './assets/cat1.png';
 
@@ -13,6 +15,7 @@ const { Option } = Select;
 export function Registration() {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+  const [image, setImage] = useState(null);
   const onFinish = async (values) => {
     console.log('Received values of form:', values);
     try {
@@ -24,7 +27,8 @@ export function Registration() {
         address: values['address'],
       }
       console.log(obj);
-      localStorage.setItem('email',obj.email); 
+      localStorage.setItem('email', obj.email);
+      uploadImage(obj.email);
       const response = await fetch('http://3.89.30.159:3000/register', {
         method: 'POST',
         headers: {
@@ -54,6 +58,14 @@ export function Registration() {
     }
   };
 
+  const uploadImage = (email) => {
+    console.log('Yes');
+    if (image == null) return;
+    const imageRef = ref(storage, `images/${email}/${image.name}`);
+    uploadBytes(imageRef, image).then(() => {
+      alert("image Uploaded");
+    });
+  };
 
   return (
     <div className="registration-form-container">
@@ -127,18 +139,6 @@ export function Registration() {
             <Input addonBefore="+880" style={{ width: '100%' }} />
           </Form.Item>
 
-          {/* <Form.Item
-            name="gender"
-            label="Gender"
-            rules={[{ required: true, message: 'Please select your gender!' }]}
-          >
-            <Select placeholder="Select a gender">
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-              <Option value="other">Other</Option>
-            </Select>
-          </Form.Item> */}
-
           <Form.Item
             name="address"
             label="Address"
@@ -147,21 +147,9 @@ export function Registration() {
             <Input />
           </Form.Item>
 
-          {/* <Form.Item
-            name="profilePicture"
-            label="Upload Profile Picture"
-            valuePropName="fileList"
-            getValueFromEvent={(e) => {
-              if (Array.isArray(e)) {
-                return e;
-              }
-              return e && e.fileList;
-            }}
-          >
-            <Upload name="logo" listType="picture" customRequest={dummyRequest}>
-              <Button icon={<UploadOutlined />}>Click to upload (optional)</Button>
-            </Upload>
-          </Form.Item> */}
+          <Form.Item label="Upload Profile Photo">
+            <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
+          </Form.Item>
 
           <Form.Item>
             <Button style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} htmlType="submit">

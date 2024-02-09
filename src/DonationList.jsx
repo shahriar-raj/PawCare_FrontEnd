@@ -89,7 +89,7 @@ export function DonationList(props) {
                         ))}
                     </div>
                     <div className="donationbodyright">
-                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928",marginTop:"20%" }}>Apply For Donation</Button>
+                        <Button style={{ backgroundColor: "#192928",color:"white", borderColor: "#192928",marginTop:"20%", fontFamily:"Baloo Da", fontSize:"x-large", height:"2.5%" }}>Apply For Donation</Button>
                     </div>
                 </div>
             </div>

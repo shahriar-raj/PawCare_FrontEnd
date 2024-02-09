@@ -7,11 +7,14 @@ import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
 export function Profile(props) {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
+    const [imageList, setImageList] = useState(null);
     const navigate = useNavigate();
     const handleLog = () => {
         navigate('/');
@@ -39,6 +42,16 @@ export function Profile(props) {
                 setData(result.userDetails.userPets);
                 setName(result.userDetails.userDetails.Username);
                 setAddress(result.userDetails.userDetails.Address);
+                listAll(ref(storage, 'images/'+result.userDetails.userDetails.Email+'/')).then((response) => {
+                    console.log(response);
+                    response.items.forEach((itemRef) => {
+                        getDownloadURL(itemRef).then((url) => {
+                            setImageList(url);
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    });
+                })
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -85,7 +98,7 @@ export function Profile(props) {
                 <div className="first-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
                     <div className='profileImg'>
-                        <CircleImage src="./src/assets/Vector.png" alt="Profile Picture" diameter="120px" />
+                        <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
                     </div>
                     <h2 className="name">{name}</h2>
                     <h3 className="name">{address}</h3>
