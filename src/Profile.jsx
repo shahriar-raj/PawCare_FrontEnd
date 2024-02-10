@@ -14,7 +14,7 @@ export function Profile(props) {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
-    const [imageList, setImageList] = useState(null);
+    const [imageList, setImageList] = useState([]);
     const navigate = useNavigate();
     const handleLog = () => {
         navigate('/');
@@ -22,8 +22,11 @@ export function Profile(props) {
     const add = () => {
         navigate('/addPet');
     }
+
     useEffect(() => {
         // Function to fetch data from the API
+        
+        
         const fetchData = async () => {
             try {
                 let obj = {
@@ -42,11 +45,12 @@ export function Profile(props) {
                 setData(result.userDetails.userPets);
                 setName(result.userDetails.userDetails.Username);
                 setAddress(result.userDetails.userDetails.Address);
-                listAll(ref(storage, 'images/'+result.userDetails.userDetails.Email+'/')).then((response) => {
+                listAll(ref(storage, 'images/' + result.userDetails.userDetails.Email + '/')).then((response) => {
                     console.log(response);
                     response.items.forEach((itemRef) => {
                         getDownloadURL(itemRef).then((url) => {
                             setImageList(url);
+                            console.log(url);
                         }).catch((error) => {
                             console.log(error);
                         });
@@ -120,9 +124,8 @@ export function Profile(props) {
                                 <div key={item.PetID} className='pet-card-container'>
                                     <Card className="petCard" >
                                         <Card.Body>
-                                            {/* Pet Name: {item.Name}   Pet Type: {item.Type} */}
                                             <div className="pet-info-profile">
-                                                <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
+                                                <Avatar size={100} src={item.URL} className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
                                                     {item.Breed}<br />

@@ -1,7 +1,10 @@
 .add-pet-form-container {
     width: 30%;
     margin-left: 30% ;
-    padding: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 4%;
+    padding-bottom: 1%;
     background-color: #192928; /* Dark green background */
     color: #CEDFB9; /* Light green text */
     border-radius: 15px;
