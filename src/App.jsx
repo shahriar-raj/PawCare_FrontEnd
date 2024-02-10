@@ -16,6 +16,7 @@ import { OtpVerify } from './OtpVerify.jsx';
 import { ShowImage } from './ShowImage.jsx';
 import { DonationPayment } from './DonationPayment.jsx';
 import { AddpetPhoto } from './AddpetPhoto.jsx';
+import { DonationApply } from './DonationApply.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -33,7 +34,8 @@ export default function App() {
           <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />    
           <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />   
           <Route path="/showimage" element={<ShowImage data={data} setData={setData} />} />   
-          <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />        
+          <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />    
+          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />    
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

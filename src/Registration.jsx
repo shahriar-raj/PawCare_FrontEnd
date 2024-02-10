@@ -62,6 +62,7 @@ export function Registration() {
     console.log('Yes');
     if (image == null) return;
     const imageRef = ref(storage, `images/${email}/${image.name}`);
+    console.log(image);
     uploadBytes(imageRef, image).then(() => {
       alert("image Uploaded");
     });

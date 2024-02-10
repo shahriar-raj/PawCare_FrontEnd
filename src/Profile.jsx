@@ -129,7 +129,7 @@ export function Profile(props) {
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
                                                     {item.Breed}<br />
-                                                    Age: {item.Age}
+                                                    Age: {item.Age} Months
                                                 </div>
                                             </div>
                                             <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>

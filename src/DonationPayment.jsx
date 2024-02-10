@@ -65,9 +65,6 @@ export function DonationPayment() {
     return (
         
 
-
-
-
         <div className="donation-payment-container">
              <div className="profile_header">
                 <img src="src/assets/logo.png" alt="Logo" width="20%" />
