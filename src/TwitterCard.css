@@ -1,0 +1,60 @@
+/* Twitter Card Styles */
+.twitter-card1 {
+    background-color: #fff;
+    border-radius: 15px;
+    padding-left: 2%; /* Adjust padding to reduce height */
+    padding-right: 4%; /* Adjust padding to reduce height */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 1%;
+    margin-left: 2%;
+}
+
+.twitter-card2 {
+    background-color: #fff;
+    border-radius: 15px;
+    padding-left: 2%; /* Adjust padding to reduce height */
+    padding-right: 4%; /* Adjust padding to reduce height */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 1%;
+    margin-left: 2%;
+}
+
+.twitter-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.twitter-card-check {
+    color: #1DA1F2;
+    margin-left: 1%;
+}
+
+.twitter-card-content {
+    font-size: 16px;
+    color: #333;
+}
+
+.twitter-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #666;
+}
+
+
+.twitter-card-actions {
+    display: flex;
+}
+
+.twitter-card-actions > * {
+    margin-right: 25%;
+    cursor: pointer;
+}
+
+/* FontAwesome Icons */
+.twitter-card-actions > *:hover {
+    color: #1DA1F2;
+}
