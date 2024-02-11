@@ -90,7 +90,7 @@ export function Admin(props) {
         <div>
             <div className="admin_header">
                 <img src="src/assets/logo.png" alt="Logo" width="20%" />
-                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} >
+                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={()=>{navigate('/')}}>
                     Logout
                 </Button>
                 <Button className='User-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
