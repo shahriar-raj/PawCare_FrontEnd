@@ -1,0 +1,79 @@
+/* .profileImg {
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+.profilediv {
+    background-color: "blue";
+} */
+.container_admin {
+    display: grid;
+    grid-template-columns: 33% 1fr;
+    /* width: 100vw; */
+    height: 90vh;
+    background-color: #5c7c89;
+    /* max-height: 900px; */
+    /* width: 100vw; */
+    /* 33% for the first column, and the rest (1fr) for the second */
+    /* height: 70vh; */
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+.profileImg {
+    padding-top: 0%;
+    padding-left: 37%;
+}
+
+.first-column {
+    padding-top: 2%;
+    height: 90vh;
+    /* background-color: #f8f8f8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the first column here */
+}
+
+.second-column {
+    padding-top: 5%;
+    border-left: 3px solid #192928;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    height: 90vh;
+    /* width: 100%; */
+    /* background-color: #e8e8e8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the second column here */
+}
+
+.name {
+    text-align: center;
+    color: #212121;
+    font-family: "Baloo Da";
+}
+
+.p_button {
+    margin-top: 4%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.admin_header {
+    background-color: #011425;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
+}
+
+
+
+.row {
+    /* Just for visibility */
+    overflow-y: auto;
+    /* Enables vertical scrolling if content overflows */
+}

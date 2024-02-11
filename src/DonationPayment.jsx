@@ -52,7 +52,7 @@ export function DonationPayment(props) {
     const onAmountChange = e => {
         setDonationAmount(e.target.value);
     };
-    
+
     const handleSubmit = () => {
         console.log(donationAmount);
         // Handle the submit action (e.g., send the donationAmount to backend)
@@ -96,8 +96,8 @@ export function DonationPayment(props) {
 
                         <h1>{description}</h1>
 
-                        <h3>Donation Requested By {donationMessage}</h3>
-                        
+                        <h3>Donation Requested By<span style={{ color: "red" }}> {donationMessage} </span></h3>
+
                         <Progress
                             percent={progressPercent}
                             status="active"
