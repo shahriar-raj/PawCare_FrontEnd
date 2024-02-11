@@ -123,13 +123,12 @@ export function DonationDetail(props) {
                     </List>
 
                     <div className="donate-button">
-                        <Button block type="primary" size="large" style={{ marginTop: '10px' }}>
+                        <Button block type="primary" size="large" style={{ marginTop: '10px' }} onClick={()=>{navigate('/donationpayment')}}>
                             Donate
                         </Button>
                     </div>
                 </Card>
             </div>
         </div>
-
     );
 }

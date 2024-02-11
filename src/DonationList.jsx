@@ -79,7 +79,10 @@ export function DonationList(props) {
                                             localStorage.setItem('DonationID', donation.DonationID);
                                             navigate('/donationdetails');
                                         }}>Details</Button>
-                                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }}>Donate</Button>
+                                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={() => {
+                                            localStorage.setItem('DonationID', donation.DonationID);
+                                            navigate('/donationpayment');
+                                        }}>Donate</Button>
 
                                     </Card.Text>
 

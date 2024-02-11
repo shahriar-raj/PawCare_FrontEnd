@@ -3,7 +3,7 @@
 
 .Card {
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -17,25 +17,35 @@
 }
 
 .custom-amount-input {
-    margin-top: 1%; 
+    margin-top: 1%;
     width: 46.3%;
 }
 
 
 .donate-button {
-    display: block; /* Makes the button a block element */
-    width: 20%; /* Sets the button width to 20% of its parent container */
-    margin: 0 auto; /* Centers the button horizontally */
-  }
+    display: block;
+    /* Makes the button a block element */
+    width: 20%;
+    /* Sets the button width to 20% of its parent container */
+    margin: 0 auto;
+    /* Centers the button horizontally */
+}
 
-.muted-text{
+.muted-text {
     color: #666;
     font-size: 0.9em;
 }
 
 
 .ant-card-body {
-    padding: 16px; /* Reduce padding inside the card */
-  }
-  
+    padding: 16px;
+    /* Reduce padding inside the card */
+}
 
+.red-progress .ant-progress-bg {
+    background-color: red !important;
+}
+
+.green-progress .ant-progress-bg {
+    background-color: green !important;
+}
