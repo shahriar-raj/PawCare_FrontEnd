@@ -51,7 +51,7 @@ export function DonationList(props) {
                     </Button>
                 </div>
                 <br />
-                <p style={{ marginLeft: '30%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> Donation Request List</p>
+                <p style={{ marginLeft: '25%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> Donation Request List</p>
                 <hr />
                 <div className="donationbody">
                     <div className="donationbodyleft">
@@ -64,7 +64,7 @@ export function DonationList(props) {
                                         src="./src/assets/cutu.png"
                                         size={80}
                                         alt="Pet"
-                                        style={{ position: 'relative', marginLeft: '70%' }}
+                                        style={{ position: 'relative', marginLeft: '60%' }}
                                     />
                                     <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{donation.Username} </Card.Title>
                                     <Card.Text style={{ display: 'flex' }}>

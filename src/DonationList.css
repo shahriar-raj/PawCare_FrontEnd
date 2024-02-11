@@ -1,6 +1,6 @@
 .donationbody {
     display: grid;
-    grid-template-columns: 80% 1fr;
+    grid-template-columns: 75% 1fr;
 
 }
 
