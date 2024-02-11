@@ -1,5 +1,5 @@
 /* Twitter Card Styles */
-.twitter-card1 {
+.adoption-card1 {
     background-color: #fff;
     border-radius: 15px;
     padding-left: 2%; /* Adjust padding to reduce height */
@@ -9,7 +9,7 @@
     margin-left: 2%;
 }
 
-.twitter-card2 {
+.adoption-card2 {
     background-color: #fff;
     border-radius: 15px;
     padding-left: 2%; /* Adjust padding to reduce height */
@@ -19,7 +19,7 @@
     margin-left: 2%;
 }
 
-.twitter-card3 {
+.adoption-card3 {
     background-color: #fff;
     border-radius: 15px;
     padding-left: 2%; /* Adjust padding to reduce height */
@@ -46,7 +46,7 @@
     color: #333;
 }
 
-.twitter-card-footer {
+.adoption-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,16 +55,16 @@
 }
 
 
-.twitter-card-actions {
+.adoption-card-actions {
     display: flex;
 }
 
-.twitter-card-actions > * {
+.adoption-card-actions > * {
     margin-right: 25%;
     cursor: pointer;
 }
 
 /* FontAwesome Icons */
-.twitter-card-actions > *:hover {
+.adoption-card-actions > *:hover {
     color: #1DA1F2;
 }
