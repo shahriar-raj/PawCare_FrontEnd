@@ -14,9 +14,14 @@ import { PetProfile } from './PetProfile.jsx';
 import { DonationDetail } from './DonationDetail.jsx';
 import { DonationApply } from './DonationApply.jsx';
 import { OtpVerify } from './OtpVerify.jsx';
-
+import { ShowImage } from './ShowImage.jsx';
 import { DonationPayment } from './DonationPayment.jsx';
+<<<<<<< HEAD
 import { Forum } from './Forum.jsx';
+=======
+import { AddpetPhoto } from './AddpetPhoto.jsx';
+import { DonationApply } from './DonationApply.jsx';
+>>>>>>> 156d38d810355842e58ee540586a6772af62f2dd
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -32,9 +37,16 @@ export default function App() {
           <Route path="/petprofile" element={<PetProfile data={data} setData={setData} />} />
           <Route path="/donationdetails" element={<DonationDetail data={data} setData={setData} />} />
           <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />    
+<<<<<<< HEAD
           <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />            
           <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />        
           <Route path="/forum" element={<Forum data={data} setData={setData} />} />  
+=======
+          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />   
+          <Route path="/showimage" element={<ShowImage data={data} setData={setData} />} />   
+          <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />    
+          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />    
+>>>>>>> 156d38d810355842e58ee540586a6772af62f2dd
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

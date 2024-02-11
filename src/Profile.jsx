@@ -7,11 +7,14 @@ import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
 export function Profile(props) {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
+    const [imageList, setImageList] = useState([]);
     const navigate = useNavigate();
     const handleLog = () => {
         navigate('/');
@@ -19,8 +22,11 @@ export function Profile(props) {
     const add = () => {
         navigate('/addPet');
     }
+
     useEffect(() => {
         // Function to fetch data from the API
+        
+        
         const fetchData = async () => {
             try {
                 let obj = {
@@ -39,6 +45,17 @@ export function Profile(props) {
                 setData(result.userDetails.userPets);
                 setName(result.userDetails.userDetails.Username);
                 setAddress(result.userDetails.userDetails.Address);
+                listAll(ref(storage, 'images/' + result.userDetails.userDetails.Email + '/')).then((response) => {
+                    console.log(response);
+                    response.items.forEach((itemRef) => {
+                        getDownloadURL(itemRef).then((url) => {
+                            setImageList(url);
+                            console.log(url);
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    });
+                })
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -85,7 +102,7 @@ export function Profile(props) {
                 <div className="first-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
                     <div className='profileImg'>
-                        <CircleImage src="./src/assets/Vector.png" alt="Profile Picture" diameter="120px" />
+                        <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
                     </div>
                     <h2 className="name">{name}</h2>
                     <h3 className="name">{address}</h3>
@@ -107,13 +124,12 @@ export function Profile(props) {
                                 <div key={item.PetID} className='pet-card-container'>
                                     <Card className="petCard" >
                                         <Card.Body>
-                                            {/* Pet Name: {item.Name}   Pet Type: {item.Type} */}
                                             <div className="pet-info-profile">
-                                                <Avatar size={100} src="./src/assets/cutu.png" className="pet-avatar" />
+                                                <Avatar size={100} src={item.URL} className="pet-avatar" />
                                                 <div className="pet-details">
                                                     <h1 className="pet-name">{item.Name}</h1>
                                                     {item.Breed}<br />
-                                                    Age: {item.Age}
+                                                    Age: {item.Age} Months
                                                 </div>
                                             </div>
                                             <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>

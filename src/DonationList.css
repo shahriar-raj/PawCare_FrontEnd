@@ -1,6 +1,6 @@
 .donationbody {
     display: grid;
-    grid-template-columns: 80% 1fr;
+    grid-template-columns: 75% 1fr;
 
 }
 
@@ -11,7 +11,7 @@
     margin-left: 8%;
     border-radius: 10px;
     height: 10%;
-    
+    flex-wrap: wrap;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 1%;

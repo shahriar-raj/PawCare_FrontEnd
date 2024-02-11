@@ -4,10 +4,15 @@ import { Button, Checkbox, Form, Input, Card, DatePicker, Select, Upload, InputN
 import { UploadOutlined } from '@ant-design/icons';
 import './AddPet.css'; // Make sure to include the correct path to your CSS file
 import { useNavigate } from "react-router-dom";
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
 export function AddPet(props) {
     const [form] = Form.useForm();
     const navigate = useNavigate();
+    const [image, setImage] = useState(null);
+    const [imageList, setImageList] = useState(null);
+    // const [url, setUrl] = useState(null);
     const onFinish = async (values) => {
         console.log('Received values of form:', values);
         try {
@@ -20,7 +25,8 @@ export function AddPet(props) {
                 Gender: values['gender'],
                 AdoptionStatus: "Adopted",
             }
-            console.log(obj);
+            uploadImage(obj.Name, obj.Age, obj.UserID);
+            // console.log("URl:" + imageList);
             const response = await fetch('http://3.89.30.159:3000/profile/addPet', {
                 method: 'POST',
                 headers: {
@@ -28,11 +34,16 @@ export function AddPet(props) {
                 },
                 body: JSON.stringify(obj),
             });
+            
+            const result = await response.json();
 
             if (response.ok) {
-
+                localStorage.setItem('petID', result.PetID);
+                localStorage.setItem('petName', obj.Name);
+                localStorage.setItem('petAge', obj.Age);
+                localStorage.setItem('UserID', obj.UserID);
                 props.setData(obj.UserID);
-                navigate('/profile');
+                navigate('/petphoto');
             }
             else if (response.status === 401) {
                 alert("Registration Failed")
@@ -49,6 +60,15 @@ export function AddPet(props) {
     }
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+    };
+
+    const uploadImage = (name, age, userID) => {
+        console.log('Yes');
+        if (image == null) return;
+        const imageRef = ref(storage, `PetImages/${userID}/${name}${age}/${image.name}`);
+        uploadBytes(imageRef, image).then(() => {
+            // alert("image Uploaded");
+        });
     };
 
     return (
@@ -111,6 +131,10 @@ export function AddPet(props) {
                             <Radio value="M">Male</Radio>
                             <Radio value="F">Female</Radio>
                         </Radio.Group>
+                    </Form.Item>
+
+                    <Form.Item label="Upload Profile Photo">
+                        <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
                     </Form.Item>
 
                     <Form.Item>

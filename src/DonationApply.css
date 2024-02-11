@@ -2,6 +2,7 @@
 
 /* Donation Application Header Color */
 .donation-header {
+<<<<<<< HEAD
     color: #192928; /* Dark green color for the header text */
     margin-left: 8%;
   }
@@ -19,3 +20,32 @@
     color: #080808; /* Light green color for input text */
   }
   
+=======
+    color: #192928;
+    /* Dark green color for the header text */
+    margin-left: 8%;
+}
+
+.donation-card {
+    color: #CEDFB9;
+}
+
+/* Form Label Color */
+.ant-form-item-label>label {
+    color: #CEDFB9;
+    /* Using !important to override any other styles */
+    font-weight: 700;
+    font-size: larger;
+}
+
+/* Input Text Color */
+.ant-input,
+.ant-input-affix-wrapper {
+    color: #080808;
+    /* Light green color for input text */
+}
+
+.donation-form-container {
+    margin-bottom: 3%;
+}
+>>>>>>> 156d38d810355842e58ee540586a6772af62f2dd
