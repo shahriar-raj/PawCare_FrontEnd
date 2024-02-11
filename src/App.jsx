@@ -37,8 +37,7 @@ export default function App() {
           <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />   
           <Route path="/showimage" element={<ShowImage data={data} setData={setData} />} />   
           <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />    
-          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />   
-          <Route path="/forum" element={<Forum data={data} setData={setData} />} />    
+          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />     
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
