@@ -24,3 +24,13 @@
     padding-bottom: 1%;
     height: 10vh;
 }
+
+.AFD:hover {
+    background-color: #192928  !important;
+    color: #ffffff !important;
+}
+
+.MDA:hover{
+    background-color: #192928  !important;
+    color: #ffffff !important;
+}
