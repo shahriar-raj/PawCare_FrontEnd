@@ -120,8 +120,9 @@ export function DonationApply() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ obj }),
+            body: JSON.stringify(obj),
         });
+        const result = await response.json(); // Assuming the response is in JSON format
         if (response.ok) {
             navigate('/donation');
         }

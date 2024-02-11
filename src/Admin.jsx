@@ -11,59 +11,34 @@ import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
 export function Admin(props) {
+
     const [data, setData] = useState([]);
-    const [name, setName] = useState("");
-    const [address, setAddress] = useState("");
-    const [imageList, setImageList] = useState([]);
     const navigate = useNavigate();
-    const handleLog = () => {
-        navigate('/');
-    }
-    const add = () => {
-        navigate('/addPet');
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let obj = {
+                }
+                const response = await fetch('http://3.89.30.159:3000/admin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json(); // Assuming the response is in JSON format
 
-    // useEffect(() => {
-    //     // Function to fetch data from the API
-        
-        
-    //     const fetchData = async () => {
-    //         try {
-    //             let obj = {
-    //                 userID: localStorage.getItem('userID'),
-    //             }
-    //             const response = await fetch('http://3.89.30.159:3000/profile', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify(obj),
-    //             });
-    //             const result = await response.json(); // Assuming the response is in JSON format
+                // Update state with the result
+                setData(result);
+                console.log(result);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        // Call the fetchData function
+        fetchData();
+    }, []);
 
-    //             // Update state with the result
-    //             setData(result.userDetails.userPets);
-    //             setName(result.userDetails.userDetails.Username);
-    //             setAddress(result.userDetails.userDetails.Address);
-    //             listAll(ref(storage, 'images/' + result.userDetails.userDetails.Email + '/')).then((response) => {
-    //                 console.log(response);
-    //                 response.items.forEach((itemRef) => {
-    //                     getDownloadURL(itemRef).then((url) => {
-    //                         setImageList(url);
-    //                         console.log(url);
-    //                     }).catch((error) => {
-    //                         console.log(error);
-    //                     });
-    //                 });
-    //             })
-    //         } catch (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     };
-
-    //     // Call the fetchData function
-    //     fetchData();
-    // }, []);
 
     return (
         <div>
@@ -72,8 +47,8 @@ export function Admin(props) {
                 <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
                     Logout
                 </Button>
-                <Button className='Donation-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                    Donation Requests
+                <Button className='User-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Users
                 </Button>
             </div>
             <div className="container_admin">
