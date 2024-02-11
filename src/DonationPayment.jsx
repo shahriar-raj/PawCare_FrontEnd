@@ -53,11 +53,6 @@ export function DonationPayment(props) {
         setDonationAmount(e.target.value);
     };
 
-    const handleSubmit = () => {
-        console.log(donationAmount);
-        // Handle the submit action (e.g., send the donationAmount to backend)
-    };
-
     const progressPercent = Math.floor((totalRaised / goalAmount) * 100);
 
     let progressColorClass = '';
@@ -74,73 +69,97 @@ export function DonationPayment(props) {
         setCustomMessage(e.target.value);
     };
 
+    const payment = async () => {
+        try {
+            let obj = {
+                amount: donationAmount,
+                place: "Dhaka",
+                userID: localStorage.getItem('userID'),
+                donationID: localStorage.getItem('DonationID'),
+            }
+            console.log(obj);
+            const response = await fetch('http://3.89.30.159:3000/donation/makeDonation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            const result = await response.json(); // Assuming the response is in JSON format
+            const url = result.url;
+            window.location.href = url;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
     return (
 
-        <div className="donation-payment-container">
-            <div className="profile_header">
-                <img src="src/assets/logo.png" alt="Logo" width="20%" />
-                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
-                    Logout
-                </Button>
-                <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                    Donation List
-                </Button>
-            </div>
+            <div className="donation-payment-container">
+                <div className="profile_header">
+                    <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                        Logout
+                    </Button>
+                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                        Donation List
+                    </Button>
+                </div>
 
-            <Row style={{ margin: '1.5%' }}>
-                <Col span={4}>
-                </Col>
-                <Col span={16}>
-                    {/* First Card */}
-                    <Card>
+                <Row style={{ margin: '1.5%' }}>
+                    <Col span={4}>
+                    </Col>
+                    <Col span={16}>
+                        {/* First Card */}
+                        <Card>
 
-                        <h1>{description}</h1>
+                            <h1>{description}</h1>
 
-                        <h3>Donation Requested By<span style={{ color: "red" }}> {donationMessage} </span></h3>
+                            <h3>Donation Requested By<span style={{ color: "red" }}> {donationMessage} </span></h3>
 
-                        <Progress
-                            percent={progressPercent}
-                            status="active"
-                            className={progressColorClass}
-                        />
-
-                        <h3>Choose amount</h3>
-                        <Radio.Group defaultValue={5} buttonStyle="solid" onChange={onAmountChange}>
-                            <Radio.Button value={10}><span style={{ fontSize: '24px' }}>৳</span>10</Radio.Button>
-                            <Radio.Button value={20}><span style={{ fontSize: '24px' }}>৳</span>20</Radio.Button>
-                            <Radio.Button value={50}><span style={{ fontSize: '24px' }}>৳</span>50</Radio.Button>
-                            <Radio.Button value={75}><span style={{ fontSize: '24px' }}>৳</span>75</Radio.Button>
-                            <Radio.Button value={100}><span style={{ fontSize: '24px' }}>৳</span>100</Radio.Button>
-                            <Radio.Button value={250}><span style={{ fontSize: '24px' }}>৳</span>250</Radio.Button>
-                            <Radio.Button value={500}><span style={{ fontSize: '24px' }}>৳</span>500</Radio.Button>
-                            <Radio.Button value={1000}><span style={{ fontSize: '24px' }}>৳</span>1000</Radio.Button>
-                        </Radio.Group>
-
-                        <Form.Item label="Custom Amount (৳)" className="custom-amount-input">
-                            <Input placeholder="Other" onChange={onAmountChange} />
-                        </Form.Item>
-
-
-                        <Form.Item label="Leave a message (optional)">
-                            <Input.TextArea
-                                placeholder="Your message to the charity"
-                                onChange={onMessageChange}
-                                value={customMessage}
-                                rows={3}
-                                className="optional-msg-text-box"
+                            <Progress
+                                percent={progressPercent}
+                                status="active"
+                                className={progressColorClass}
                             />
-                        </Form.Item>
 
-                        <Form.Item>
-                            <Checkbox>Allow the charity to contact you?</Checkbox>
-                        </Form.Item>
+                            <h3>Choose amount</h3>
+                            <Radio.Group defaultValue={5} buttonStyle="solid" onChange={onAmountChange}>
+                                <Radio.Button value={10}><span style={{ fontSize: '24px' }}>৳</span>10</Radio.Button>
+                                <Radio.Button value={20}><span style={{ fontSize: '24px' }}>৳</span>20</Radio.Button>
+                                <Radio.Button value={50}><span style={{ fontSize: '24px' }}>৳</span>50</Radio.Button>
+                                <Radio.Button value={75}><span style={{ fontSize: '24px' }}>৳</span>75</Radio.Button>
+                                <Radio.Button value={100}><span style={{ fontSize: '24px' }}>৳</span>100</Radio.Button>
+                                <Radio.Button value={250}><span style={{ fontSize: '24px' }}>৳</span>250</Radio.Button>
+                                <Radio.Button value={500}><span style={{ fontSize: '24px' }}>৳</span>500</Radio.Button>
+                                <Radio.Button value={1000}><span style={{ fontSize: '24px' }}>৳</span>1000</Radio.Button>
+                            </Radio.Group>
 
-                        <Button
-                            type="primary"
-                            onClick={handleSubmit}
-                            className="donate-button"
+                            <Form.Item label="Custom Amount (৳)" className="custom-amount-input">
+                                <Input placeholder="Other" onChange={onAmountChange} />
+                            </Form.Item>
+
+
+                            <Form.Item label="Leave a message (optional)">
+                                <Input.TextArea
+                                    placeholder="Your message to the charity"
+                                    onChange={onMessageChange}
+                                    value={customMessage}
+                                    rows={3}
+                                    className="optional-msg-text-box"
+                                />
+                            </Form.Item>
+
+                            <Form.Item>
+                                <Checkbox>Allow the charity to contact you?</Checkbox>
+                            </Form.Item>
+
+                            <Button
+                                type="primary"
+                                className="donate-button"
+                                onClick={payment}
                         >
-                            Donate {donationAmount ? `৳${donationAmount}` : ''}
+                                    Donate {donationAmount ? `৳${donationAmount}` : ''}
                         </Button>
 
                         <span className="muted-text">100% of donations go directly to support the cause</span>
@@ -148,7 +167,7 @@ export function DonationPayment(props) {
                 </Col>
 
             </Row>
-        </div>
+        </div >
     );
 }
 
