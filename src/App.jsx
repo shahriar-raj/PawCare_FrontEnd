@@ -18,6 +18,7 @@ import { DonationPayment } from './DonationPayment.jsx';
 import { AddpetPhoto } from './AddpetPhoto.jsx';
 import { DonationApply } from './DonationApply.jsx';
 import { Admin } from './Admin.jsx';
+import { Forum } from './Forum.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />    
           <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />   
           <Route path="/admin" element={<Admin data={data} setData={setData} />} />
+          <Route path="/forum" element={<Forum data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
