@@ -77,7 +77,7 @@ export function Admin(props) {
                 </Button>
             </div>
             <div className="container_admin">
-                <div className="first-column">
+                <div className="first-column-admin">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#011425" }}>Admin</h1>
                     <div className='profileImg'>
                         <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
@@ -89,6 +89,7 @@ export function Admin(props) {
                     </Button>
                 </div>
                 <div className="second-column-admin">
+                    
                 </div>
             </div>
         </div>
