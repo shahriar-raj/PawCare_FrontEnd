@@ -101,7 +101,7 @@ export function Admin(props) {
                 <div className="first-column-admin">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#011425" }}>Admin</h1>
                     <div className='profileImg'>
-                        <CircleImage src={"https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/AdminImages%2Fphoto_2024-02-12_02-48-31.jpg?alt=media&token=39c345d1-3281-4a89-b759-76283c924f9b"} alt="Profile Picture" diameter="120px" />
+                        <CircleImage src={"https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/AdminImages%2F342748762_6123844901032672_6967190747107568055_ncz.jpg?alt=media&token=6763ddc7-8a4e-4805-910e-cc0f1c0df9b6"} alt="Profile Picture" diameter="120px" />
                     </div>
                     <h2 className="name">Shahriar Raj</h2>
                     <h3 className="name">Mohammadpur</h3>
