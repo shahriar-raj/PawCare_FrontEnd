@@ -72,8 +72,3 @@
 
 
 
-.row {
-    /* Just for visibility */
-    overflow-y: auto;
-    /* Enables vertical scrolling if content overflows */
-}

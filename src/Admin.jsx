@@ -87,12 +87,6 @@ export function Admin(props) {
                     <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
                         Notifications
                     </Button>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
-                        Messages
-                    </Button>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
-                        Edit Profile
-                    </Button>
                 </div>
                 <div className="second-column-admin">
                 </div>
