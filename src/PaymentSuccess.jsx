@@ -10,10 +10,10 @@ export function PaymentSuccess() {
     const navigate = useNavigate();
 
     return (
-        <div >
-            <h1>Donation Success</h1>
-            <p>Your transaction ID: {tran_id}</p>
-            <Button onClick={()=>{navigate('/donation')}}>Continue</Button>
+        <div className="SuccessMessage">
+            <h1>Donation Successful</h1>
+            <h2>Your transaction ID: {tran_id}</h2>
+            <Button style={{backgroundColor:"green", color:"white"}} onClick={()=>{navigate('/donation')}}>Continue</Button>
         </div>
     );
 }

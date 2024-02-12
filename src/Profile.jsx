@@ -91,12 +91,22 @@ export function Profile(props) {
         <div>
             <div className="profile_header">
                 <img src="src/assets/logo.png" alt="Logo" width="20%" />
-                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "30%" }} onClick={handleLog}>
                     Logout
                 </Button>
                 <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
                     Donation
                 </Button>
+                <Button className='Adoption' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Adoption
+                </Button>
+                <Button className='Notification' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
+                    Notification
+                </Button>
+                <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    About
+                </Button>
+                          
             </div>
             <div className="container_profile">
                 <div className="first-column">
@@ -106,12 +116,6 @@ export function Profile(props) {
                     </div>
                     <h2 className="name">{name}</h2>
                     <h3 className="name">{address}</h3>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
-                        Notifications
-                    </Button>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
-                        Messages
-                    </Button>
                     <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
                         Edit Profile
                     </Button>
