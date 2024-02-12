@@ -6,22 +6,23 @@ import { faFilter ,faHorse,faCat,faCrow,faMapMarkerAlt ,faDog,faUsers,faComments
 import { UserOutlined,SendOutlined } from '@ant-design/icons';
 import { Row, Col,Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
+import { useEffect } from 'react';
 import './AdoptionList.css';
 import './AdoptionCard.css'
 
 const AdoptionCard = ({ pet }) => {
     return (
         <Card className="adoption-card">
-            <img src={pet.image} alt={pet.name} className="pet-image" />
+            <img src={pet.URL} alt={pet.Name} width={"250px"} className="pet-image" />
             <div className="pet-details">
                 <div className="pet-name">
-                    <h3>{pet.name}</h3>
+                    <h3>{pet.Name}</h3>
                     <FontAwesomeIcon icon={faCheckCircle} className="verified-icon" />
                 </div>
 
-                <span>{pet.breed}</span>
-                <span>{pet.age}</span>
-                <span>{pet.location}</span> 
+                <span>{pet.Breed}</span>
+                <span>{pet.Age}</span>
+                <span>{pet.Address}</span> 
              
                 <div className="pet-actions" style={{marginTop:'3%'}}>
                     <Button type="primary" className="pet-action-button" style={{marginRight:'3%'}}>Adopt</Button>
@@ -34,53 +35,33 @@ const AdoptionCard = ({ pet }) => {
 
 export function AdoptionList(props) {
     const navigate = useNavigate();
-    
+    const [pets,setPet] = useState([]);
     
      // Add your pet data here
-     const pets = props.pets || [
-        {
-          name: 'Kingsley',
-          breed: 'Pit Bull Terrier',
-          age: 'Adult - Medium',
-          location: 'Kwigumpainukamiut, AK',
-          image: 'src/assets/cutu.png' // Replace with actual image path
-        },
-        {
-          name: 'Bella',
-          breed: 'Labrador Retriever',
-          age: 'Young - Large',
-          location: 'Juneau, AK',
-          image: 'src/assets/cutu.png' // Replace with actual image path
-        },
-        {
-          name: 'Charlie',
-          breed: 'Border Collie',
-          age: 'Puppy - Small',
-          location: 'Fairbanks, AK',
-          image: 'src/assets/cutu.png' // Replace with actual image path
-        },
-        {
-            name: 'Kingsley',
-            breed: 'Pit Bull Terrier',
-            age: 'Adult - Medium',
-            location: 'Kwigumpainukamiut, AK',
-            image: 'src/assets/cutu.png' // Replace with actual image path
-          },
-          {
-            name: 'Bella',
-            breed: 'Labrador Retriever',
-            age: 'Young - Large',
-            location: 'Juneau, AK',
-            image: 'src/assets/cutu.png' // Replace with actual image path
-          },
-          {
-            name: 'Charlie',
-            breed: 'Border Collie',
-            age: 'Puppy - Small',
-            location: 'Fairbanks, AK',
-            image: 'src/assets/cutu.png' // Replace with actual image path
-          }
-      ];
+     useEffect(() => {
+        // Function to fetch data from the API
+        const fetchData = async () => {
+            try {
+                let obj = {
+                    userID: localStorage.getItem('userID'),
+                }
+                const response = await fetch('http://3.89.30.159:3000/adoption',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json();
+                setPet(result);
+                setPetCount(result.length);
+            }catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchData();
+    },[]);
+
 
 
     const handleNavigate = (path) => () => {
@@ -95,32 +76,26 @@ export function AdoptionList(props) {
         // ... (upload logic here)
     };
 
-    const [petCount, setPetCount] = useState(9); 
-    const [selectedAnimal, setSelectedAnimal] = useState(undefined);
-    const [selectedBreed, setSelectedBreed] = useState(undefined);
-    const [selectedAge, setSelectedAge] = useState(undefined);
-    const [selectedGender, setSelectedGender] = useState(undefined);
+    const [petCount, setPetCount] = useState(0); 
+    const [selectedAnimal, setSelectedAnimal] = useState("");
+    const [selectedBreed, setSelectedBreed] = useState("");
+    const [selectedGender, setSelectedGender] = useState("");
 
     // Example options for each Select
     const animalOptions = [
-        { value: 'dog', label: 'Dog' },
-        { value: 'cat', label: 'Cat' },
-        { value: 'bird', label: 'Bird' },
-        { value: 'horse', label: 'Horse' },
+        { value: 'Dog', label: 'Dog' },
+        { value: 'Cat', label: 'Cat' },
+        { value: 'Bird', label: 'Bird' },
+        { value: 'Others', label: 'Others' },
     ];
     const breedOptions =  [
-        { value: 'breed1', label: 'Breed1' },
-        { value: 'breed2', label: 'Breed2' },
+        { value: 'German Shephard', label: 'German Shephard' },
+        { value: 'Husky', label: 'Husky' },
     ];
-    const ageOptions = [
-        { value: 'puppy', label: 'Puppy/Kitten' },
-        { value: 'young', label: 'Young' },
-        { value: 'adult', label: 'Adult' },
-        { value: 'senior', label: 'Senior' },
-    ];
+
     const genderOptions = [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
+        { value: 'M', label: 'Male' },
+        { value: 'F', label: 'Female' },
     ];
 
 
@@ -218,15 +193,6 @@ export function AdoptionList(props) {
                                     onChange={setSelectedBreed}
                                 />
 
-                                <div className="select-header">Age</div>
-                                <Select
-                                    className="filter-select-option"
-                                    placeholder="Select Age"
-                                    options={ageOptions}
-                                    value={selectedAge}
-                                    onChange={setSelectedAge}
-                                />
-
                                 <div className="select-header">Gender</div>
                                 <Select
                                     className="filter-select-option"
@@ -235,6 +201,7 @@ export function AdoptionList(props) {
                                     value={selectedGender}
                                     onChange={setSelectedGender}
                                 />
+                                <Button type="primary" style={{marginTop:"10px"}} className="filter-button">Apply Filter</Button>
                             </div>
                         
                     </Row>
