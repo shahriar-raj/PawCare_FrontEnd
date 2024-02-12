@@ -6,6 +6,8 @@ import './DonationDetail.css';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
 export function DonationDetail(props) {
     const navigate = useNavigate();
@@ -14,12 +16,7 @@ export function DonationDetail(props) {
     const [donationAmount, setDonationAmount] = useState(0);
     const description = 'This is a description.';
     const [steps, setSteps] = useState([]);
-    const donationimages = [
-        "path/to/image1.jpg",
-        "path/to/image2.jpg",
-        "path/to/image3.jpg",
-        "path/to/image4.jpg",
-    ]
+    const [imageList, setImageList] = useState([]);
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -41,7 +38,16 @@ export function DonationDetail(props) {
                 setDonationDetails(result.donation.Description);
                 setDonationAmount(result.donation.TotalAmount);
                 setSteps(result.subSteps);
-                console.log(steps);
+                listAll(ref(storage, 'DonationImages/' + result.donation.UserID + '/' + result.donation.Description + '/' )).then((response) => {
+                    console.log(response);
+                    response.items.forEach((itemRef) => {
+                        getDownloadURL(itemRef).then((url) => {
+                            setImageList((imageList) => [...imageList, url]);
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    });
+                })
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -107,7 +113,7 @@ export function DonationDetail(props) {
                                     <div className="details-images">
                                         <h4 className="greenColor">Images:</h4>
                                         <div className="images-list">
-                                            {donationimages.map((image, index) => (
+                                            {imageList.map((image, index) => (
                                                 <Avatar
                                                     key={index}
                                                     shape="square"
