@@ -1,0 +1,29 @@
+.notificationCardUnread {
+    margin-left: 10%;
+    width: 70%;
+    background-color: #192928;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.notificationCardRead {
+    margin-left: 10%;
+    margin-bottom: 8px;
+    width: 70%;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #192928;
+    opacity: 0.75;
+    border-radius: 10px;
+}
+
+.notifications-header {
+    padding-left: 34%;
+    font-family: "Baloo Da";
+    color: #192928;
+    font-size: large;
+}

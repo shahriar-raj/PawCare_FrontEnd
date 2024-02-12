@@ -106,13 +106,13 @@ export function DonationApply() {
             description: values['cause'],
             subPoints: checkpointTags,
         }
-        let imageRef = ref(storage, `DonationImages/${values['name']}/${values['cause']}/${image.name}`);
+        let imageRef = ref(storage, `DonationImages/${localStorage.getItem('userID')}/${values['cause']}/${image.name}`);
         uploadBytes(imageRef, image).then(() => {
         });
-        imageRef = ref(storage, `DonationImages/${values['name']}/${values['cause']}/${image1.name}`);
+        imageRef = ref(storage, `DonationImages/${localStorage.getItem('userID')}/${values['cause']}/${image1.name}`);
         uploadBytes(imageRef, image1).then(() => {
         });
-        imageRef = ref(storage, `DonationImages/${values['name']}/${values['cause']}/${image2.name}`);
+        imageRef = ref(storage, `DonationImages/${localStorage.getItem('userID')}/${values['cause']}/${image2.name}`);
         uploadBytes(imageRef, image2).then(() => {
         });
         const response = await fetch('http://3.89.30.159:3000/donation/application', {
@@ -120,8 +120,9 @@ export function DonationApply() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ obj }),
+            body: JSON.stringify(obj),
         });
+        const result = await response.json(); // Assuming the response is in JSON format
         if (response.ok) {
             navigate('/donation');
         }

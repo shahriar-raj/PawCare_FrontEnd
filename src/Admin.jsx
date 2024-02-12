@@ -9,90 +9,140 @@ import { useState } from 'react';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function Admin(props) {
+
     const [data, setData] = useState([]);
-    const [name, setName] = useState("");
-    const [address, setAddress] = useState("");
-    const [imageList, setImageList] = useState([]);
     const navigate = useNavigate();
-    const handleLog = () => {
-        navigate('/');
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [imageList, setImageList] = useState('');
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let obj = {
+                }
+                const response = await fetch('http://3.89.30.159:3000/admin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json(); // Assuming the response is in JSON format
+                console.log(result);
+                setData(result.donationDetails.userDetails);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        // Call the fetchData function
+        fetchData();
+    }, []);
+
+    const approve = async (donationID) => {
+        try {
+            let obj = {
+                donationID: donationID
+            }
+            const response = await fetch('http://3.89.30.159:3000/admin/approvingDonations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            if (response.ok) {
+                alert('Donation Approved');
+                window.location.reload();
+            }
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
-    const add = () => {
-        navigate('/addPet');
+
+    const reject = async (donationID) => {
+        try {
+            let obj = {
+                donationID: donationID
+            }
+            const response = await fetch('http://3.89.30.159:3000/admin/rejectDonations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            if (response.ok) {
+                alert('Donation Rejected');
+                window.location.reload();
+            }
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 
-    // useEffect(() => {
-    //     // Function to fetch data from the API
-        
-        
-    //     const fetchData = async () => {
-    //         try {
-    //             let obj = {
-    //                 userID: localStorage.getItem('userID'),
-    //             }
-    //             const response = await fetch('http://3.89.30.159:3000/profile', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify(obj),
-    //             });
-    //             const result = await response.json(); // Assuming the response is in JSON format
-
-    //             // Update state with the result
-    //             setData(result.userDetails.userPets);
-    //             setName(result.userDetails.userDetails.Username);
-    //             setAddress(result.userDetails.userDetails.Address);
-    //             listAll(ref(storage, 'images/' + result.userDetails.userDetails.Email + '/')).then((response) => {
-    //                 console.log(response);
-    //                 response.items.forEach((itemRef) => {
-    //                     getDownloadURL(itemRef).then((url) => {
-    //                         setImageList(url);
-    //                         console.log(url);
-    //                     }).catch((error) => {
-    //                         console.log(error);
-    //                     });
-    //                 });
-    //             })
-    //         } catch (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     };
-
-    //     // Call the fetchData function
-    //     fetchData();
-    // }, []);
 
     return (
         <div>
             <div className="admin_header">
                 <img src="src/assets/logo.png" alt="Logo" width="20%" />
-                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={()=>{navigate('/')}}>
                     Logout
                 </Button>
-                <Button className='Donation-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                    Donation Requests
+                <Button className='User-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/users') }}>
+                    Users
                 </Button>
             </div>
             <div className="container_admin">
                 <div className="first-column-admin">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#011425" }}>Admin</h1>
                     <div className='profileImg'>
-                        <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
+                        <CircleImage src={"https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/AdminImages%2F342748762_6123844901032672_6967190747107568055_ncz.jpg?alt=media&token=6763ddc7-8a4e-4805-910e-cc0f1c0df9b6"} alt="Profile Picture" diameter="120px" />
                     </div>
-                    <h2 className="name">{name}</h2>
-                    <h3 className="name">{address}</h3>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
+                    <h2 className="name">Shahriar Raj</h2>
+                    <h3 className="name">Mohammadpur</h3>
+                    <Button className="p_button-admin" style={{ backgroundColor: "#011425", color: "white", fontFamily: "Baloo Da" }} >
                         Notifications
                     </Button>
                 </div>
                 <div className="second-column-admin">
-                    
+                    {data.map((donation) => (
+                        <Card className='donation-card-admin' key={donation.DonationID}>
+                            {/* <Card.Img variant="top" src={donation.Image} /> */}
+                            <Card.Body>
+                                Requested By
+                                <Avatar
+                                    src="./src/assets/cutu.png"
+                                    size={80}
+                                    alt="Pet"
+                                    style={{ position: 'relative', marginLeft: '60%' }}
+                                />
+                                <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{donation.Username} </Card.Title>
+                                <Card.Text style={{ display: 'flex' }}>
+                                    {donation.Description}
+                                    <br />
+                                    Total Amount: {donation.TotalAmount}
+                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "30%" }} onClick={() => {
+                                        localStorage.setItem('DonationID', donation.DonationID);
+                                        navigate('/donationdetails');
+                                    }}>Details</Button>
+                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={()=>{approve(donation.DonationID)}}>
+                                        ✔ Accept
+                                    </Button>
+                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={()=>{reject(donation.DonationID)}}>
+                                        x Reject
+                                    </Button>
+
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    ))}
                 </div>
             </div>
         </div>
-
     )
 }

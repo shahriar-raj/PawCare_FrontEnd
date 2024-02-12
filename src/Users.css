@@ -1,0 +1,18 @@
+.userbody {
+    display: grid;
+    height: 90vh;
+    overflow: auto;
+    background-color: #5c7c89;
+}
+
+.user-card {
+    width: 65%;
+    background-color: #011425;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}

@@ -1,16 +1,8 @@
-/* .profileImg {
-    margin-top: 20%;
-    margin-left: 20%;
-}
-
-.profilediv {
-    background-color: "blue";
-} */
 .container_admin {
     display: grid;
-    grid-template-columns: 33% 1fr;
+    grid-template-columns: 32% 1fr;
     /* width: 100vw; */
-    height: 90vh;
+    height: 95vh;
     background-color: #5c7c89;
     /* max-height: 900px; */
     /* width: 100vw; */
@@ -24,7 +16,7 @@
     padding-left: 37%;
 }
 
-.first-column {
+.first-column-admin {
     padding-top: 2%;
     height: 90vh;
     /* background-color: #f8f8f8; */
@@ -32,12 +24,11 @@
     /* Add your styling for the first column here */
 }
 
-.second-column {
-    padding-top: 5%;
-    border-left: 3px solid #192928;
-    display: grid;
-    grid-template-rows: 60% 40%;
+.second-column-admin {
+    padding-bottom: 3%;
+    border-left: 3px solid #011425;
     height: 90vh;
+    overflow: auto;
     /* width: 100%; */
     /* background-color: #e8e8e8; */
     /* Just for visual differentiation, you can change or remove this */
@@ -50,7 +41,7 @@
     font-family: "Baloo Da";
 }
 
-.p_button {
+.p_button-admin {
     margin-top: 4%;
     margin-left: 32.5%;
     width: 35%;
@@ -70,5 +61,14 @@
     height: 10vh;
 }
 
-
-
+.donation-card-admin {
+    width: 65%;
+    background-color: #011425;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
