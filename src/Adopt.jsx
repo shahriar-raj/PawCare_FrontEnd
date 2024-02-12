@@ -121,10 +121,7 @@ export function Adopt() {
                         <Radio.Group>
                             <Radio value={true}>Yes</Radio>
                             <Radio value={false}>No</Radio>
-                        </Radio.Group>
-
-
-                        
+                        </Radio.Group>                      
 
                         <Form.Item
                             name="planningToMove"
@@ -188,10 +185,7 @@ export function Adopt() {
                                 <Radio value="na">N/A</Radio>
                             </Radio.Group>
                         </Form.Item>
-
-                        
-
-                
+              
                         <Form.Item
                             name="commitment"
                             label="Are you prepared to commit to a pet for 15 - 20 years (average life span)?"
@@ -233,9 +227,6 @@ export function Adopt() {
                     
                 </Form>
             </div>
-
-            
-
             
         </div>
     );

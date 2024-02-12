@@ -9,13 +9,6 @@ import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-desig
 import './AdoptionList.css';
 import './AdoptionCard.css'
 
-
-
-
-
-
-
-
 const AdoptionCard = ({ pet }) => {
     return (
         <Card className="adoption-card">
@@ -38,13 +31,6 @@ const AdoptionCard = ({ pet }) => {
         </Card>
     );
 };
-
-
-
-
-
-
-
 
 export function AdoptionList(props) {
     const navigate = useNavigate();
@@ -97,8 +83,6 @@ export function AdoptionList(props) {
       ];
 
 
-
-
     const handleNavigate = (path) => () => {
         navigate(path);
     };
@@ -111,17 +95,11 @@ export function AdoptionList(props) {
         // ... (upload logic here)
     };
 
-
-
-
     const [petCount, setPetCount] = useState(9); 
     const [selectedAnimal, setSelectedAnimal] = useState(undefined);
     const [selectedBreed, setSelectedBreed] = useState(undefined);
     const [selectedAge, setSelectedAge] = useState(undefined);
     const [selectedGender, setSelectedGender] = useState(undefined);
-
-
-
 
     // Example options for each Select
     const animalOptions = [
@@ -146,47 +124,36 @@ export function AdoptionList(props) {
     ];
 
 
-
-
-
-
-
-
     // Functions for Select component filtering and sorting
     const OptionFilter = (input, option) =>
         option.label.toLowerCase().includes(input.toLowerCase());
     const OptionSort = (optionA, optionB) =>
         optionA.label.toLowerCase().localeCompare(optionB.label.toLowerCase());
 
-
+    const handleLog = () => {
+        navigate('/');
+    }
     return (
-        
-
 
         <div className="adoption-list-container">
-            <div className="profile_header">
-                <div className="navigation-buttons">
-                    <span className="forum-title">Paw Adoption</span>
-                    <Button icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/profile')} />
-                    <Button icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} onClick={handleNavigate('/donation')} />
-                    <Button icon={<FontAwesomeIcon icon={faUsers} />} onClick={() => handleNavigate('/forum')} />
-                    {/* <Button icon={<FontAwesomeIcon icon={faComments} />} onClick={() => handleNavigate('/notification')} /> */}
-                    <FontAwesomeIcon icon={faPaw} size="2x" className="paw-icon"/>
-
-                </div>
+            <div className="profile_header-adopt">
+            <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "30%" }} onClick={handleLog}>
+                    Logout
+                </Button>
+                <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Donation
+                </Button>
+                <Button className='Adoption' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/profile') }}>
+                    Profile
+                </Button>
+                <Button className='Notification' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
+                    Notification
+                </Button>
+                <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    About
+                </Button>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
             <Row className="adoption-content-grid" wrap={false}>
                 <Col span={6}>
@@ -222,21 +189,8 @@ export function AdoptionList(props) {
                                 <h2>Pet Count for Adoption: {petCount} </h2>
                             </div>
                         </Card>
-                    </Row>
+                    </Row>       
 
-
-
-
-
-
-
-
-
-
-
-
-
-                    
                     <Row className="section section2">
                         
                             <div className="select-container">

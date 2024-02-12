@@ -23,6 +23,7 @@ import { PaymentSuccess } from './PaymentSuccess.jsx';
 import { AdoptionList } from './AdoptionList.jsx';
 import { Users } from './Users.jsx';
 import { Notification } from './Notification.jsx';
+import { Adopt } from './Adopt.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/adoption" element={<AdoptionList data={data} setData={setData} />} />
           <Route path="/users" element={<Users data={data} setData={setData} />} />
           <Route path="/notifications" element={<Notification data={data} setData={setData} />} />
+          <Route path="/adopt" element={<Adopt data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

@@ -1,35 +1,48 @@
 /* In Forum.css */
 .forum-title {
-    font-size: 200%; /* Or any size you prefer */
+    font-size: 200%;
+    /* Or any size you prefer */
     font-family: "Baloo Da";
 }
 
-.profile_header {
-    height: 0%;
+.profile_header-adopt {
+    height: 10vh;
+    background-color: #192928;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 
 .navigation-buttons {
     display: flex;
-    gap: 3%; /* Space between buttons */
-    justify-content:baseline; /* Space between items */
+    gap: 3%;
+    /* Space between buttons */
+    justify-content: baseline;
+    /* Space between items */
     color: #CEDFB9;
 }
 
 
 
 .navigation-buttons .ant-btn {
-    background-color: transparent; /* Remove the background color */
-    border: none; /* Remove the border */
-    color: #acaeafb9; /* Set a muted text color */
+    background-color: transparent;
+    /* Remove the background color */
+    border: none;
+    /* Remove the border */
+    color: #acaeafb9;
+    /* Set a muted text color */
     font-size: 1.4em;
 }
 
 
 .navigation-buttons .ant-btn:hover {
-    background-color: rgba(0, 0, 0, 0.04); /* Slightly darker background on hover/focus for feedback */
-    border: none; /* Keep the border removed */
-    color: #5a6268 !important; /* Darker text color on hover/focus */
+    background-color: rgba(0, 0, 0, 0.04);
+    /* Slightly darker background on hover/focus for feedback */
+    border: none;
+    /* Keep the border removed */
+    color: #5a6268 !important;
+    /* Darker text color on hover/focus */
 }
 
 .paw-icon {
@@ -38,95 +51,67 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .adoption-content-grid {
-    height: calc(100vh - 50px); /* Adjust the 50px to your header's actual height */
+    height: calc(100vh - 50px);
+    /* Adjust the 50px to your header's actual height */
 }
-  
+
 .section {
-   
-    border: 1px solid black; /* For visual separation, can be removed or changed */
+
+    border: 1px solid black;
+    /* For visual separation, can be removed or changed */
 }
-  
+
 .section1 {
-    display: flex; /* Use flexbox to enable flexible layouts */
-    justify-content: center; /* Center the card horizontally */
-    align-items: center; /* Center the card vertically */
-    padding: 16px; /* Optional: for some spacing around the card */
-    height:33%;
+    display: flex;
+    /* Use flexbox to enable flexible layouts */
+    justify-content: center;
+    /* Center the card horizontally */
+    align-items: center;
+    /* Center the card vertically */
+    padding: 16px;
+    /* Optional: for some spacing around the card */
+    height: 33%;
 }
-  
+
 .section2 {
     background-color: #192928 !important;
-    height:67%; 
+    height: 67%;
     padding: 1%;
-    
+
 }
-  
+
 .section3 {
-    background-color: #CEDFB9;  
+    background-color: #CEDFB9;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* For Section 1 Elements */
 .user-profile {
-    width: 100%; /* Full width of the .section1 */
-    height: 100%; /* Full height of the .section1 */
-    display: flex; /* Use flexbox to enable flexible card content layout */
-    flex-direction: column; /* Stack the card content vertically */
+    width: 100%;
+    /* Full width of the .section1 */
+    height: 100%;
+    /* Full height of the .section1 */
+    display: flex;
+    /* Use flexbox to enable flexible card content layout */
+    flex-direction: column;
+    /* Stack the card content vertically */
 }
 
 
 .user-content .ant-avatar {
-    margin-bottom: 0%; /* Space below the avatar */
-  }
+    margin-bottom: 0%;
+    /* Space below the avatar */
+}
 
 
-.adoption-details-1{
+.adoption-details-1 {
     width: 100%;
     height: 100%;
     background-color: #CEDFB9;
-    border: 5px solid #192928; /* Example border: 1 pixel solid, and a light grey color */
-    border-radius: 4px; /* Optional: if you want rounded corners */
+    border: 5px solid #192928;
+    /* Example border: 1 pixel solid, and a light grey color */
+    border-radius: 4px;
+    /* Optional: if you want rounded corners */
 }
 
 
@@ -136,57 +121,41 @@
     /* You can add more styles here if necessary */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* For Section 2 Elements */
 
 .section.section2 {
-    padding: 1%; /* Add padding for spacing */
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: start; /* Align content to the top */
-    overflow: hidden; /* Hide overflow */
+    padding: 1%;
+    /* Add padding for spacing */
+    display: flex;
+    /* Enable flexbox */
+    flex-direction: column;
+    /* Stack children vertically */
+    justify-content: start;
+    /* Align content to the top */
+    overflow: hidden;
+    /* Hide overflow */
     /* height: 63.5%; */
-    
+
 }
 
 .section.section2 .ant-select {
-    width: 100%; /* Full width */
-    margin-bottom: 8px; /* Add some space below the select */
-  }
+    width: 100%;
+    /* Full width */
+    margin-bottom: 8px;
+    /* Add some space below the select */
+}
 
 .section.section2 .ant-select-dropdown {
-    position: relative; /* Position relative to the section */
-    top: 0; /* Align to the top of the section */
-    z-index: 1; /* Ensure it stacks on top of other content */
-    max-height: 100%; /* Prevent it from going outside of the section */
-    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative;
+    /* Position relative to the section */
+    top: 0;
+    /* Align to the top of the section */
+    z-index: 1;
+    /* Ensure it stacks on top of other content */
+    max-height: 100%;
+    /* Prevent it from going outside of the section */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
 }
 
 
@@ -195,7 +164,7 @@
     margin: 4%;
     margin-top: 5%;
     background-color: #192928;
-    border: 0px ;
+    border: 0px;
 }
 
 .select-container {
@@ -204,62 +173,29 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .pet-image {
     margin-left: 10%;
     width: 77.5%;
-    border-radius: 8px 8px 0 0; /* rounded corners at the top */
+    border-radius: 8px 8px 0 0;
+    /* rounded corners at the top */
 }
 
 
 .scrollable-container {
-  overflow-x: auto; /* Allows horizontal scrolling */
-  white-space: nowrap; /* Prevents wrapping of child elements */
-  padding: 16px 0; /* Add some vertical padding */
+    overflow-x: auto;
+    /* Allows horizontal scrolling */
+    white-space: nowrap;
+    /* Prevents wrapping of child elements */
+    padding: 16px 0;
+    /* Add some vertical padding */
 }
 
-.scrollable-adoption-card{
+.scrollable-adoption-card {
     margin-left: 1%;
-    
+
 }
 
 .pet-name h3 {
-    color: #192928; /* Replace with your desired color */
+    color: #192928;
+    /* Replace with your desired color */
 }
-
-
-
-
-
-
-
-
-
-
