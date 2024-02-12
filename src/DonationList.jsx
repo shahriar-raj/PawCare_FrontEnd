@@ -93,7 +93,7 @@ export function DonationList(props) {
                     </div>
                     <div className="donationbodyright">
                         <Button style={{ backgroundColor: "#cedfb9", marginLeft: '7%', borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large"}} className="AFD" onClick={() => { navigate('/donationapply') }}>Apply For Donation</Button>
-                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large"}} className="MDA" onClick={() => { navigate('/donationapply') }}>My Donation Applications</Button>
+                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large"}} className="MDA" onClick={() => { navigate('/mydonation') }}>My Donation Applications</Button>
                     </div>
                 </div>
             </div>

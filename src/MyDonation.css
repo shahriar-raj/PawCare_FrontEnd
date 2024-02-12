@@ -1,0 +1,15 @@
+.mydonationbody {
+    height: 100vh;
+}
+
+.donation-card {
+    width: 65%;
+    background-color: #192928;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}

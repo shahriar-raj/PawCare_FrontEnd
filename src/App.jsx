@@ -25,6 +25,8 @@ import { Users } from './Users.jsx';
 import { Notification } from './Notification.jsx';
 import { Adopt } from './Adopt.jsx';
 import { About } from './About.jsx';
+import { MyDonation } from './MyDonation.jsx';
+import { MyDonationChecks } from './MyDonationChecks.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -39,19 +41,21 @@ export default function App() {
           <Route path="/donation" element={<DonationList data={data} setData={setData} />} />
           <Route path="/petprofile" element={<PetProfile data={data} setData={setData} />} />
           <Route path="/donationdetails" element={<DonationDetail data={data} setData={setData} />} />
-          <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />    
-          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />   
-          <Route path="/showimage" element={<ShowImage data={data} setData={setData} />} />   
-          <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />    
-          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />   
+          <Route path="/otp_verification" element={<OtpVerify data={data} setData={setData} />} />
+          <Route path="/donationpayment" element={<DonationPayment data={data} setData={setData} />} />
+          <Route path="/showimage" element={<ShowImage data={data} setData={setData} />} />
+          <Route path="/petPhoto" element={<AddpetPhoto data={data} setData={setData} />} />
+          <Route path="/donationapply" element={<DonationApply data={data} setData={setData} />} />
           <Route path="/admin" element={<Admin data={data} setData={setData} />} />
           <Route path="/forum" element={<Forum data={data} setData={setData} />} />
-          <Route path="/donation/donationSuccess/:tran_id" element={<PaymentSuccess/>} />
+          <Route path="/donation/donationSuccess/:tran_id" element={<PaymentSuccess />} />
           <Route path="/adoption" element={<AdoptionList data={data} setData={setData} />} />
           <Route path="/users" element={<Users data={data} setData={setData} />} />
           <Route path="/notifications" element={<Notification data={data} setData={setData} />} />
           <Route path="/adopt" element={<Adopt data={data} setData={setData} />} />
           <Route path="/about" element={<About data={data} setData={setData} />} />
+          <Route path="/mydonation" element={<MyDonation data={data} setData={setData} />} />
+          <Route path="/checkpoints" element={<MyDonationChecks data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
