@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle,faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
-import { UserOutlined,SendOutlined } from '@ant-design/icons';
-import { Row, Col,Card, Avatar, Select, Input, Upload, Typography } from 'antd';
+import { faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { UserOutlined, SendOutlined } from '@ant-design/icons';
+import { Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
 import './Forum.css';
 import './TwitterCard.css'
-
-
 
 const { Option } = Select;
 
@@ -17,12 +15,12 @@ const { Meta } = Card;
 
 export function Forum(props) {
     const navigate = useNavigate();
-    
-    
+
+
     const handleNavigate = (path) => () => {
         navigate(path);
     };
-    
+
     // Generate options for the Select components
     const locationOptions = [];
     for (let i = 10; i < 36; i++) {
@@ -33,18 +31,12 @@ export function Forum(props) {
     const diseaseOptions = ['Rabies', 'Leukemia', 'Distemper'].map(disease => <Option key={disease}>{disease}</Option>);
     const vaccineOptions = ['Rabies Vaccine', 'FVRCP', 'Bordetella'].map(vaccine => <Option key={vaccine}>{vaccine}</Option>);
 
-
-
     // Handle file selection
     const handleFileChange = info => {
         // ... (upload logic here)
     };
 
-
-
     return (
-        
-
 
         <div className="forum-container">
             <div className="profile_header">
@@ -52,7 +44,7 @@ export function Forum(props) {
                     <span className="forum-title">PawForum</span>
                     <Button icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/profile')} />
                     <Button icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} onClick={handleNavigate('/donation')} />
-                    <FontAwesomeIcon icon={faPaw} size="2x" className="paw-icon"/>
+                    <FontAwesomeIcon icon={faPaw} size="2x" className="paw-icon" />
                 </div>
             </div>
             <Row className="content-grid" wrap={false}>
@@ -68,33 +60,28 @@ export function Forum(props) {
                                 <h3>Sarah Perez</h3>
                                 <p>@sarahintampa</p>
                                 <Row gutter={16}>
-                                <Col span={8}>
-                                    <div className="user-statistic">
-                                    <p>Tweets</p>
-                                    <p>29.7K</p>
-                                    </div>
-                                </Col>
-                                <Col span={8}>
-                                    <div className="user-statistic">
-                                    <p>Following</p>
-                                    <p>8,489</p>
-                                    </div>
-                                </Col>
-                                <Col span={8}>
-                                    <div className="user-statistic">
-                                    <p>Followers</p>
-                                    <p>59.8K</p>
-                                    </div>
-                                </Col>
+                                    <Col span={8}>
+                                        <div className="user-statistic">
+                                            <p>Tweets</p>
+                                            <p>29.7K</p>
+                                        </div>
+                                    </Col>
+                                    <Col span={8}>
+                                        <div className="user-statistic">
+                                            <p>Following</p>
+                                            <p>8,489</p>
+                                        </div>
+                                    </Col>
+                                    <Col span={8}>
+                                        <div className="user-statistic">
+                                            <p>Followers</p>
+                                            <p>59.8K</p>
+                                        </div>
+                                    </Col>
                                 </Row>
                             </div>
                         </Card>
                     </Row>
-
-
-
-
-
 
 
                     <Row className="section section2">
@@ -102,36 +89,32 @@ export function Forum(props) {
                             <h2>Filter</h2>
                             <div className="select-header">Location</div>
                             <Select
-                                mode="multiple"
                                 placeholder="Select Location"
                                 defaultValue={['User Location', 'Dhanmondi']}
                             >
                                 {locationOptions}
                             </Select>
-                        
+
                             <div className="select-header">Animals</div>
                             <Select
-                                mode="multiple"
                                 placeholder="Select Animals"
                                 defaultValue={['User Pet']}
                             >
                                 {animalOptions}
                             </Select>
-                        
+
                             <div className="select-header">Disease</div>
                             <Select
-                                mode="multiple"
                                 placeholder="Select Disease"
-                                // defaultValue={['User Pet Disease']}
+                            // defaultValue={['User Pet Disease']}
                             >
                                 {diseaseOptions}
                             </Select>
-                        
+
                             <div className="select-header">Vaccine</div>
                             <Select
-                                mode="multiple"
                                 placeholder="Select Vaccine"
-                                // defaultValue={['User Pet Vaccine']}
+                            // defaultValue={['User Pet Vaccine']}
                             >
                                 {vaccineOptions}
                             </Select>
@@ -139,35 +122,23 @@ export function Forum(props) {
                     </Row>
                 </Col>
 
-
-
-
-
-
-
-
-
-
                 <Col span={18} className="section section3" >
                     <Row className="" wrap={false}>
 
-                        <Col span={1} className=""/>
+                        <Col span={1} className="" />
                         <Col span={22} className="">
                             <Card className="post-update-card">
-
-
-
                                 <div className="forum-card-info">
                                     <Avatar size={100} src="./src/assets/cutu.png" className="user-avatar" />
                                     <div className="forum-card-details">
                                         <Input
                                             className="post-input"
                                             placeholder="What's happening?"
-                                            onPressEnter={() => {/* Handle the press enter event */}}
+                                            onPressEnter={() => {/* Handle the press enter event */ }}
                                         />
-                                        
-                                        
-                                        
+
+
+
                                     </div>
                                     <div className="button-group">
                                         <Upload
@@ -177,9 +148,9 @@ export function Forum(props) {
                                             beforeUpload={() => false} // Prevent automatic upload
                                             onChange={handleFileChange}
                                             className="upload-button"
-                                            
+
                                         >
-                                            <Button icon={<FontAwesomeIcon icon={faImage} />}  />
+                                            <Button icon={<FontAwesomeIcon icon={faImage} />} />
                                         </Upload>
                                         <Button type="primary" icon={<SendOutlined />} >
                                             Post
@@ -187,21 +158,17 @@ export function Forum(props) {
                                     </div>
                                 </div>
 
-
-
-
-                                
                             </Card>
                         </Col>
-                        <Col span={1} className=""/>
-                        
+                        <Col span={1} className="" />
+
                     </Row>
                     <Row>
 
                     </Row>
 
                     <Row>
-                        <Col span={1} className=""/>
+                        <Col span={1} className="" />
                         <Col span={10} className="twitter-card1">
                             <Card className="twitter-card1">
                                 <Meta
@@ -250,25 +217,12 @@ export function Forum(props) {
                                 </div>
                             </Card>
                         </Col>
-                        <Col span={1} className=""/>
+                        <Col span={1} className="" />
                     </Row>
-                    
                 </Col>
-
-
-
-
-
-
-
-
-
-
-
-                
             </Row>
         </div>
-        
+
     );
 }
 

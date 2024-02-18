@@ -42,7 +42,7 @@ export function MyDonationChecks(props) {
     return (
         <div>
             {data.map((donation) => (
-                <div>
+                <div className='Checkpoints'>
                     {donation.Reason}
                 </div>
             ))}

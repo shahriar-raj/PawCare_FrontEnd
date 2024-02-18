@@ -65,8 +65,8 @@ export function MyDonation(props) {
 
                                     <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "50%" }} onClick={() => {
                                         localStorage.setItem('DonationID', donation.DonationID);
-                                        navigate('/donationdetails');
-                                    }}>Details</Button>
+                                        navigate('/checkpoints');
+                                    }}>Update Checkpoints</Button>
 
                                 </Card.Text>
 
