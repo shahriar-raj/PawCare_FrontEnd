@@ -121,8 +121,8 @@ export function Profile(props) {
                     </Button>
                 </div>
                 <div className="second-column">
-                    <div className="row top-row">
-                        {/* <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1> */}
+                    {/* <div className="row top-row">
+                        <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1>
                         {
                             data.map((item) => (
                                 <div key={item.PetID} className='pet-card-container'>
@@ -158,7 +158,7 @@ export function Profile(props) {
                         <Button type="dashed" style={{ width: "30%", height: "20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

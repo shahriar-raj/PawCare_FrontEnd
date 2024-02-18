@@ -83,17 +83,20 @@ export function AdoptionList(props) {
 
     // Example options for each Select
     const animalOptions = [
-        { value: 'Dog', label: 'Dog' },
-        { value: 'Cat', label: 'Cat' },
-        { value: 'Bird', label: 'Bird' },
+        { value: '', label: 'All' },
+        { value: 'dog', label: 'Dog' },
+        { value: 'cat', label: 'Cat' },
+        { value: 'bird', label: 'Bird' },
         { value: 'Others', label: 'Others' },
     ];
     const breedOptions = [
+        { value: '', label: 'All' },
         { value: 'German Shephard', label: 'German Shephard' },
         { value: 'Husky', label: 'Husky' },
     ];
 
     const genderOptions = [
+        { value: '', label: 'All' },
         { value: 'M', label: 'Male' },
         { value: 'F', label: 'Female' },
     ];
@@ -201,7 +204,6 @@ export function AdoptionList(props) {
                                 value={selectedGender}
                                 onChange={setSelectedGender}
                             />
-                            <Button type="primary" style={{ marginTop: "10px" }} className="filter-button">Apply Filter</Button>
                         </div>
 
                     </Row>
@@ -223,13 +225,17 @@ export function AdoptionList(props) {
 
                     <div className='scrollable-container'>
                         <Row gutter={[16, 16]} wrap={false}>
-
-                            {pets.map((pet, index) => (
-                                <Col key={index} span={7} className={`scrollable-adoption-card`}>
-                                    <AdoptionCard pet={pet} />
-                                </Col>
-                            ))}
-
+                            {pets.map((pet, index) => {
+                                if (pet.Breed === selectedBreed || selectedBreed === "") {
+                                    if (pet.Type === selectedAnimal || selectedAnimal === "") {
+                                        if (pet.Gender === selectedGender || selectedGender === "") {
+                                            return (<Col key={index} span={7} className={`scrollable-adoption-card`}>
+                                                <AdoptionCard pet={pet} />
+                                            </Col>);
+                                        }
+                                    }
+                                }
+                            })}
                         </Row>
                     </div>
                 </Col>
