@@ -25,8 +25,8 @@ export function Profile(props) {
 
     useEffect(() => {
         // Function to fetch data from the API
-        
-        
+
+
         const fetchData = async () => {
             try {
                 let obj = {
@@ -106,7 +106,7 @@ export function Profile(props) {
                 <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/about') }}>
                     About
                 </Button>
-                          
+
             </div>
             <div className="container_profile">
                 <div className="first-column">
@@ -121,7 +121,7 @@ export function Profile(props) {
                     </Button>
                 </div>
                 <div className="second-column">
-                    {/* <div className="row top-row">
+                    <div className="row top-row">
                         <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1>
                         {
                             data.map((item) => (
@@ -158,7 +158,7 @@ export function Profile(props) {
                         <Button type="dashed" style={{ width: "30%", height: "20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>
