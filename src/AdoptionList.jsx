@@ -11,6 +11,7 @@ import './AdoptionList.css';
 import './AdoptionCard.css'
 
 const AdoptionCard = ({ pet }) => {
+    const navigate = useNavigate();
     return (
         <Card className="adoption-card">
             <img src={pet.URL} alt={pet.Name} width={"250px"} height={"250px"} className="pet-image" />
@@ -25,7 +26,7 @@ const AdoptionCard = ({ pet }) => {
                 <span>{pet.Address}</span>
 
                 <div className="pet-actions" style={{ marginTop: '3%' }}>
-                    <Button type="primary" className="pet-action-button" style={{ marginRight: '3%' }}>Adopt</Button>
+                    <Button type="primary" className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
                     <Button className="pet-action-button"> Pet Profile</Button>
                 </div>
             </div>
@@ -164,7 +165,7 @@ export function AdoptionList(props) {
                                     <FontAwesomeIcon icon={faCrow} size="2x" style={{ margin: '5%', marginTop: '20%' }} />
                                     <FontAwesomeIcon icon={faHorse} size="2x" style={{ margin: '5%', marginTop: '20%' }} />
                                 </div>
-                                <h2>Pet Count for Adoption: {petCount} </h2>
+                                {/* <h2>Pet Count for Adoption: {petCount} </h2> */}
                             </div>
                         </Card>
                     </Row>
