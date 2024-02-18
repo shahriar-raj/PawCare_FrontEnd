@@ -5,183 +5,29 @@
 }
 
 
-.navigation-buttons {
-    display: flex;
-    gap: 3%; /* Space between buttons */
-    justify-content:baseline; /* Space between items */
-    color: #CEDFB9;
-}
-
-
-
-.navigation-buttons .ant-btn {
-    background-color: transparent; /* Remove the background color */
-    border: none; /* Remove the border */
-    color: #acaeafb9; /* Set a muted text color */
-    font-size: 1.4em;
-}
-
-
-.navigation-buttons .ant-btn:hover {
-    background-color: rgba(0, 0, 0, 0.04); /* Slightly darker background on hover/focus for feedback */
-    border: none; /* Keep the border removed */
-    color: #5a6268 !important; /* Darker text color on hover/focus */
-}
-
-.paw-icon {
-    margin-left: 23%; /* Push the paw icon to the right */
-    margin-top: 0.5%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .content-grid {
     height: calc(100vh - 50px); /* Adjust the 50px to your header's actual height */
 }
-  
-.section {
-   
-    border: 1px solid black; /* For visual separation, can be removed or changed */
-}
+
   
 .section1 {
-    display: flex; /* Use flexbox to enable flexible layouts */
-    justify-content: center; /* Center the card horizontally */
-    align-items: center; /* Center the card vertically */
-    padding: 16px; /* Optional: for some spacing around the card */
+    display: flex;
+    flex: 1;
 }
   
 .section2 {
-    background-color: #192928 !important;
-    height:50.4%; 
-    padding: 1%;
-    
+    flex: 1;
 }
   
-.section3 {
-    background-color: #CEDFB9;
-    height: 100%; /* Section 3 takes up the remaining height */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* For Section 1 Elements */
-.user-profile {
-    width: 100%; /* Full width of the .section1 */
-    height: 100%; /* Full height of the .section1 */
-    display: flex; /* Use flexbox to enable flexible card content layout */
-    flex-direction: column; /* Stack the card content vertically */
-}
-
-
-.user-content .ant-avatar {
-    margin-bottom: 0%; /* Space below the avatar */
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* For Section 2 Elements */
-.section.section2 {
-    padding: 1%; /* Add padding for spacing */
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: start; /* Align content to the top */
-    overflow: hidden; /* Hide overflow */
-    
-}
 
-.section.section2 .ant-select {
-    width: 100%; /* Full width */
-    margin-bottom: 8px; /* Add some space below the select */
-  }
-
-.section.section2 .ant-select-dropdown {
-    position: relative; /* Position relative to the section */
-    top: 0; /* Align to the top of the section */
-    z-index: 1; /* Ensure it stacks on top of other content */
-    max-height: 100%; /* Prevent it from going outside of the section */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
 .select-container{
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -211,8 +57,55 @@
 }
 
 .post-input {
-    
     font-size: 20px; /* Optional: Adjust the font size for better readability */
 }
 
 
+.left-side {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Take full height of its parent */
+}
+
+.user-profile{
+    height: 90% !important;
+    width: 100%  !important;
+    background-color: #94cc6e88;
+}
+
+.user-statistic span {
+    /* Your CSS properties go here */
+    color: #333; /* Example property: sets the text color */
+    font-weight: bold; /* Example property: makes the text bold */
+    font-size: large;
+}
+
+.user-stat{
+    font-weight: bold;
+    color: #333333de;
+    font-size: large;
+}
+
+
+.user-content .user-statistic span,
+.user-content .user-statistic .user-stat {
+     display: block; /* Ensure they are block-level for consistent spacing */
+}
+
+/* Optionally, adjust the line-height for even tighter spacing */
+.user-content .user-statistic span,
+.user-content .user-statistic .user-stat {
+    line-height: 0.5; /* Adjust line height for tighter text */
+}
+
+.profile-col{
+    border: 2px solid #333;
+   
+    padding-top: 5%;
+    padding-left: 3%;   
+}
+
+
+.nav-button{
+    margin-left: 30%;
+}
