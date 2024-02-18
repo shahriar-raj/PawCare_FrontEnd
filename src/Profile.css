@@ -32,10 +32,10 @@
 }
 
 .second-column {
-    padding-top: 5%;
+    /* padding-top: 5%; */
     border-left: 3px solid #192928;
     display: grid;
-    grid-template-rows: 60% 40%;
+
     height: 90vh;
     /* width: 100%; */
     /* background-color: #e8e8e8; */
@@ -89,16 +89,7 @@
     /* If you need specific styles for the avatar, add them here */
 }
 
-.petCard {
-    margin-top: 2%;
-    margin-left: 15%;
-    width: 60%;
-    height: 10%;
-    border-radius: 20px;
-    background-color: #192928;
-    border-color: #192928;
-    color: #CEDFB9;
-}
+
 
 .pet-info-profile {
     display: flex;
@@ -111,6 +102,9 @@
 .pet-details {
     display: flex;
     flex-direction: column;
+    margin-left: 10%;
+    font-weight: lighter;
+
 }
 
 .pet-name {
@@ -119,6 +113,7 @@
     font-weight: bold;
     color: #CEDFB9;
     /* Light Green text for the name */
+    margin-bottom: 3%;
 }
 
 
@@ -139,14 +134,15 @@
     border-radius: 8px;
     /* Rounded corners for the button */
     cursor: pointer;
-    height: 70%;
+ 
     /* Adjust height to match the card content */
     /* Add some padding if needed */
-    padding: 0 15px;
-    margin-top: 2%;
+   
+    margin-top: 15%;
     margin-left: 6%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     transition: background-color 0.3s;
+    
 }
 
 /* You may also want to add :hover and :focus styles for better user interaction */
@@ -187,13 +183,14 @@
     border-radius: 8px;
     /* Rounded corners for the button */
     cursor: pointer;
-    height: 70%;
+  
     /* Adjust height to match the card content */
     /* Add some padding if needed */
-    padding: 0 15px;
-    margin-top: 2%;
-    margin-left: 60%;
-    margin-bottom: 2%;
+
+
+    margin-left: 10%;
+    margin-top: 15%;
+    margin-bottom: 5%;
     transition: background-color 0.3s;
 }
 
@@ -205,3 +202,127 @@
     color: #192928;
     /* Dark Green text */
 }
+
+
+
+
+
+/* .profile-card{
+   
+} */
+
+.scroll-btn{
+    font-weight: bold !important;
+}
+
+
+
+.container_profile {
+    display: grid;
+    grid-template-columns: 27% 70%;
+    height: 90vh;
+}
+
+.first-column {
+    padding-top: 2%;
+    height: 90vh;
+}
+
+.second-column {
+    padding-top: 01%;
+    height: 90vh;
+}
+
+
+.scrollable-row {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 16px 0;
+    gap: 16px; /* Adds space between cards */
+}
+
+.pet-card-container {
+    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+}
+
+/* Styles for .profile_header, .profileImg, .name, .p_button remain unchanged */
+
+.petCard {
+    min-width: 240px; /* Ensures cards have a minimum width */
+    height: auto; 
+    margin: 0% 18%; 
+    border-radius: 20px;
+    background-color: #192928;
+    border-color: #192928;
+    color: #cedfb9ce;
+}
+
+
+
+/* Your existing CSS remains unchanged */
+
+
+
+
+
+.pet-card-container {
+    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+}
+
+/* Ensure .scrollable-row has overflow-x: auto; */
+/* Rest of your CSS code for .profile_header, .profileImg, .name, .p_button, etc., remains unchanged */
+/* ... Your existing styles ... */
+
+.scroll-controls {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10%;
+  }
+  
+  .scroll-btn {
+    font-size: 2rem; /* Adjust the size as you like */
+    width: 5%; /* Width of the button */
+    height: 100%; /* Height of the button */
+    line-height: 40px; /* Center the arrow vertically */
+    text-align: center;
+    background-color: #192928; /* Background color */
+    color: #CEDFB9; /* Arrow color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    margin: 0 10px;
+    cursor: pointer; /* Cursor to pointer on hover */
+    
+    font-weight: bold;
+  }
+  
+  .scroll-btn:focus {
+    outline: none; /* Removes the focus outline */
+  }
+  
+  .scrollable-row {
+    /* ... Your existing styles ... */
+    /* Make sure to remove overflow-x: auto if you want to hide the scrollbar */
+  }
+  
+ 
+  
+
+
+
+
+
+
+
+  
+  /* Optional: if you want to hide the scrollbar in Webkit browsers */
+  .scrollable-row::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  .scrollable-row {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
