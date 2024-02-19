@@ -30,7 +30,7 @@ export function Forum(props) {
     { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
     { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
     { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
+    { "User": "C", "Type": "Normal", "Title": "Normal Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
     // Generate options for the Select components
     const locationOptions = [];
     for (let i = 10; i < 36; i++) {
@@ -110,6 +110,14 @@ export function Forum(props) {
                         Name: {item.Name}
                     </Typography.Paragraph>
                     <Button type="primary" onClick={handleNavigate('/adopt')} > Adopt </Button>
+                </div>
+            );
+        } else if (item.Type === "Normal") {
+            return (
+                <div>
+                    <Typography.Paragraph className="twitter-card-content">
+                        Name: {item.Name}
+                    </Typography.Paragraph>
                 </div>
             );
         }
