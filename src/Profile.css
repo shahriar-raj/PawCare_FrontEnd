@@ -238,7 +238,7 @@
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 16px 0;
+
     gap: 16px; /* Adds space between cards */
 }
 
@@ -249,18 +249,19 @@
 /* Styles for .profile_header, .profileImg, .name, .p_button remain unchanged */
 
 .petCard {
-    min-width: 240px; /* Ensures cards have a minimum width */
+    min-width: 270px; /* Ensures cards have a minimum width */
     height: auto; 
-    margin: 0% 18%; 
+    margin: 0% 0% 0% 20%;
     border-radius: 20px;
     background-color: #192928;
     border-color: #192928;
     color: #cedfb9ce;
+    padding-left: 3%;
 }
 
 
 
-/* Your existing CSS remains unchanged */
+
 
 
 
@@ -282,32 +283,8 @@
     margin-bottom: 10%;
   }
   
-  .scroll-btn {
-    font-size: 2rem; /* Adjust the size as you like */
-    width: 5%; /* Width of the button */
-    height: 100%; /* Height of the button */
-    line-height: 40px; /* Center the arrow vertically */
-    text-align: center;
-    background-color: #192928; /* Background color */
-    color: #CEDFB9; /* Arrow color */
-    border: none;
-    border-radius: 20px; /* Rounded corners */
-    margin: 0 10px;
-    cursor: pointer; /* Cursor to pointer on hover */
-    
-    font-weight: bold;
-  }
-  
-  .scroll-btn:focus {
-    outline: none; /* Removes the focus outline */
-  }
-  
-  .scrollable-row {
-    /* ... Your existing styles ... */
-    /* Make sure to remove overflow-x: auto if you want to hide the scrollbar */
-  }
-  
- 
+
+
   
 
 
@@ -326,3 +303,14 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+
+
+
+.scrollable-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 75vh; /* Adjust based on your layout */
+}
+
