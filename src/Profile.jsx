@@ -25,8 +25,8 @@ export function Profile(props) {
 
     useEffect(() => {
         // Function to fetch data from the API
-        
-        
+
+
         const fetchData = async () => {
             try {
                 let obj = {
@@ -100,7 +100,7 @@ export function Profile(props) {
     const scrollRight = () => {
         document.querySelector('.scrollable-row').scrollLeft += scrollAmount;
     };
-    
+
 
     return (
         <div>
@@ -118,10 +118,10 @@ export function Profile(props) {
                 <Button className='Notification' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
                     Notification
                 </Button>
-                <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/about') }}>
-                    About
+                <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/forum') }}>
+                    Forum
                 </Button>
-                          
+
             </div>
             <div className="container_profile">
                 <div className="first-column">
@@ -139,7 +139,7 @@ export function Profile(props) {
                 </div>
                 <div className="second-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>My Pets</h1>
-                    
+
                     <div className="scrollable-row top-row">
                         {
                             data.map((item) => (
@@ -147,7 +147,7 @@ export function Profile(props) {
                                     <Card className="petCard" style={{ width: "25%" }}>
                                         <Card.Body>
                                             <div className="pet-info-profile">
-                                                <Avatar size={100} src={item.URL} className="pet-avatar" style={{marginLeft:"29%", marginTop:'5%'}} />
+                                                <Avatar size={100} src={item.URL} className="pet-avatar" style={{ marginLeft: "29%", marginTop: '5%' }} />
                                             </div>
                                             <div className="pet-details">
                                                 <h1 className="pet-name">{item.Name}</h1>
@@ -155,7 +155,7 @@ export function Profile(props) {
                                                 Age: {item.Age} Months
                                             </div>
 
-                                            
+
                                             <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>
                                                 <DeleteOutlined />
                                             </Button>
@@ -172,21 +172,21 @@ export function Profile(props) {
                                     </Card>
                                 </div>
                             ))
-                    
+
                         }
-                        
+
                     </div>
                     <div className="scroll-controls">
-                            <Button onClick={scrollLeft} className="scroll-btn"><span className='scoll-sign'> &lt; </span> </Button>
-                            <Button style={{ width: "20%", height: "100%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                        <Button onClick={scrollLeft} className="scroll-btn"><span className='scoll-sign'> &lt; </span> </Button>
+                        <Button style={{ width: "20%", height: "100%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
-                            </Button>
-                            <Button onClick={scrollRight} className="scroll-btn"> <span className='scoll-sign'> &gt; </span></Button>
-                    
+                        </Button>
+                        <Button onClick={scrollRight} className="scroll-btn"> <span className='scoll-sign'> &gt; </span></Button>
+
                     </div>
                     <div className="row bottom-row">
-                        
-                        
+
+
                     </div>
                 </div>
             </div>

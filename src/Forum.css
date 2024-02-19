@@ -7,7 +7,7 @@
 
 
 .content-grid {
-    height: calc(100vh - 50px); /* Adjust the 50px to your header's actual height */
+    height: 90vh; /* Adjust the 50px to your header's actual height */
 }
 
   
@@ -37,6 +37,10 @@
     margin-top: 0.5%;
 }
 
+.section3{
+    overflow: auto;
+    height: 90vh;
+}
 
 .forum-card-info {
     display: flex;
@@ -108,4 +112,38 @@
 
 .nav-button{
     margin-left: 30%;
+}
+
+.profile_header{
+    height: 10vh;
+}
+
+.view-my-profile-btn {
+    background-color: #CEDFB9;
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
+    border: none;
+    /* margin-left: auto; */
+    /* Align the button to the right */
+    font-family: "Baloo Da";
+    font-size: 1.2em;
+    /* Larger font size */
+    border-radius: 8px;
+    /* Rounded corners for the button */
+    cursor: pointer;
+ 
+    /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    transition: background-color 0.3s;
+    
+}
+
+.view-my-profile-btn:hover {
+    background-color: #10514c !important;
+    /* Slightly different color on hover */
+    /* Other hover styles */
+    /* Light Green background */
+    color: #192928;
+    /* Dark Green text */
 }

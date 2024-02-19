@@ -27,6 +27,9 @@ export function Forum(props) {
     };
 
     const data = [{ "User": "A", "Type": "Donation", "Title": "Donation Title", "Description": "Donation Description", "Amount": "1000", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
     { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
     // Generate options for the Select components
     const locationOptions = [];
@@ -104,7 +107,7 @@ export function Forum(props) {
             return (
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
-                        Name: {item.Name}    
+                        Name: {item.Name}
                     </Typography.Paragraph>
                     <Button type="primary" onClick={handleNavigate('/adopt')} > Adopt </Button>
                 </div>
@@ -118,9 +121,8 @@ export function Forum(props) {
 
         <div className="forum-container">
             <div className="profile_header">
-
                 <div className="navigation-buttons">
-                    <span className="forum-title">PawForum</span>
+                    <span className="forum-title">PawCare</span>
                     <Input
                         className="search-input"
                         placeholder="Search..."
@@ -146,6 +148,7 @@ export function Forum(props) {
                                 <Avatar size={80} icon={<UserOutlined />} src={imageList} />
                                 <h2>{name}</h2>
                                 <p style={{ marginTop: "5%", marginBottom: "7%" }}>{address}</p>
+                                <Button className="view-my-profile-btn" type="primary" onClick={() => { navigate('/profile') }}>My Profile</Button>
                             </div>
                         </Card>
                     </Row>
@@ -170,13 +173,13 @@ export function Forum(props) {
                                 {animalOptions}
                             </Select>
 
-                            <div className="select-header">Disease</div>
+                            {/* <div className="select-header">Disease</div>
                             <Select
                                 placeholder="Select Disease"
                             // defaultValue={['User Pet Disease']}
                             >
                                 {diseaseOptions}
-                            </Select>
+                            </Select> */}
 
                             <div className="select-header">Vaccine</div>
                             <Select
