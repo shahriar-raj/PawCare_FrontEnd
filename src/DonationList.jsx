@@ -7,10 +7,19 @@ import { Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+
 
 export function DonationList(props) {
     const [data, setData] = useState([]);
     const navigate = useNavigate();
+
+    const handleLog = () => {
+        navigate('/');
+    }
+
     useEffect(() => {
         // Function to fetch data from the API
         const fetchData = async () => {
@@ -41,15 +50,28 @@ export function DonationList(props) {
     return (
         <div>
             <div className="container">
-                <div className="donation_header">
-                    <img src="src/assets/logo.png" alt="Logo" width="265px" />
-                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={() => { navigate('/') }}>
+
+
+                <div className="profile_header">
+                    <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                    <Button className='logout' icon={<LogoutOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "20%" }} onClick={handleLog}>
                         Logout
                     </Button>
-                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/profile') }} >
-                        Profile
+                    <Button className='Donation' icon={<FontAwesomeIcon icon={faHome} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/adoption') }}>
+                        Adopt a Pet
+                    </Button>
+                    <Button className='Profile' icon={<FontAwesomeIcon icon={faUser} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/profile') }}>
+                        My Profile
+                    </Button>
+                    <Button className='Notification' icon={<BellOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
+                        Notifications
+                    </Button>
+                    <Button className='About' icon={<MessageOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/forum') }}>
+                        Forum
                     </Button>
                 </div>
+
+
                 <br />
                 <p style={{ marginLeft: '25%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> Donation Request List</p>
                 <hr />

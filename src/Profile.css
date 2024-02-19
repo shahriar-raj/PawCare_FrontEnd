@@ -317,19 +317,21 @@
 
 
 
-.button-with-icon .ant-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px; /* Adjust padding as needed */
-  }
-  
-  .button-with-icon .ant-btn > * {
-    margin-bottom: 4px; /* Space between icon and text */
-  }
-  
-  .button-with-icon .ant-btn > div {
-    margin-bottom: 0; /* Remove bottom margin from last item */
-  }
-  
+
+
+/* Styles for .profile_header, .profileImg, .name, .p_button remain unchanged */
+.profile_header .ant-btn {
+  margin-left: 1%; /* Ensures consistent spacing between buttons */
+  border-radius: 20px; /* Rounded corners for buttons */
+  font-size: 1em; /* Adjust font size as needed */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.profile_header .ant-btn:hover {
+  background-color: #6bebc931 !important; /* Darker shade on hover, adjust color as needed */
+  color: #ffffff; /* Keep text color consistent or change as per need */
+  transform: translateY(-2px); /* Slight raise effect on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+}
+
+

@@ -115,8 +115,8 @@ export function Profile(props) {
                 <Button className='About' icon={<MessageOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/forum') }}>
                     Forum
                 </Button>
-
             </div>
+            
             <div className="container_profile">
                 <div className="first-column">
                     <div className='profile-card'>
