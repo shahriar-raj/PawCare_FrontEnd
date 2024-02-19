@@ -9,6 +9,10 @@ import { useState } from 'react';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
+import { faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 export function Profile(props) {
     const [data, setData] = useState([]);
@@ -22,6 +26,9 @@ export function Profile(props) {
     const add = () => {
         navigate('/addPet');
     }
+    const handleNavigate = (path) => () => {
+        navigate(path);
+    };
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -90,21 +97,22 @@ export function Profile(props) {
 
     return (
         <div>
+            
             <div className="profile_header">
                 <img src="src/assets/logo.png" alt="Logo" width="20%" />
-                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "30%" }} onClick={handleLog}>
+                <Button className='logout' icon={<LogoutOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "20%" }} onClick={handleLog}>
                     Logout
                 </Button>
-                <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                    Donation
+                <Button className='Donation' icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Donate For Pets
                 </Button>
-                <Button className='Adoption' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/adoption') }}>
-                    Adoption
+                <Button className='Adoption' icon={<FontAwesomeIcon icon={faHome} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/adoption') }}>
+                    Adopt a Pet
                 </Button>
-                <Button className='Notification' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
-                    Notification
+                <Button className='Notification' icon={<BellOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
+                    Notifications
                 </Button>
-                <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/forum') }}>
+                <Button className='About' icon={<MessageOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/forum') }}>
                     Forum
                 </Button>
 
