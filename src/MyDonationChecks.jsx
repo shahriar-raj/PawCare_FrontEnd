@@ -38,14 +38,30 @@ export function MyDonationChecks(props) {
         fetchData();
     }, []);
 
+    const toggleChecked = (id) => {
+        const updatedSubpoints = data.map(subpoint => {
+            if (subpoint.SubPointNumber === id) {
+                return { ...subpoint, Checked: !subpoint.Checked };
+            }
+            return subpoint;
+        });
+
+        setData(updatedSubpoints);
+    };
 
     return (
-        <div>
-            {data.map((donation) => (
-                <div className='Checkpoints'>
-                    {donation.Reason}
+        <div className='Checkpoints'>
+            {data.map((subpoint) => (
+                <div key={subpoint.SubPointNumber}>
+                    <input
+                        type="checkbox"
+                        checked={subpoint.Checked}
+                        onChange={() => toggleChecked(subpoint.SubPointNumber)}
+                    />
+                    {subpoint.Reason}
                 </div>
             ))}
+            <Button type="primary" onClick={() => { console.log(data) }}>Submit</Button>
         </div>
     )
 }

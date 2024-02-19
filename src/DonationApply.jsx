@@ -188,89 +188,11 @@ export function DonationApply() {
                             <Input.TextArea />
                         </Form.Item>
 
-                        <p style={{ color: "#CEDFB9" }}>Relevant Tags</p>
+                        <p style={{ color: "#CEDFB9" }}>Enter The Bkash Number for Disbursement of Donation</p>
                         <Form.Item
-                            name="animalTags"
-
+                            name="disbursementMethod"
                         >
-                            <Space size={[0, 8]} wrap>
-                                {animalTags.map((tag, index) => {
-                                    if (editAnimalInputIndex === index) {
-                                        return (
-                                            <Input
-                                                ref={editAnimalInputRef}
-                                                key={tag}
-                                                size="small"
-                                                style={{ width: '78px', marginRight: '8px', verticalAlign: 'top' }}
-                                                value={editAnimalInputValue}
-                                                onChange={handleAnimalEditInputChange}
-                                                onBlur={handleAnimalEditInputConfirm}
-                                                onPressEnter={handleAnimalEditInputConfirm}
-                                            />
-                                        );
-                                    }
-
-                                    const isLongTag = tag.length > 20;
-
-                                    const tagElem = (
-                                        <Tag
-                                            className="edit-tag"
-                                            key={tag}
-                                            closable={index !== 0}
-                                            onClose={() => handleAnimalClose(tag)}
-                                        >
-                                            <span
-                                                onDoubleClick={e => {
-                                                    if (index !== 0) {
-                                                        setEditAnimalInputIndex(index);
-                                                        setEditAnimalInputValue(tag);
-                                                        e.preventDefault();
-                                                    }
-                                                }}
-                                            >
-                                                {isLongTag ? `${tag.slice(0, 20)}...` : tag}
-                                            </span>
-                                        </Tag>
-                                    );
-
-                                    return isLongTag ? (
-                                        <Tooltip title={tag} key={tag}>
-                                            {tagElem}
-                                        </Tooltip>
-                                    ) : (
-                                        tagElem
-                                    );
-                                })}
-                                {animalInputVisible && (
-                                    <Input
-                                        ref={animalInputRef}
-                                        type="text"
-                                        size="small"
-                                        style={{ width: '78px', marginRight: '8px', verticalAlign: 'top' }}
-                                        value={animalInputValue}
-                                        onChange={(e) => setAnimalInputValue(e.target.value)}
-                                        onBlur={() => {
-                                            if (animalInputValue && !animalTags.includes(animalInputValue)) {
-                                                setAnimalTags([...animalTags, animalInputValue]);
-                                            }
-                                            setAnimalInputVisible(false);
-                                            setAnimalInputValue('');
-                                        }}
-                                        onPressEnter={() => {
-                                            if (animalInputValue && !animalTags.includes(animalInputValue)) {
-                                                setAnimalTags([...animalTags, animalInputValue]);
-                                            }
-                                            setAnimalInputVisible(false);
-                                            setAnimalInputValue('');
-                                        }}
-                                    />
-                                )}
-                                {!animalInputVisible && (
-                                    <Tag className="site-tag-plus" onClick={() => setAnimalInputVisible(true)}>
-                                        <PlusOutlined /> New Tag
-                                    </Tag>
-                                )}
-                            </Space>
+                            <Input />
                         </Form.Item>
 
                         <p style={{ color: "#CEDFB9" }}>Checkpoints</p>
