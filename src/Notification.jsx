@@ -9,10 +9,22 @@ import { useState } from 'react';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { storage } from "./firebase";
 import { LeftCircleOutlined } from '@ant-design/icons';
+import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
+import './AdoptionList.css';
+import './AdoptionCard.css'
+import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+
+
 
 export function Notification(props) {
     const [data, setData] = useState([]);
     const navigate = useNavigate();
+
+    const handleLog = () => {
+        navigate('/');
+    }
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,6 +53,27 @@ export function Notification(props) {
 
     return (
         <div>
+            <div className="profile_header">
+                <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                <Button className='Profile' icon={<FontAwesomeIcon icon={faUser} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "10%" }} onClick={() => { navigate('/profile') }}>
+                    My Profile
+                </Button>
+                <Button className='Donation' icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "0%" }} onClick={() => { navigate('/donation') }}>
+                    Donate For Pets
+                </Button>
+                <Button className='Adoption' icon={<FontAwesomeIcon icon={faHome} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "0%" }} onClick={() => { navigate('/adoption') }}>
+                    Adopt a Pet
+                </Button>
+                <Button className='Notification active' icon={<BellOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "0%" }} onClick={() => { navigate('/notifications') }}>
+                    Notifications
+                </Button>
+                <Button className='Forum' icon={<MessageOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "0%" }} onClick={() => { navigate('/forum') }}>
+                    Forum
+                </Button>
+                <Button className='logout' icon={<LogoutOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "3%" }} onClick={handleLog}>
+                    Logout
+                </Button>
+            </div>
             <div className="notifications-post">
                 
                 <div className="notifications-header">
