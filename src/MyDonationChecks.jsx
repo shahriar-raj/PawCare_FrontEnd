@@ -49,9 +49,18 @@ export function MyDonationChecks(props) {
         setData(updatedSubpoints);
     };
 
-    const updateCheckpoints = async() =>{
-        let obj ={
-            subPoints: data,
+    const updateCheckpoints = async () => {
+
+        console.log("YEs");
+        const subPoints = data.map(subpoint => {
+            if (subpoint.Checked === true) {
+                return subpoint.SubPointNumber;
+            }
+        });
+        console.log(subPoints);
+        let obj = {
+            donationid: localStorage.getItem('DonationID'),
+            subPoints: subPoints,
         }
         const response = await fetch('http://3.89.30.159:3000/donation/updateDonationSubPoints', {
             method: 'POST',
@@ -60,10 +69,10 @@ export function MyDonationChecks(props) {
             },
             body: JSON.stringify(obj),
         });
-        if(response.status === 200){
+        if (response.status === 200) {
             navigate('/mydonation');
         }
-        else{
+        else {
             console.log("Error updating checkpoints");
         }
     }
@@ -86,7 +95,7 @@ export function MyDonationChecks(props) {
                     ))}
                 </Card.Body>
                 <Card.Footer>
-                    <Button type="primary" onClick={()=>{updateCheckpoints}} style={{marginLeft:"20%", marginTop:"5%"}}>Submit</Button>
+                    <Button type="primary" onClick={() => updateCheckpoints()} style={{ marginLeft: "20%", marginTop: "5%" }}>Submit</Button>
                 </Card.Footer>
             </Card>
         </div>
