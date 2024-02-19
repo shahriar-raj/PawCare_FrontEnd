@@ -87,6 +87,21 @@ export function Profile(props) {
         }
     };
 
+
+
+
+    // Scroll Functions
+    const scrollAmount = 200; // You can adjust this value
+
+    const scrollLeft = () => {
+        document.querySelector('.scrollable-row').scrollLeft -= scrollAmount;
+    };
+
+    const scrollRight = () => {
+        document.querySelector('.scrollable-row').scrollLeft += scrollAmount;
+    };
+    
+
     return (
         <div>
             <div className="profile_header">
@@ -110,32 +125,37 @@ export function Profile(props) {
             </div>
             <div className="container_profile">
                 <div className="first-column">
-                    <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
-                    <div className='profileImg'>
-                        <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
+                    <div className='profile-card'>
+                        <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Profile</h1>
+                        <div className='profileImg'>
+                            <CircleImage src={imageList} alt="Profile Picture" diameter="120px" />
+                        </div>
+                        <h2 className="name">{name}</h2>
+                        <h3 className="name">{address}</h3>
+                        <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
+                            Edit Profile
+                        </Button>
                     </div>
-                    <h2 className="name">{name}</h2>
-                    <h3 className="name">{address}</h3>
-                    <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
-                        Edit Profile
-                    </Button>
                 </div>
                 <div className="second-column">
-                    <div className="row top-row">
-                        <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>Pets</h1>
+                    <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>My Pets</h1>
+                    
+                    <div className="scrollable-row top-row">
                         {
                             data.map((item) => (
                                 <div key={item.PetID} className='pet-card-container'>
-                                    <Card className="petCard" >
+                                    <Card className="petCard" style={{ width: "25%" }}>
                                         <Card.Body>
                                             <div className="pet-info-profile">
-                                                <Avatar size={100} src={item.URL} className="pet-avatar" />
-                                                <div className="pet-details">
-                                                    <h1 className="pet-name">{item.Name}</h1>
-                                                    {item.Breed}<br />
-                                                    Age: {item.Age} Months
-                                                </div>
+                                                <Avatar size={100} src={item.URL} className="pet-avatar" style={{marginLeft:"29%", marginTop:'5%'}} />
                                             </div>
+                                            <div className="pet-details">
+                                                <h1 className="pet-name">{item.Name}</h1>
+                                                {item.Breed}<br />
+                                                Age: {item.Age} Months
+                                            </div>
+
+                                            
                                             <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>
                                                 <DeleteOutlined />
                                             </Button>
@@ -152,12 +172,21 @@ export function Profile(props) {
                                     </Card>
                                 </div>
                             ))
+                    
                         }
+                        
+                    </div>
+                    <div className="scroll-controls">
+                            <Button onClick={scrollLeft} className="scroll-btn"><span className='scoll-sign'> &lt; </span> </Button>
+                            <Button style={{ width: "20%", height: "100%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                            Add Pet
+                            </Button>
+                            <Button onClick={scrollRight} className="scroll-btn"> <span className='scoll-sign'> &gt; </span></Button>
+                    
                     </div>
                     <div className="row bottom-row">
-                        <Button type="dashed" style={{ width: "30%", height: "20%", marginTop: "10%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
-                            Add Pet
-                        </Button>
+                        
+                        
                     </div>
                 </div>
             </div>
