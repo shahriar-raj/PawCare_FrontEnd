@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button} from 'antd';
+import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
+import { useEffect } from 'react';
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import './Forum.css';
 import './TwitterCard.css'
 
@@ -15,12 +18,16 @@ const { Meta } = Card;
 
 export function Forum(props) {
     const navigate = useNavigate();
-
-
+    // const [data, setData] = useState([]);
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
+    const [imageList, setImageList] = useState([]);
     const handleNavigate = (path) => () => {
         navigate(path);
     };
 
+    const data = [{ "User": "A", "Type": "Donation", "Title": "Donation Title", "Description": "Donation Description", "Amount": "1000", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
     // Generate options for the Select components
     const locationOptions = [];
     for (let i = 10; i < 36; i++) {
@@ -36,7 +43,46 @@ export function Forum(props) {
         // ... (upload logic here)
     };
 
+    useEffect(() => {
+        // Function to fetch data from the API
 
+
+        const fetchData = async () => {
+            try {
+                let obj = {
+                    userID: localStorage.getItem('userID'),
+                }
+                const response = await fetch('http://3.89.30.159:3000/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json(); // Assuming the response is in JSON format
+
+                // Update state with the result
+                setName(result.userDetails.userDetails.Username);
+                setAddress(result.userDetails.userDetails.Address);
+                listAll(ref(storage, 'images/' + result.userDetails.userDetails.Email + '/')).then((response) => {
+                    console.log(response);
+                    response.items.forEach((itemRef) => {
+                        getDownloadURL(itemRef).then((url) => {
+                            setImageList(url);
+                            console.log(url);
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    });
+                })
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        // Call the fetchData function
+        fetchData();
+    }, []);
 
     const [searchValue, setSearchValue] = useState('');
 
@@ -44,11 +90,35 @@ export function Forum(props) {
         setSearchValue(e.target.value);
     };
 
+    function renderConditionalContent(item) {
+        if (item.Type === "Donation") {
+            return (
+                <div>
+                    <Typography.Paragraph className="twitter-card-content">
+                        Amount: {item.Amount}
+                    </Typography.Paragraph>
+                    <Button type="primary" onClick={handleNavigate('/donation')} > Donate </Button>
+                </div>
+            );
+        } else if (item.Type === "Adoption") {
+            return (
+                <div>
+                    <Typography.Paragraph className="twitter-card-content">
+                        Name: {item.Name}    
+                    </Typography.Paragraph>
+                    <Button type="primary" onClick={handleNavigate('/adopt')} > Adopt </Button>
+                </div>
+            );
+        }
+        // Return null or any default JSX if no condition is met
+        return null;
+    }
+
     return (
 
         <div className="forum-container">
             <div className="profile_header">
-                         
+
                 <div className="navigation-buttons">
                     <span className="forum-title">PawForum</span>
                     <Input
@@ -57,7 +127,7 @@ export function Forum(props) {
                         value={searchValue}
                         onChange={handleSearchInputChange}
 
-                        style={{width : "20%"}}
+                        style={{ width: "20%" }}
                     />
                     <Button className='nav-button' icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/profile')} />
                     <Button icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} onClick={handleNavigate('/donation')} />
@@ -71,32 +141,11 @@ export function Forum(props) {
 
                     <Row className="section section1">
                         <Card className="user-profile" >
-                            
+
                             <div className="user-content">
-                                <Avatar size={80} icon={<UserOutlined />} src="./src/assets/cat1.png" />
-                                <h2 style={{marginBottom:"-5%"}}>Sarah Perez</h2>
-                                <p style={{marginBottom:"7%"}}>From Dhanmondi</p>
-                
-                                <Row>
-                                    <Col className='profile-col' span={8}>
-                                        <div className="user-statistic">
-                                            <span>Followers</span>
-                                            <p className='user-stat'>29</p>
-                                        </div>
-                                    </Col>
-                                    <Col className='profile-col' span={6}>
-                                        <div className="user-statistic">
-                                            <span>Pets</span>
-                                            <p className='user-stat'>8</p>
-                                        </div>
-                                    </Col>
-                                    <Col  className='profile-col' span={10}>
-                                        <div className="user-statistic">
-                                            <span>Followed by</span>
-                                            <p className='user-stat'>50</p>
-                                        </div>
-                                    </Col>
-                                </Row>
+                                <Avatar size={80} icon={<UserOutlined />} src={imageList} />
+                                <h2>{name}</h2>
+                                <p style={{ marginTop: "5%", marginBottom: "7%" }}>{address}</p>
                             </div>
                         </Card>
                     </Row>
@@ -154,9 +203,6 @@ export function Forum(props) {
                                             placeholder="What's happening?"
                                             onPressEnter={() => {/* Handle the press enter event */ }}
                                         />
-
-
-
                                     </div>
                                     <div className="button-group">
                                         <Upload
@@ -181,41 +227,41 @@ export function Forum(props) {
                         <Col span={1} className="" />
 
                     </Row>
-                    <Row>
 
-                    </Row>
-
-                    <Row>
-                        <Col span={1} className="" />
-                        <Col span={21} className="twitter-card1">
-                            <Card className="twitter-card1">
-                                <Meta
-                                    avatar={<Avatar icon={<TwitterOutlined />} />}
-                                    title={
-                                        <span className="twitter-card-title">
-                                            Lorem <FontAwesomeIcon icon={faCheckCircle} className="twitter-card-check" />
-                                        </span>
-                                    }
-                                    description="@ipsum"
-                                />
-                                <Typography.Paragraph className="twitter-card-content">
-                                    Lorem ipsum dolor sit amet. Aut tenetur molestiae provident Quis es maxima. 
-                                    Lorem ipsum dolor sit amet. Aut tenetur molestiae provident Quis es maxima.
-                                    Lorem ipsum dolor sit amet. Aut tenetur molestiae provident Quis es maxima.
-                                     #TwitterPost
-                                </Typography.Paragraph>
-                                <div className="twitter-card-footer">
-                                    <span className="twitter-card-date">11 May 2021</span>
-                                    <div className="twitter-card-actions">
-                                        <FontAwesomeIcon icon={faComment} />
-                                        <FontAwesomeIcon icon={faRetweet} />
-                                        <FontAwesomeIcon icon={faHeart} />
+                    {data.map((item) => (
+                        <Row>
+                            <Col span={1} className="" />
+                            <Col span={21} className="twitter-card1">
+                                <Card className="twitter-card1">
+                                    <Meta
+                                        avatar={<Avatar icon={<TwitterOutlined />} />}
+                                        title={
+                                            <span className="twitter-card-title">
+                                                {item.User}
+                                            </span>
+                                        }
+                                        description=" "
+                                    />
+                                    <Typography.Paragraph className="twitter-card-content">
+                                        {item.Description}
+                                        &nbsp; #{item.Type}
+                                    </Typography.Paragraph>
+                                    <div>
+                                        {renderConditionalContent(item)}
                                     </div>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col span={1} className="" />
-                    </Row>
+                                    <div className="twitter-card-footer">
+                                        <span className="twitter-card-date">{item.Date}</span>
+                                        {/* <div className="twitter-card-actions">
+                                            <FontAwesomeIcon icon={faComment} />
+                                            <FontAwesomeIcon icon={faRetweet} />
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        </div> */}
+                                    </div>
+                                </Card>
+                            </Col>
+                            <Col span={1} className="" />
+                        </Row>
+                    ))};
                 </Col>
             </Row>
         </div>
