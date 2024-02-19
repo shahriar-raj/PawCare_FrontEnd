@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faUser,faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -11,6 +11,8 @@ import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import './Forum.css';
 import './TwitterCard.css'
+import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
+
 
 const { Option } = Select;
 
@@ -45,6 +47,10 @@ export function Forum(props) {
     const handleFileChange = info => {
         // ... (upload logic here)
     };
+
+    const handleLog = () => {
+        navigate('/');
+    }
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -128,24 +134,26 @@ export function Forum(props) {
     return (
 
         <div className="forum-container">
-            <div className="profile_header">
-                <div className="navigation-buttons">
-                    <span className="forum-title">PawCare</span>
-                    <Input
-                        className="search-input"
-                        placeholder="Search..."
-                        value={searchValue}
-                        onChange={handleSearchInputChange}
 
-                        style={{ width: "20%" }}
-                    />
-                    <Button className='nav-button' icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/profile')} />
-                    <Button icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} onClick={handleNavigate('/donation')} />
-                    <Button icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/profile')} />
-                    <Button icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} onClick={handleNavigate('/donation')} />
-                    {/* <FontAwesomeIcon icon={faPaw} size="2x" className="paw-icon" /> */}
+                <div className="profile_header">
+                    <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                    <Button className='logout' icon={<LogoutOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "20%" }} onClick={handleLog}>
+                        Logout
+                    </Button>
+                    <Button className='Donation' icon={<FontAwesomeIcon icon={faHome} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/adoption') }}>
+                        Adopt a Pet
+                    </Button>
+                    <Button className='Profile' icon={<FontAwesomeIcon icon={faUser} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/profile') }}>
+                        My Profile
+                    </Button>
+                    <Button className='Notification' icon={<BellOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/notifications') }}>
+                        Notifications
+                    </Button>
+                    <Button className='Donation' icon={<FontAwesomeIcon icon={faHandHoldingDollar} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                        Donate For Pets
+                    </Button>
                 </div>
-            </div>
+
             <Row className="content-grid" wrap={false}>
                 <Col span={6} className="left-side">
 
