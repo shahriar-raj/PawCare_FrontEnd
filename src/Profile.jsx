@@ -88,20 +88,6 @@ export function Profile(props) {
     };
 
 
-
-
-    // Scroll Functions
-    const scrollAmount = 200; // You can adjust this value
-
-    const scrollLeft = () => {
-        document.querySelector('.scrollable-row').scrollLeft -= scrollAmount;
-    };
-
-    const scrollRight = () => {
-        document.querySelector('.scrollable-row').scrollLeft += scrollAmount;
-    };
-
-
     return (
         <div>
             <div className="profile_header">
@@ -140,7 +126,7 @@ export function Profile(props) {
                 <div className="second-column">
                     <h1 style={{ textAlign: "center", fontFamily: "Baloo Da", color: "#192928" }}>My Pets</h1>
 
-                    <div className="scrollable-row top-row">
+                    <div className="scrollable-row">
                         {
                             data.map((item) => (
                                 <div key={item.PetID} className='pet-card-container'>
@@ -177,17 +163,11 @@ export function Profile(props) {
 
                     </div>
                     <div className="scroll-controls">
-                        <Button onClick={scrollLeft} className="scroll-btn"><span className='scoll-sign'> &lt; </span> </Button>
                         <Button style={{ width: "20%", height: "100%", backgroundColor: "#192928", color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }} onClick={() => add()} block icon={<PlusOutlined />}>
                             Add Pet
                         </Button>
-                        <Button onClick={scrollRight} className="scroll-btn"> <span className='scoll-sign'> &gt; </span></Button>
-
                     </div>
-                    <div className="row bottom-row">
-
-
-                    </div>
+               
                 </div>
             </div>
         </div>
