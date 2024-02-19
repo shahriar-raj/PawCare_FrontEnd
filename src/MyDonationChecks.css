@@ -1,3 +1,10 @@
 .Checkpoints{
-    color:#192928
+    color:white;
+    background-color: #192928;
+    width: 30%;
+    margin-left: 25%;
+    margin-top: 15%;
+    padding: 5%;
+    border-radius: 5%;
+    font-family: "Baloo Da";
 }

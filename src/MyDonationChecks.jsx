@@ -49,19 +49,46 @@ export function MyDonationChecks(props) {
         setData(updatedSubpoints);
     };
 
+    const updateCheckpoints = async() =>{
+        let obj ={
+            subPoints: data,
+        }
+        const response = await fetch('http://3.89.30.159:3000/donation/updateDonationSubPoints', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj),
+        });
+        if(response.status === 200){
+            navigate('/mydonation');
+        }
+        else{
+            console.log("Error updating checkpoints");
+        }
+    }
+
     return (
-        <div className='Checkpoints'>
-            {data.map((subpoint) => (
-                <div key={subpoint.SubPointNumber}>
-                    <input
-                        type="checkbox"
-                        checked={subpoint.Checked}
-                        onChange={() => toggleChecked(subpoint.SubPointNumber)}
-                    />
-                    {subpoint.Reason}
-                </div>
-            ))}
-            <Button type="primary" onClick={() => { console.log(data) }}>Submit</Button>
+        <div >
+            <Card className='Checkpoints'>
+                <Card.Body>
+                    <Card.Title><h2>Donation Checkpoints</h2></Card.Title>
+                    {data.map((subpoint) => (
+                        <div key={subpoint.SubPointNumber} className="mb-2">
+                            <input
+                                type="checkbox"
+                                checked={subpoint.Checked}
+                                onChange={() => toggleChecked(subpoint.SubPointNumber)}
+                                className="me-2"
+                            />
+                            {subpoint.Reason}
+                        </div>
+                    ))}
+                </Card.Body>
+                <Card.Footer>
+                    <Button type="primary" onClick={()=>{updateCheckpoints}} style={{marginLeft:"20%", marginTop:"5%"}}>Submit</Button>
+                </Card.Footer>
+            </Card>
         </div>
     )
 }
