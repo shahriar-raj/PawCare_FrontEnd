@@ -25,8 +25,8 @@ export function Profile(props) {
 
     useEffect(() => {
         // Function to fetch data from the API
-
-
+        
+        
         const fetchData = async () => {
             try {
                 let obj = {
@@ -106,7 +106,7 @@ export function Profile(props) {
                 <Button className='About' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/about') }}>
                     About
                 </Button>
-
+                          
             </div>
             <div className="container_profile">
                 <div className="first-column">
