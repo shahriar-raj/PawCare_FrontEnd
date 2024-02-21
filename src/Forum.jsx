@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -51,6 +51,15 @@ export function Forum(props) {
     const handleLog = () => {
         navigate('/');
     }
+
+    const sortItemsByID = () => {
+        // Copy the items array to avoid directly mutating state
+        const itemsToSort = [...data];
+        // Sort items based on the 'id' property, descending
+        itemsToSort.sort((a, b) => b.PostID - a.PostID);
+        // Update the state with the sorted items
+        setData(itemsToSort);
+    };
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -101,6 +110,7 @@ export function Forum(props) {
                 const result = await response.json(); // Assuming the response is in JSON format
                 console.log(result);
                 setData(result.donationData);
+                sortItemsByID();
             }
             catch (error) {
                 console.error('Error fetching data:', error);
@@ -271,7 +281,7 @@ export function Forum(props) {
                         <Col span={1} className="" />
 
                     </Row>
-                    
+
                     {data.map((item) => (
                         <Row>
                             <Col span={1} className="" />
@@ -288,13 +298,13 @@ export function Forum(props) {
                                     />
                                     <Typography.Paragraph className="twitter-card-content">
                                         {item.Description}
-                                        &nbsp; #{(item.Type===1)?"Donation":(item.Type===2)?"Adoption":"Normal"}
+                                        &nbsp; #{(item.Type === 1) ? "Donation" : (item.Type === 2) ? "Adoption" : "Normal"}
                                     </Typography.Paragraph>
                                     <div>
                                         {renderConditionalContent(item)}
                                     </div>
                                     <div className="twitter-card-footer">
-                                        <span className="twitter-card-date">{item.Date}</span>
+                                        <span className="twitter-card-date">{item.AdoptionDate}</span>
                                         {/* <div className="twitter-card-actions">
                                             <FontAwesomeIcon icon={faComment} />
                                             <FontAwesomeIcon icon={faRetweet} />
