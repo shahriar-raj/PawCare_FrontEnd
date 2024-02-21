@@ -1,0 +1,134 @@
+
+
+.payment-fail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ff3333;
+}
+
+.payment-fail-card {
+    padding: 20px;
+    background-color: #922724;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 400px; /* Adjust based on your layout needs */
+    text-align: center;
+    min-width: 50%;
+}
+
+.payment-fail-steps {
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+}
+
+.payment-fail-actions {
+    display: flex;
+    margin-left: 75%;
+    margin-top: 0%;
+}
+
+.fail-btn{
+    margin-right: 5%;
+
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+
+    border-radius: 5px; /* Optional: Adjust border-radius for rounded corners */
+    color: #333;
+    height: 0%;
+}
+
+.fail-btn:hover {
+    transform: scale(1.05); /* Make the button slightly larger on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.payment-fail-card h1 {
+    margin-bottom: 1%; /* Reduced bottom margin of the h1 */
+}
+
+.payment-fail-card p {
+    color: #b4b4b8e1;
+}
+
+
+
+
+
+
+
+
+
+/* Overriding ant design */
+
+.payment-fail-page .ant-steps-item-title {
+    font-size: 26px !important; /* Adjust title size as needed */
+    color: #ffffff !important; /* Darker text for better readability */
+}
+
+.payment-fail-page .ant-steps-item-description {
+    font-size: 15px !important; /* Adjust description size as needed */
+    color: #000000 !important; /* Gray text for descriptions */
+}
+
+
+
+.payment-fail-page .ant-steps-item-finish .ant-steps-item-icon {
+    background-color: #52c41a !important; /* Background color for completed steps */
+    border-color: #52c41a !important; /* Consistent with the background */
+}
+
+.payment-fail-page .ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon {
+    color: #fff !important; /* White text/icon inside the completed step */
+}
+
+.payment-fail-page .ant-steps-item-error .ant-steps-item-icon {
+    background-color: #ff4d4f !important; /* Background color for error steps */
+    border-color: #ff4d4f !important; /* Consistent with the background */
+}
+
+
+/* Change the title color of the first step */
+.payment-fail-page .ant-steps-item:first-child .ant-steps-item-title {
+    color: #52c41a !important; /* Use !important to override default styles */
+    font-weight: bold !important;
+}
+
+/* Change the description color of the first step */
+.payment-fail-page .ant-steps-item:first-child .ant-steps-item-description {
+    color: #52c41a !important; /* Use !important to override default styles */
+
+}
+
+
+
+/* Change the title color of the 2nd step */
+.payment-fail-page .ant-steps-item:nth-child(2) .ant-steps-item-title {
+    color: #ff4d4f !important; /* Use !important to override default styles */
+    font-weight: bold !important;
+}
+
+/* Change the description color of the 2nd step */
+.payment-fail-page .ant-steps-item:nth-child(2) .ant-steps-item-description {
+    color: #ff4d4f !important; /* Use !important to override default styles */
+    
+}
+
+
+
+
+/* Change the title color of the 3rd step */
+.payment-fail-page .ant-steps-item:nth-child(3) .ant-steps-item-title {
+    color: #b4b4b856 !important; /* Use !important to override default styles */
+    font-weight: bold !important;
+}
+
+/* Change the description color of the 3rd step */
+.payment-fail-page .ant-steps-item:nth-child(3) .ant-steps-item-description {
+    color: #adadad41 !important; /* Use !important to override default styles */
+}
+
+
