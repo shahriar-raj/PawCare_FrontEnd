@@ -20,7 +20,7 @@ const { Meta } = Card;
 
 export function Forum(props) {
     const navigate = useNavigate();
-    // const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [imageList, setImageList] = useState([]);
@@ -28,11 +28,11 @@ export function Forum(props) {
         navigate(path);
     };
 
-    const data = [{ "User": "A", "Type": "Donation", "Title": "Donation Title", "Description": "Donation Description", "Amount": "1000", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
-    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    { "User": "C", "Type": "Normal", "Title": "Normal Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
+    // const data = [{ "User": "A", "Type": "Donation", "Title": "Donation Title", "Description": "Donation Description", "Amount": "1000", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
+    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+    // { "User": "C", "Type": "Normal", "Title": "Normal Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
     // Generate options for the Select components
     const locationOptions = [];
     for (let i = 10; i < 36; i++) {
@@ -87,6 +87,24 @@ export function Forum(props) {
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
+            try {
+                let obj = {
+
+                }
+                const response = await fetch('http://3.89.30.159:3000/forum', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json(); // Assuming the response is in JSON format
+                console.log(result);
+                setData(result.donationData);
+            }
+            catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
 
         // Call the fetchData function
@@ -100,16 +118,16 @@ export function Forum(props) {
     };
 
     function renderConditionalContent(item) {
-        if (item.Type === "Donation") {
+        if (item.Type === 1) {
             return (
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
-                        Amount: {item.Amount}
+                        Amount: {item.TotalAmount}
                     </Typography.Paragraph>
                     <Button type="primary" onClick={handleNavigate('/donation')} > Donate </Button>
                 </div>
             );
-        } else if (item.Type === "Adoption") {
+        } else if (item.Type === 2) {
             return (
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
@@ -118,7 +136,7 @@ export function Forum(props) {
                     <Button type="primary" onClick={handleNavigate('/adopt')} > Adopt </Button>
                 </div>
             );
-        } else if (item.Type === "Normal") {
+        } else if (item.Type === 3) {
             return (
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
@@ -192,14 +210,6 @@ export function Forum(props) {
                                 {animalOptions}
                             </Select>
 
-                            {/* <div className="select-header">Disease</div>
-                            <Select
-                                placeholder="Select Disease"
-                            // defaultValue={['User Pet Disease']}
-                            >
-                                {diseaseOptions}
-                            </Select> */}
-
                             <div className="select-header">Vaccine</div>
                             <Select
                                 placeholder="Select Vaccine"
@@ -259,14 +269,14 @@ export function Forum(props) {
                                         avatar={<Avatar icon={<TwitterOutlined />} />}
                                         title={
                                             <span className="twitter-card-title">
-                                                {item.User}
+                                                {item.Username}
                                             </span>
                                         }
                                         description=" "
                                     />
                                     <Typography.Paragraph className="twitter-card-content">
                                         {item.Description}
-                                        &nbsp; #{item.Type}
+                                        &nbsp; #{(item.Type===1)?"Donation":(item.Type===2)?"Adoption":"Normal"}
                                     </Typography.Paragraph>
                                     <div>
                                         {renderConditionalContent(item)}

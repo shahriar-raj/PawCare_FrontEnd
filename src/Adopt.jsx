@@ -65,8 +65,8 @@ export function Adopt() {
                         rules={[{ required: true, message: 'Please select an option!' }]}
                     >
                         <Radio.Group>
-                            <Radio value={true}>Yes</Radio>
-                            <Radio value={false}>No</Radio>
+                            <Radio value={1}>Yes</Radio>
+                            <Radio value={0}>No</Radio>
                         </Radio.Group>
                     </Form.Item>
                     <Form.Item
@@ -88,15 +88,15 @@ export function Adopt() {
                         label="What is your reason for wanting to adopt a pet?"
                     >
                         <Checkbox.Group>
-                            <Row>
+                            <Row >
                                 <Col span={8}>
-                                    <Checkbox value="House Pet">Housepet</Checkbox>
+                                    <Checkbox style={{color:"#cedfb9"}} value="House Pet">Housepet</Checkbox>
                                 </Col>
                                 <Col span={8}>
-                                    <Checkbox value="House Patrol">House Patrol</Checkbox>
+                                    <Checkbox style={{color:"#cedfb9"}} value="House Patrol">House Patrol</Checkbox>
                                 </Col>
                                 <Col span={8}>
-                                    <Checkbox value="Companion">Companion</Checkbox>
+                                    <Checkbox style={{color:"#cedfb9"}} value="Companion">Companion</Checkbox>
                                 </Col>
                                 {/* Add other reasons as needed */}
                             </Row>
@@ -117,9 +117,9 @@ export function Adopt() {
                         rules={[{ required: true, message: 'Please select an option!' }]}
                     >
                         <Radio.Group>
-                            <Radio value="yes">Yes</Radio>
-                            <Radio value="no">No</Radio>
-                            <Radio value="na">N/A</Radio>
+                            <Radio value="1">Yes</Radio>
+                            <Radio value="0">No</Radio>
+                            <Radio value="2">N/A</Radio>
                         </Radio.Group>
                     </Form.Item>
 
@@ -129,9 +129,9 @@ export function Adopt() {
                         rules={[{ required: true, message: 'Please select an option!' }]}
                     >
                         <Radio.Group>
-                            <Radio value="yes">Yes</Radio>
-                            <Radio value="no">No</Radio>
-                            <Radio value="na">N/A</Radio>
+                            <Radio value="1">Yes</Radio>
+                            <Radio value="0">No</Radio>
+                            <Radio value="2">N/A</Radio>
                         </Radio.Group>
                     </Form.Item>
 
