@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -243,12 +243,15 @@ export function Forum(props) {
                 <Col span={6} className="left-side">
 
                     <Row className="section section1">
-                        <Card className="user-profile" >
-
-                            <div className="user-content">
-                                <Avatar size={80} icon={<UserOutlined />} src={imageList} />
-                                <h2>{name}</h2>
-                                <p style={{ marginTop: "5%", marginBottom: "7%" }}>{address}</p>
+                        <Card className="user-profile">
+                            <div className="user-content" style={{ display: 'flex', alignItems: 'center' }}>
+                                <Avatar size={85} icon={<UserOutlined />} src={imageList} style={{ marginRight: '5%' }} />
+                                <div style={{ flex: 1 }}>
+                                    <h2>{name}</h2>
+                                    <p style={{ marginTop: "-5%", marginBottom: "3%" }}>{address}</p> {/* Adjusted margins */}
+                                </div>
+                            </div>
+                            <div style={{ marginTop: '20px', textAlign: 'center' }}>
                                 <Button className="view-my-profile-btn" type="primary" onClick={() => { navigate('/profile') }}>My Profile</Button>
                             </div>
                         </Card>
@@ -260,22 +263,25 @@ export function Forum(props) {
                             <h2>Filter</h2>
                             <div className="select-header">Location</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Location"
-                                defaultValue={['User Location', 'Dhanmondi']}
+                                // defaultValue={['User Location', 'Dhanmondi']}
                             >
                                 {locationOptions}
                             </Select>
 
                             <div className="select-header">Animals</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Animals"
-                                defaultValue={['User Pet']}
+                                // defaultValue={['User Pet']}
                             >
                                 {animalOptions}
                             </Select>
 
                             <div className="select-header">Vaccine</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Vaccine"
                             // defaultValue={['User Pet Vaccine']}
                             >
@@ -295,7 +301,7 @@ export function Forum(props) {
                                     <Avatar size={100} src={imageList} className="user-avatar" />
                                     <div className="forum-card-details">
                                         <Input
-                                            className="post-input"
+                                            className="post-input custom-placeholder"
                                             placeholder="What's happening?"
                                             value={inputValue}
                                             onChange={handleInputChange}
@@ -314,7 +320,7 @@ export function Forum(props) {
                                         >
                                             <Button icon={<FontAwesomeIcon icon={faImage} />} />
                                         </Upload>
-                                        <Button type="primary" icon={<SendOutlined />} onClick={() => { add() }} >
+                                        <Button className="post-button" icon={<SendOutlined />} onClick={() => { add() }} >
                                             Post
                                         </Button>
                                     </div>
