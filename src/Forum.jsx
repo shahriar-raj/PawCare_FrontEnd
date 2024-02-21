@@ -179,12 +179,24 @@ export function Forum(props) {
                 <Col span={6} className="left-side">
 
                     <Row className="section section1">
-                        <Card className="user-profile" >
+                        {/* <Card className="user-profile" >
 
                             <div className="user-content">
                                 <Avatar size={80} icon={<UserOutlined />} src={imageList} />
                                 <h2>{name}</h2>
                                 <p style={{ marginTop: "5%", marginBottom: "7%" }}>{address}</p>
+                                <Button className="view-my-profile-btn" type="primary" onClick={() => { navigate('/profile') }}>My Profile</Button>
+                            </div>
+                        </Card> */}
+                        <Card className="user-profile">
+                            <div className="user-content" style={{ display: 'flex', alignItems: 'center' }}>
+                                <Avatar size={85} icon={<UserOutlined />} src={imageList} style={{ marginRight: '5%' }} />
+                                <div style={{ flex: 1 }}>
+                                    <h2>{name}</h2>
+                                    <p style={{ marginTop: "-5%", marginBottom: "3%" }}>{address}</p> {/* Adjusted margins */}
+                                </div>
+                            </div>
+                            <div style={{ marginTop: '20px', textAlign: 'center' }}>
                                 <Button className="view-my-profile-btn" type="primary" onClick={() => { navigate('/profile') }}>My Profile</Button>
                             </div>
                         </Card>

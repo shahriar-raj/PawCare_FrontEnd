@@ -58,12 +58,16 @@
 
 /* For the button: */
 .ant-btn-primary {
-  background-color: #CEDFB9;
+  background-color: #b5e47c;
   /* Light green background */
   border-color: #CEDFB9;
   /* Light green border */
   color: #192928;
   /* Dark green text */
+}
+
+.ant-btn-primary:hover {
+  background-color: #73924e !important; /* Slightly darker green background for hover */
 }
 
 /* Ensure that the icon uses light green color */

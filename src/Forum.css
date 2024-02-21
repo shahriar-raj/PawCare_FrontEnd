@@ -123,7 +123,7 @@
     /* Light Green background */
     color: #192928;
     /* Dark Green text */
-    border: none;
+    border: solid 1px #33333341;
     /* margin-left: auto; */
     /* Align the button to the right */
     font-family: "Baloo Da";

@@ -1,70 +1,37 @@
 /* Twitter Card Styles */
-.adoption-card1 {
-    background-color: #fff;
-    border-radius: 15px;
-    padding-left: 2%; /* Adjust padding to reduce height */
-    padding-right: 4%; /* Adjust padding to reduce height */
+
+
+.scrollable-adoption-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+  
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 1%;
     margin-left: 2%;
 }
 
-.adoption-card2 {
-    background-color: #fff;
-    border-radius: 15px;
-    padding-left: 2%; /* Adjust padding to reduce height */
-    padding-right: 4%; /* Adjust padding to reduce height */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 1%;
-    margin-left: 2%;
+
+.verified-icon{
+    color: #378b1d;
 }
 
-.adoption-card3 {
-    background-color: #fff;
-    border-radius: 15px;
-    padding-left: 2%; /* Adjust padding to reduce height */
-    padding-right: 4%; /* Adjust padding to reduce height */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 1%;
-    margin-left: 2%;
-}
-
-.twitter-card-title {
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
-
-.twitter-card-check {
-    color: #1DA1F2;
-    margin-left: 1%;
-}
-
-.twitter-card-content {
-    font-size: 16px;
+.pet-breed-info{
     color: #333;
+    font-size: 1.3em;
+    font-weight: 400;
+
+    margin-top: -8%;
 }
 
-.adoption-card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    color: #666;
+.pet-age-info{
+    color: #333;
+    font-size: 1.3em;
+    font-weight: 400;
 }
 
-
-.adoption-card-actions {
-    display: flex;
-}
-
-.adoption-card-actions > * {
-    margin-right: 25%;
-    cursor: pointer;
-}
-
-/* FontAwesome Icons */
-.adoption-card-actions > *:hover {
-    color: #1DA1F2;
+.pet-addr{
+    color: #333;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 5%;
 }
