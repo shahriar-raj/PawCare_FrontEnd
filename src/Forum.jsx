@@ -13,7 +13,6 @@ import './Forum.css';
 import './TwitterCard.css'
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
 
-
 const { Option } = Select;
 
 const { Meta } = Card;
@@ -24,16 +23,12 @@ export function Forum(props) {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [imageList, setImageList] = useState([]);
+    const [imageUrls, setImageUrls] = useState({});
+    let urls = {};
     const handleNavigate = (path) => () => {
         navigate(path);
     };
 
-    // const data = [{ "User": "A", "Type": "Donation", "Title": "Donation Title", "Description": "Donation Description", "Amount": "1000", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
-    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    // { "User": "B", "Type": "Adoption", "Title": "Adoptiontion Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
-    // { "User": "C", "Type": "Normal", "Title": "Normal Title", "Description": "Donation Description", "Name": "Tommy", "Date": "2021-05-11", "Image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }];
-    // Generate options for the Select components
     const locationOptions = [];
     for (let i = 10; i < 36; i++) {
         locationOptions.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
@@ -42,7 +37,6 @@ export function Forum(props) {
     const animalOptions = ['Dog', 'Cat', 'Bird'].map(animal => <Option key={animal}>{animal}</Option>);
     const diseaseOptions = ['Rabies', 'Leukemia', 'Distemper'].map(disease => <Option key={disease}>{disease}</Option>);
     const vaccineOptions = ['Rabies Vaccine', 'FVRCP', 'Bordetella'].map(vaccine => <Option key={vaccine}>{vaccine}</Option>);
-
     // Handle file selection
     const handleFileChange = info => {
         // ... (upload logic here)
@@ -52,14 +46,29 @@ export function Forum(props) {
         navigate('/');
     }
 
-    const sortItemsByID = () => {
-        // Copy the items array to avoid directly mutating state
-        const itemsToSort = [...data];
-        // Sort items based on the 'id' property, descending
-        itemsToSort.sort((a, b) => b.PostID - a.PostID);
-        // Update the state with the sorted items
-        setData(itemsToSort);
-    };
+    const add = async () => {
+        try {
+            let obj = {
+                userID: localStorage.getItem('userID'),
+                text: inputValue,
+            }
+            const response = await fetch('http://3.89.30.159:3000/forum/addPost', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            const result = await response.json(); // Assuming the response is in JSON format
+            console.log(result);
+            window.location.reload();
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    const sortedPosts = [...data].sort((a, b) => b.PostID - a.PostID);
 
     useEffect(() => {
         // Function to fetch data from the API
@@ -109,19 +118,33 @@ export function Forum(props) {
                 });
                 const result = await response.json(); // Assuming the response is in JSON format
                 console.log(result);
+                console.log(result.donationData);
                 setData(result.donationData);
-                sortItemsByID();
+                console.log(data);
+                for (let i = 0; i < result.donationData.length; i++) {
+                    listAll(ref(storage, 'images/' + result.donationData[i].Email + '/')).then((response) => {
+                        console.log(response);
+                        response.items.forEach((itemRef) => {
+                            getDownloadURL(itemRef).then((url) => {
+                                urls[result.donationData[i].Email] = url;
+                            }).catch((error) => {
+                                console.log(error);
+                            });
+                        });
+                    })
+                }
+                console.log("URLS" + urls);
             }
             catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-
         // Call the fetchData function
         fetchData();
     }, []);
 
     const [searchValue, setSearchValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
     const handleSearchInputChange = (e) => {
         setSearchValue(e.target.value);
@@ -146,18 +169,43 @@ export function Forum(props) {
                     <Button type="primary" onClick={handleNavigate('/adopt')} > Adopt </Button>
                 </div>
             );
-        } else if (item.Type === 3) {
+        } else if (item.Type === 0) {
             return (
                 <div>
-                    <Typography.Paragraph className="twitter-card-content">
-                        Name: {item.Name}
-                    </Typography.Paragraph>
                 </div>
             );
         }
         // Return null or any default JSX if no condition is met
         return null;
     }
+
+    function renderConditionalDescription(item) {
+        if (item.Type === 1) {
+            return (
+                <div>
+                    {item.Description}
+                </div>
+            );
+        } else if (item.Type === 2) {
+            return (
+                <div>
+                    I have given a pet for Adoption
+                </div>
+            );
+        } else if (item.Type === 0) {
+            return (
+                <div>
+                    {item.Text}
+                </div>
+            );
+        }
+        // Return null or any default JSX if no condition is met
+        return null;
+    }
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
 
     return (
 
@@ -238,12 +286,14 @@ export function Forum(props) {
                         <Col span={22} className="">
                             <Card className="post-update-card">
                                 <div className="forum-card-info">
-                                    <Avatar size={100} src="./src/assets/cutu.png" className="user-avatar" />
+                                    <Avatar size={100} src={imageList} className="user-avatar" />
                                     <div className="forum-card-details">
                                         <Input
                                             className="post-input"
                                             placeholder="What's happening?"
-                                            onPressEnter={() => {/* Handle the press enter event */ }}
+                                            value={inputValue}
+                                            onChange={handleInputChange}
+                                            onPressEnter={() => {add()}}
                                         />
                                     </div>
                                     <div className="button-group">
@@ -258,7 +308,7 @@ export function Forum(props) {
                                         >
                                             <Button icon={<FontAwesomeIcon icon={faImage} />} />
                                         </Upload>
-                                        <Button type="primary" icon={<SendOutlined />} >
+                                        <Button type="primary" icon={<SendOutlined />} onClick={()=>{add()}} >
                                             Post
                                         </Button>
                                     </div>
@@ -269,14 +319,13 @@ export function Forum(props) {
                         <Col span={1} className="" />
 
                     </Row>
-
-                    {data.map((item) => (
+                    {sortedPosts.map((item) => (
                         <Row>
                             <Col span={1} className="" />
                             <Col span={21} className="twitter-card1">
                                 <Card className="twitter-card1">
                                     <Meta
-                                        avatar={<Avatar icon={<TwitterOutlined />} />}
+                                        avatar={<Avatar src={urls[item.Email]} />}
                                         title={
                                             <span className="twitter-card-title">
                                                 {item.Username}
@@ -285,19 +334,14 @@ export function Forum(props) {
                                         description=" "
                                     />
                                     <Typography.Paragraph className="twitter-card-content">
-                                        {item.Description}
-                                        &nbsp; #{(item.Type === 1) ? "Donation" : (item.Type === 2) ? "Adoption" : "Normal"}
+                                        {renderConditionalDescription(item)}
+                                        #{(item.Type === 1) ? "Donation" : (item.Type === 2) ? "Adoption" : "Normal"}
                                     </Typography.Paragraph>
                                     <div>
                                         {renderConditionalContent(item)}
                                     </div>
                                     <div className="twitter-card-footer">
                                         <span className="twitter-card-date">{item.AdoptionDate}</span>
-                                        {/* <div className="twitter-card-actions">
-                                            <FontAwesomeIcon icon={faComment} />
-                                            <FontAwesomeIcon icon={faRetweet} />
-                                            <FontAwesomeIcon icon={faHeart} />
-                                        </div> */}
                                     </div>
                                 </Card>
                             </Col>
