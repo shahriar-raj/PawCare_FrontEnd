@@ -64,7 +64,7 @@ export function Users() {
         <div>
             <div className="container-users">
                 <div className="admin_header">
-                    <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
                     <Button className='logout' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={() => { navigate('/') }}>
                         Logout
                     </Button>

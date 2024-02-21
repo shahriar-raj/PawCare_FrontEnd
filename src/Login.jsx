@@ -56,11 +56,11 @@ export function Login(props) {
     return (
         <div>
             <div className="loginheader">
-                <img src="src/assets/logo.png" alt="Logo" width="20%" />
+                <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
             </div>
             <div className="container_login" style={{ height: "100%" }}>
                 <div className="image_col">
-                    <img src="src/assets/Banner.png" width={"100%"} />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FBanner.png?alt=media&token=d866ecf5-1a86-4871-97b0-2c908376b3ebsrc/assets/Banner.png" width={"100%"} />
                 </div>
                 <div className="login_card">
                     <Card id="logincard">
