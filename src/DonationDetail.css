@@ -56,19 +56,6 @@
   /* Light green text */
 }
 
-/* For the button: */
-.ant-btn-primary {
-  background-color: #b5e47c;
-  /* Light green background */
-  border-color: #CEDFB9;
-  /* Light green border */
-  color: #192928;
-  /* Dark green text */
-}
-
-.ant-btn-primary:hover {
-  background-color: #73924e !important; /* Slightly darker green background for hover */
-}
 
 /* Ensure that the icon uses light green color */
 .anticon-check-circle {
@@ -112,4 +99,22 @@
   border-color: #CEDFB9 !important;
   /* Optional: if you have a border and want to change its color on hover */
   /* Add more styles as needed */
+}
+
+
+.donate-btn {
+  background-color: #ffc300;
+  color: #192928;
+  border-radius: 4px;
+  border: none;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* Hover state of the button */
+.donate-btn:hover {
+  color: #ffffff !important; /* Change text color */
+  background-color: #92cc4bce ; /* Darker shade of green on hover */
+  border-color: #CEDFB9 !important; /* Adjust border color */
+  transform: scale(1.125); /* Increase the size slightly */
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faFilter,faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -215,25 +215,28 @@ export function Forum(props) {
 
                     <Row className="section section2">
                         <div className='select-container'>
-                            <h2>Filter</h2>
+                            <h2><FontAwesomeIcon icon={faFilter} size="1x" style={{ marginRight: '2%' }} /> Filter</h2>
                             <div className="select-header">Location</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Location"
-                                defaultValue={['User Location', 'Dhanmondi']}
+                                // defaultValue={['User Location', 'Dhanmondi']}
                             >
                                 {locationOptions}
                             </Select>
 
                             <div className="select-header">Animals</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Animals"
-                                defaultValue={['User Pet']}
+                                // defaultValue={['User Pet']}
                             >
                                 {animalOptions}
                             </Select>
 
                             <div className="select-header">Vaccine</div>
                             <Select
+                                className="custom-select-placeholder"
                                 placeholder="Select Vaccine"
                             // defaultValue={['User Pet Vaccine']}
                             >
@@ -253,9 +256,10 @@ export function Forum(props) {
                                     <Avatar size={100} src="./src/assets/cutu.png" className="user-avatar" />
                                     <div className="forum-card-details">
                                         <Input
-                                            className="post-input"
+                                            className="post-input custom-placeholder"
                                             placeholder="What's happening?"
                                             onPressEnter={() => {/* Handle the press enter event */ }}
+                                            maxLength={100} // Limit the characters to 100
                                         />
                                     </div>
                                     <div className="button-group">
@@ -268,9 +272,9 @@ export function Forum(props) {
                                             className="upload-button"
 
                                         >
-                                            <Button icon={<FontAwesomeIcon icon={faImage} />} />
+                                            <Button icon={<FontAwesomeIcon icon={faImage} style={{border: 'none'}} />} />
                                         </Upload>
-                                        <Button type="primary" icon={<SendOutlined />} >
+                                        <Button className="post-button" icon={<SendOutlined />} >
                                             Post
                                         </Button>
                                     </div>

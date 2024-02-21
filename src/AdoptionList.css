@@ -214,6 +214,6 @@
 }
 
 .pet-actions .pet-action-button:hover {
-    background-color: #033f3bd7 !important; /* Darker shade of green on hover */
+    background-color: #033f3bd7 ; /* Darker shade of green on hover */
 }
 

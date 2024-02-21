@@ -35,3 +35,17 @@
     font-weight: 600;
     margin-bottom: 5%;
 }
+
+
+.pet-action-button {
+    background-color: #92cc4bce;
+    color: #192928;
+    border-radius: 4px;
+}
+
+/* Hover state of the button */
+.pet-action-button:hover {
+    color: #ffffff !important; /* Change text color */
+    border-color: #CEDFB9 !important; /* Adjust border color */
+    transform: scale(1.125); /* Increase the size slightly */
+}

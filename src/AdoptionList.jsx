@@ -29,8 +29,8 @@ const AdoptionCard = ({ pet }) => {
 
                 <div className="pet-actions" style={{ marginTop: '3%' }}>
                     {/* Button type primary is overload in DonationList.css */}
-                    <Button type="primary" className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
-                    <Button type="primary" className="pet-action-button"> Pet Profile</Button>
+                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
+                    <Button className="pet-action-button"> Pet Profile</Button>
                 </div>
             </div>
         </Card>
