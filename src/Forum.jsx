@@ -24,6 +24,7 @@ export function Forum(props) {
     const [address, setAddress] = useState("");
     const [imageList, setImageList] = useState([]);
     const [imageUrls, setImageUrls] = useState({});
+    const [visibleObjectId, setVisibleObjectId] = useState(null);
     let urls = {};
     const handleNavigate = (path) => () => {
         navigate(path);
@@ -179,6 +180,11 @@ export function Forum(props) {
         return null;
     }
 
+    const toggleDetails = (id) => {
+        // Toggle visibility: If the clicked object is already visible, hide it, otherwise show it
+        setVisibleObjectId(prevId => prevId === id ? null : id);
+    };
+
     function renderConditionalDescription(item) {
         if (item.Type === 1) {
             return (
@@ -293,7 +299,7 @@ export function Forum(props) {
                                             placeholder="What's happening?"
                                             value={inputValue}
                                             onChange={handleInputChange}
-                                            onPressEnter={() => {add()}}
+                                            onPressEnter={() => { add() }}
                                         />
                                     </div>
                                     <div className="button-group">
@@ -308,7 +314,7 @@ export function Forum(props) {
                                         >
                                             <Button icon={<FontAwesomeIcon icon={faImage} />} />
                                         </Upload>
-                                        <Button type="primary" icon={<SendOutlined />} onClick={()=>{add()}} >
+                                        <Button type="primary" icon={<SendOutlined />} onClick={() => { add() }} >
                                             Post
                                         </Button>
                                     </div>
@@ -342,6 +348,19 @@ export function Forum(props) {
                                     </div>
                                     <div className="twitter-card-footer">
                                         <span className="twitter-card-date">{item.AdoptionDate}</span>
+                                        <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger" }}>
+                                            See Replies
+                                        </p>
+                                        {visibleObjectId === item.PostID && (
+                                            <div>
+                                                {item.replies.map((reply) => (
+                                                    <div>
+                                                        {reply.ReplierUserName} :{reply.ReplyText}
+                                                    </div>
+                                                ))
+                                                }
+                                            </div>
+                                        )}
                                     </div>
                                 </Card>
                             </Col>
