@@ -166,8 +166,9 @@
 
 /* Hover state of the button */
 .post-button:hover {
-    color: #ffffff !important; /* Change text color */
-    background-color: #27871d;
+    color: #192928 !important; /* Change text color */
+    background-color: #b0d494;
+    font-size: 1.15em;
     border: none;
 }
 
