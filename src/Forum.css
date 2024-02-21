@@ -123,7 +123,7 @@
     /* Light Green background */
     color: #192928;
     /* Dark Green text */
-    border: none;
+    border: solid 1px #33333341;
     /* margin-left: auto; */
     /* Align the button to the right */
     font-family: "Baloo Da";
@@ -146,4 +146,32 @@
     /* Light Green background */
     color: #192928;
     /* Dark Green text */
+}
+
+
+.post-button {
+    background-color: #ffc300;
+    color: #192928;
+    border-radius: 15px;
+    border: none;
+
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+.custom-select-placeholder .ant-select-selector .ant-select-selection-placeholder {
+    color: #888; /* Or any other color */
+}
+
+/* Hover state of the button */
+.post-button:hover {
+    color: #ffffff !important; /* Change text color */
+    background-color: #27871d;
+    border: none;
+}
+
+.custom-placeholder::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #888; /* Placeholder text color */
+    opacity: 1; /* Placeholder text opacity */
 }

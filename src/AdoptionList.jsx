@@ -20,15 +20,16 @@ const AdoptionCard = ({ pet }) => {
             <div className="pet-details">
                 <div className="pet-name">
                     <h3>{pet.Name}</h3>
-                    <FontAwesomeIcon icon={faCheckCircle} className="verified-icon" />
+                    {/* <FontAwesomeIcon icon={faCheckCircle} className="verified-icon" /> */}
                 </div>
 
-                <span>{pet.Breed}</span>
-                <span>{pet.Age}</span>
-                <span>{pet.Address}</span>
+                <span className='pet-breed-info'>Breed : {pet.Breed}</span>
+                <span className='pet-age-info'>Age : {pet.Age} Months</span>
+                <span className='pet-addr'>{pet.Address}</span>
 
                 <div className="pet-actions" style={{ marginTop: '3%' }}>
-                    <Button type="primary" className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
+                    {/* Button type primary is overload in DonationList.css */}
+                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
                     <Button className="pet-action-button"> Pet Profile</Button>
                 </div>
             </div>
@@ -231,14 +232,16 @@ export function AdoptionList(props) {
                     <Row> </Row>
 
                     <div className='scrollable-container'>
-                        <Row gutter={[16, 16]} wrap={false}>
+                        <Row gutter={[16, 16]} justify="start">
                             {pets.map((pet, index) => {
                                 if (pet.Breed === selectedBreed || selectedBreed === "") {
                                     if (pet.Type === selectedAnimal || selectedAnimal === "") {
                                         if (pet.Gender === selectedGender || selectedGender === "") {
-                                            return (<Col key={index} span={7} className={`scrollable-adoption-card`}>
-                                                <AdoptionCard pet={pet} />
-                                            </Col>);
+                                            return (
+                                                <Col key={index} span={7} className={`scrollable-adoption-card`}>
+                                                    <AdoptionCard pet={pet} />
+                                                </Col>
+                                            );
                                         }
                                     }
                                 }
