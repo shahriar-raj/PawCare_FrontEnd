@@ -1,33 +1,27 @@
 /* Twitter Card Styles */
-.twitter-card1 {
-    background-color: #fff;
+.twitter-cardholder {
+    background-color: #FFF7D4;
     border-radius: 15px;
     padding-left: 2%; /* Adjust padding to reduce height */
     padding-right: 4%; /* Adjust padding to reduce height */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.493);
     margin: 1%;
     margin-left: 2%;
+
 }
 
-.twitter-card2 {
+.twitter-card {
     background-color: #fff;
     border-radius: 15px;
     padding-left: 2%; /* Adjust padding to reduce height */
     padding-right: 4%; /* Adjust padding to reduce height */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px rgb(0, 0, 0); 
     margin: 1%;
     margin-left: 2%;
+    margin-top: 2%;
 }
 
-.twitter-card3 {
-    background-color: #fff;
-    border-radius: 15px;
-    padding-left: 2%; /* Adjust padding to reduce height */
-    padding-right: 4%; /* Adjust padding to reduce height */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 1%;
-    margin-left: 2%;
-}
+
 
 .twitter-card-title {
     font-size: 18px;
@@ -67,4 +61,43 @@
 /* FontAwesome Icons */
 .twitter-card-actions > *:hover {
     color: #1DA1F2;
+}
+
+
+
+
+.post-and-replies-container {
+    margin-bottom: 20px; /* Space between each post and its replies */
+}
+
+
+
+.reply-card {
+    background-color: rgb(208, 199, 223); /* Example color */
+    box-shadow: 0 0 2px rgb(0, 0, 0); 
+    color: #333; /* Example color */
+    margin-top: 10px;
+    margin-left: 6%;
+}
+
+.reply-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 3px; /* Line thickness */
+    background-color: #5a5959; /* Line color */
+    left: -1.5%;
+}
+
+
+/* // Custom Font  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.twitter-card {
+    font-family: 'Roboto Mono', monospace; /* Applies the font to the entire card */
+}
+
+.twitter-card-title, .twitter-card-content, .reply-text {
+    font-family: 'Roboto Mono', monospace; /* Specifically for title, content, and replies */
+    font-size: 16px; /* Or any size you prefer */
 }

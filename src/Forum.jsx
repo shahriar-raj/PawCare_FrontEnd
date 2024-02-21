@@ -334,42 +334,43 @@ export function Forum(props) {
                     {sortedPosts.map((item) => (
                         <Row>
                             <Col span={1} className="" />
-                            <Col span={21} className="twitter-card1">
-                                <Card className="twitter-card1">
-                                    <Meta
-                                        avatar={<Avatar src={urls[item.Email]} />}
-                                        title={
-                                            <span className="twitter-card-title">
-                                                {item.Username}
-                                            </span>
-                                        }
-                                        description=" "
-                                    />
-                                    <Typography.Paragraph className="twitter-card-content">
-                                        {renderConditionalDescription(item)}
-                                        #{(item.Type === 1) ? "Donation" : (item.Type === 2) ? "Adoption" : "Normal"}
-                                    </Typography.Paragraph>
-                                    <div>
-                                        {renderConditionalContent(item)}
-                                    </div>
-                                    <div className="twitter-card-footer">
-                                        <span className="twitter-card-date">{item.AdoptionDate}</span>
-                                        <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
-                                            {visibleObjectId === item.PostID? "Hide Replies" : "See Replies"}
-                                        </p>
-                                        {visibleObjectId === item.PostID && (
-                                            <div>
-                                                <br/>
-                                                {item.replies.map((reply) => (
-                                                    <Card>
-                                                        {reply.ReplierUserName} : {reply.ReplyText}
-                                                    </Card>
-                                                ))
-                                                }
-                                            </div>
-                                        )}
-                                    </div>
-                                </Card>
+                            <Col span={21} className="twitter-cardholder">
+
+
+                            <div className="post-and-replies-container">
+    <Card className="twitter-card">
+        <Meta
+            avatar={<Avatar src={urls[item.Email]} />}
+            title={<span className="twitter-card-title">{item.Username}</span>}
+            description=" " // Empty string for layout purposes
+        />
+        <Typography.Paragraph className="twitter-card-content">
+            {renderConditionalDescription(item)}
+            #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
+        </Typography.Paragraph>
+        <div>
+            {renderConditionalContent(item)}
+        </div>
+        <div className="twitter-card-footer">
+            <span className="twitter-card-date">{item.AdoptionDate}</span>
+            <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
+                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies"}
+            </p>
+        </div>
+    </Card>
+    {visibleObjectId === item.PostID && (
+        <div className="replies-container">
+            {item.replies.map((reply, index) => (
+                <Card key={index} className="reply-card">
+                    <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
+                </Card>
+            ))}
+        </div>
+    )}
+</div>
+
+
+                                
                             </Col>
                             <Col span={1} className="" />
                         </Row>
