@@ -348,15 +348,16 @@ export function Forum(props) {
                                     </div>
                                     <div className="twitter-card-footer">
                                         <span className="twitter-card-date">{item.AdoptionDate}</span>
-                                        <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger" }}>
-                                            See Replies
+                                        <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
+                                            {visibleObjectId === item.PostID? "Hide Replies" : "See Replies"}
                                         </p>
                                         {visibleObjectId === item.PostID && (
                                             <div>
+                                                <br/>
                                                 {item.replies.map((reply) => (
-                                                    <div>
-                                                        {reply.ReplierUserName} :{reply.ReplyText}
-                                                    </div>
+                                                    <Card>
+                                                        {reply.ReplierUserName} : {reply.ReplyText}
+                                                    </Card>
                                                 ))
                                                 }
                                             </div>
