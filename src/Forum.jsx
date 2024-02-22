@@ -25,9 +25,14 @@ export function Forum(props) {
     const [imageList, setImageList] = useState([]);
     const [imageUrls, setImageUrls] = useState({});
     const [visibleObjectId, setVisibleObjectId] = useState(null);
+    const [replyUpdateTrigger, setReplyUpdateTrigger] = useState(0);
     let urls = {};
     const handleNavigate = (path) => () => {
         navigate(path);
+    };
+    const [inputReply, setInputReply] = useState('');
+    const handleChange = (event) => {
+        setInputReply(event.target.value);
     };
 
     const locationOptions = [];
@@ -142,7 +147,7 @@ export function Forum(props) {
         };
         // Call the fetchData function
         fetchData();
-    }, []);
+    }, [replyUpdateTrigger]);
 
     const [searchValue, setSearchValue] = useState('');
     const [inputValue, setInputValue] = useState('');
@@ -157,9 +162,9 @@ export function Forum(props) {
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
                         Amount: {item.TotalAmount}
-                        
+
                     </Typography.Paragraph>
-                    <Button type="primary" onClick={()=>{localStorage.setItem('DonationID',item.DonationID) ; navigate('/donationpayment')}} > Donate </Button>
+                    <Button type="primary" onClick={() => { localStorage.setItem('DonationID', item.DonationID); navigate('/donationpayment') }} > Donate </Button>
                 </div>
             );
         } else if (item.Type === 2) {
@@ -213,6 +218,31 @@ export function Forum(props) {
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
+
+    const addReply = async (item) => {
+        setInputReply('');
+        setReplyUpdateTrigger(oldTrigger => oldTrigger + 1);
+        try {
+            let obj = {
+                userID: localStorage.getItem('userID'),
+                postID: item.PostID,
+                text: inputReply,
+            }
+            const response = await fetch('http://3.89.30.159:3000/forum/reply', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            const result = await response.json(); // Assuming the response is in JSON format
+            console.log(result);
+            // window.location.reload();
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
 
     return (
 
@@ -355,17 +385,45 @@ export function Forum(props) {
                                         <div className="twitter-card-footer">
                                             <span className="twitter-card-date">{item.AdoptionDate}</span>
                                             <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
-                                                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies"+ ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
+                                                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies" + ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
                                             </p>
                                         </div>
                                     </Card>
-                                    {visibleObjectId === item.PostID && item.replies[0].ReplyID!==null && (
+                                    {visibleObjectId === item.PostID && item.replies[0].ReplyID !== null && (
                                         <div className="replies-container">
                                             {item.replies.map((reply, index) => (
                                                 <Card key={index} className="reply-card">
                                                     <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
                                                 </Card>
                                             ))}
+                                            {/* <form>
+                                                <Input
+                                                    type="text"
+                                                    id="inputField"
+                                                    value={inputReply}
+                                                    onChange={handleChange}
+                                                    style={{ width: "85%", marginTop: "2%", marginLeft: "5%", marginRight: "2%" }}
+                                                />
+                                                <Button style={{ backgroundColor: "#cedfb9" }}>
+                                                    <SendOutlined onClick={() => { addReply(item) }} />
+                                                </Button>
+                                            </form> */}
+                                        </div>
+                                    )}
+                                    {visibleObjectId === item.PostID && (
+                                        <div className="reply-container">
+                                            <form>
+                                                <Input
+                                                    type="text"
+                                                    id="inputField"
+                                                    value={inputReply}
+                                                    onChange={handleChange}
+                                                    style={{ width: "85%", marginTop: "2%", marginLeft: "5%", marginRight: "2%" }}
+                                                />
+                                                <Button style={{ backgroundColor: "#cedfb9" }}>
+                                                    <SendOutlined onClick={() => { addReply(item) }} />
+                                                </Button>
+                                            </form>
                                         </div>
                                     )}
                                 </div>
