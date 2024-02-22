@@ -157,8 +157,9 @@ export function Forum(props) {
                 <div>
                     <Typography.Paragraph className="twitter-card-content">
                         Amount: {item.TotalAmount}
+                        
                     </Typography.Paragraph>
-                    <Button type="primary" onClick={handleNavigate('/donation')} > Donate </Button>
+                    <Button type="primary" onClick={()=>{localStorage.setItem('DonationID',item.DonationID) ; navigate('/donationpayment')}} > Donate </Button>
                 </div>
             );
         } else if (item.Type === 2) {
@@ -265,7 +266,7 @@ export function Forum(props) {
                             <Select
                                 className="custom-select-placeholder"
                                 placeholder="Select Location"
-                                // defaultValue={['User Location', 'Dhanmondi']}
+                            // defaultValue={['User Location', 'Dhanmondi']}
                             >
                                 {locationOptions}
                             </Select>
@@ -274,7 +275,7 @@ export function Forum(props) {
                             <Select
                                 className="custom-select-placeholder"
                                 placeholder="Select Animals"
-                                // defaultValue={['User Pet']}
+                            // defaultValue={['User Pet']}
                             >
                                 {animalOptions}
                             </Select>
@@ -337,40 +338,40 @@ export function Forum(props) {
                             <Col span={21} className="twitter-cardholder">
 
 
-                            <div className="post-and-replies-container">
-    <Card className="twitter-card">
-        <Meta
-            avatar={<Avatar src={urls[item.Email]} />}
-            title={<span className="twitter-card-title">{item.Username}</span>}
-            description=" " // Empty string for layout purposes
-        />
-        <Typography.Paragraph className="twitter-card-content">
-            {renderConditionalDescription(item)}
-            #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
-        </Typography.Paragraph>
-        <div>
-            {renderConditionalContent(item)}
-        </div>
-        <div className="twitter-card-footer">
-            <span className="twitter-card-date">{item.AdoptionDate}</span>
-            <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
-                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies"}
-            </p>
-        </div>
-    </Card>
-    {visibleObjectId === item.PostID && (
-        <div className="replies-container">
-            {item.replies.map((reply, index) => (
-                <Card key={index} className="reply-card">
-                    <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
-                </Card>
-            ))}
-        </div>
-    )}
-</div>
+                                <div className="post-and-replies-container">
+                                    <Card className="twitter-card">
+                                        <Meta
+                                            avatar={<Avatar src={urls[item.Email]} />}
+                                            title={<span className="twitter-card-title">{item.Username}</span>}
+                                            description=" " // Empty string for layout purposes
+                                        />
+                                        <Typography.Paragraph className="twitter-card-content">
+                                            {renderConditionalDescription(item)}
+                                            #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
+                                        </Typography.Paragraph>
+                                        <div>
+                                            {renderConditionalContent(item)}
+                                        </div>
+                                        <div className="twitter-card-footer">
+                                            <span className="twitter-card-date">{item.AdoptionDate}</span>
+                                            <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
+                                                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies"+ ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
+                                            </p>
+                                        </div>
+                                    </Card>
+                                    {visibleObjectId === item.PostID && item.replies[0].ReplyID!==null && (
+                                        <div className="replies-container">
+                                            {item.replies.map((reply, index) => (
+                                                <Card key={index} className="reply-card">
+                                                    <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
+                                                </Card>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
 
 
-                                
+
                             </Col>
                             <Col span={1} className="" />
                         </Row>
