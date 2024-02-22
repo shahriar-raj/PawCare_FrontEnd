@@ -332,11 +332,22 @@
     
 }
 
-.profile_header .ant-btn:hover {
+.profile_header .ant-btn:not(.logout):hover {
   background-color: #6bebc931 !important; /* Darker shade on hover, adjust color as needed */
   color: #ffffff; /* Keep text color consistent or change as per need */
   transform: translateY(-2px); /* Slight raise effect on hover */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+}
+
+.logout {
+    background-color: #e94e59 !important;
+    color: #ffffff !important;
+
+}
+.logout:hover{
+    background-color: #cb1b1e !important;
+    transform: translateY(-2px); /* Slight raise effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
 }
 
 
