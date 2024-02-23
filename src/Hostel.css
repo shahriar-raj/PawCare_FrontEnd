@@ -1,9 +1,218 @@
 .hostel-search-filters {
-  background-color: black;
+  background-color: #333;
   display: flex;
   justify-content: center; /* This will space out your field groups evenly */
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 1%;
+  border-radius: 15px;
 }
 
-.field-group{
-  margin: 0 1%; /* Add space between field groups */
+.field-group {
+  display: flex;
+  flex-direction: column; /* This stacks the child elements vertically */
+
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+
+.field-group:not(:last-child) {
+  border-right: 5px solid #00000071; /* Adds a vertical line to the right */
+  padding-right: 2%; /* Adds some space between the line and the content, adjust as needed */
+  margin-right: 2%; /* Adds some space to the right of the border, adjust as needed */
+}
+
+.hostel-scrollable-row {
+  gap: 16px; /* Adds space between cards */
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+  overflow-y: auto; /* Enable vertical scrolling */
+ 
+  margin-top: 2%;
+}
+
+
+.hostel-scrollable-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.hostel-scrollable-row {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hostels-heading {
+  text-align: center;
+  font-family: "Baloo Da";
+  color: #192928;
+  margin-bottom: 20px; /* Spacing below the heading */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hostel-list {
+  width: 90%;
+  margin-left: 5%;
+
+  /* Other styling properties */
+}
+
+.hostels-heading {
+  /* Styling for the heading */
+}
+
+
+
+.hostel-card-container {
+  width: 75%;
+  padding: 1%;
+  box-sizing: border-box;
+  border: 2px solid #333;
+  /* Other styling for card container */
+
+}
+
+.hostel-card {
+  margin-top: 1.5%;
+  border: 1px solid #a7bed3;
+  border-radius: 8px;
+  overflow: hidden;
+  /* Other styling for card */
+  transition: transform 0.2s; /* Add this line for smooth scaling */
+}
+
+.hostel-card:hover {
+  transform: scale(1.02); /* Adjust the scale value as needed */
+}
+
+
+.card-image-container {
+  position: relative;
+}
+
+
+
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 0px;
+
+  /* Other styling for top bar */
+}
+
+.guest-favorite-badge {
+  background-color: #FFC107;
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  /* Other styling for badge */
+}
+
+.heart-icon-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+
+  background-color: #192928;
+  /* Other styling for heart button */
+}
+
+.card-content {
+  padding: 15px;
+  /* Other styling for content */
+}
+
+.hostel-name {
+  font-size: 1.35em;
+  margin: 0;
+  /* Other styling for name */
+}
+
+.hostel-location,
+.hostel-description {
+  color: #666;
+  font-size: 0.9em;
+  /* Other styling for location and description */
+}
+
+.card-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  /* Other styling for bottom bar */
+}
+
+.hostel-price {
+  font-weight: bold;
+  /* Other styling for price */
+}
+
+.hostel-rating {
+  background-color: #FFD700;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 5px;
+  /* Other styling for rating */
+}
+
+.view-hostel-btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2.35%;
+  width: 100%;
+  /* Other styling for button */
+}
+
+/* Ensure to add responsive styles as needed */
+
+.hostel-image {
+  width:  100%;  /* Set your desired width */
+  height: auto;    /* Set your desired aspect ratio (optional) */  
+  max-height: 275px;
+  object-fit: cover; /* This property ensures the images cover the area without distorting their aspect ratio */
+}
+
+
+
+
+/* Target the first card in every row */
+.hostel-scrollable-row .hostel-card:nth-child(3n+1) {
+  margin-left: 5%; /* Adjust the value as needed */
+}
+
+/* Target the first card in every row */
+.hostel-scrollable-row .hostel-card:nth-child(3n+2) {
+  margin-left: 2%; /* Adjust the value as needed */
+  margin-right: 2%; /* Adjust the value as needed */
+}
+
+/* Target the third card in every row */
+.hostel-scrollable-row .hostel-card:nth-child(3n) {
+  margin-right: 5%; /* Adjust the value as needed */
 }

@@ -1,25 +1,46 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button,DatePicker } from 'antd';
+import { Carousel,Button,DatePicker } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat,faCalendarAlt ,faUsers,faUser, faFilter, faHome, faHandHoldingDollar, faPaw,faDog, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
 import { useEffect } from 'react';
-import './AdoptionList.css';
-import './AdoptionCard.css'
+
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
 
 import './Hostel.css'; // Make sure to include the correct path to your CSS file
 
+import HostelImage from './assets/ghor.png';
 
+import ghor1 from './assets/ghor.png';
+import ghor2 from './assets/ghor2.png';
+import ghor3 from './assets/ghor3.png';
 
 
 export function Hostel() {
     const navigate = useNavigate();
     const { Option } = Select;
 
+    const [data, setData] = useState([]); 
+
+    const imageSources = [ghor1, ghor2, ghor3];
+    const hostels = [
+        { HostelID: 'hstl1', Name: 'Cozy Paws', Location: 'Dhaka', Description: 'A cozy place for your pets.', Images: imageSources },
+        { HostelID: 'hstl2', Name: 'Sunny Retreat', Location: 'Chittagong', Description: 'Bright and airy accommodations.', Images: imageSources },
+        { HostelID: 'hstl3', Name: 'Mountain Hideout', Location: 'Sylhet', Description: 'Quiet spot in the mountains.', Images: imageSources},
+        { HostelID: 'hstl4', Name: 'City Lights', Location: 'Khulna', Description: 'Stay in the heart of the city.', Images: imageSources },
+        { HostelID: 'hstl5', Name: 'Beach Haven', Location: 'Cox\'s Bazar', Description: 'Ocean views and sandy beaches.', Images: imageSources },
+        { HostelID: 'hstl6', Name: 'Historic Inn', Location: 'Rajshahi', Description: 'Experience rich history and culture.', Images: imageSources },
+        { HostelID: 'hstl7', Name: 'Jungle Lodge', Location: 'Bandarban', Description: 'Escape to the wilderness.', Images: imageSources },
+        { HostelID: 'hstl8', Name: 'Riverfront Stay', Location: 'Barisal', Description: 'Relax by the water.', Images: imageSources},
+        { HostelID: 'hstl9', Name: 'Urban Pod', Location: 'Mymensingh', Description: 'Modern and minimalist urban stay.', Images: imageSources },
+        { HostelID: 'hstl10', Name: 'Country Charm', Location: 'Rangpur', Description: 'A quaint and cozy country home.', Images: imageSources }
+        // Add other unique hostels here...
+    ];
+    
+    
     const handleLog = () => {
         navigate('/');
     }
@@ -45,39 +66,87 @@ export function Hostel() {
                     <Button className='logout' icon={<LogoutOutlined />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "3%" }} onClick={handleLog}>
                         Logout
                     </Button>
+            </div>
+
+            <div className="hostel-search-filters">
+                <div className="field-group"> 
+                    <span><FontAwesomeIcon icon={faCat} /> Location </span> 
+                    <Select className="reservation-select" placeholder="Select Location">
+                        <Option value="dmd">Dhandmondi</Option>
+                        <Option value="mdpur">Mohammadpur</Option>
+                        {/* Add more pet types as needed */}
+                    </Select>
                 </div>
+                <div className="field-group"> 
+                    <span><FontAwesomeIcon icon={faCat} />  Pet Type </span> 
+                    <Select className="reservation-select" placeholder="Select Pet Type">
+                        <Option value="dog">Dog</Option>
+                        <Option value="cat">Cat</Option>
+                        {/* Add more pet types as needed */}
+                    </Select>
+                </div>
+                <div className="field-group">
+                    <span><FontAwesomeIcon icon={faUsers} /> Guests  </span> 
+                    <Select className="reservation-select" placeholder="Guest Count">
+                        <Option value="1">1 Pet</Option>
+                        <Option value="2">2 Pets</Option>
+                        {/* Add more options as needed */}
+                    </Select>
+                </div>         
 
-                <div className="hostel-search-filters">
-                    <div className="field-group"> Pet Type
-                        <FontAwesomeIcon icon={faCat} />  
-                        <Select defaultValue="Select Pet Type" className="reservation-select">
-                            <Option value="dog">Dog</Option>
-                            <Option value="cat">Cat</Option>
-                            {/* Add more pet types as needed */}
-                        </Select>
-                    </div>
-                    <div className="field-group">
-                        <FontAwesomeIcon icon={faUsers} /> Guests
-                            <Select defaultValue="2 Pets" className="reservation-select">
-                                <Option value="1">1 Pet</Option>
-                                <Option value="2">2 Pets</Option>
-                                {/* Add more options as needed */}
-                            </Select>
-                    </div>            
-
-                    <div className="field-group">
-                        <FontAwesomeIcon icon={faCalendarAlt} /> Check In
-                        <DatePicker placeholder="Check-in" />
-                    </div>
-                    <div className="field-group">
-                        <FontAwesomeIcon icon={faCalendarAlt} /> Check In
-                        <DatePicker placeholder="Check-in" />
-                    </div>
+                <div className="field-group">
+                    <span><FontAwesomeIcon icon={faCalendarAlt} /> Check In </span> 
+                    <DatePicker placeholder="Add dates" />
+                </div>
+                <div className="field-group">
+                    <span><FontAwesomeIcon icon={faCalendarAlt} /> Check Out  </span> 
+                    <DatePicker placeholder="Add Dates" />
+                </div>
                
+            </div>
+
+
+
+            <div className="hostel-list">
+                {/* <h1 className="hostels-heading">Hostels</h1> */}
+                <div className="hostel-scrollable-row">
+                    {hostels.map((hostel) => (
+                        <Card key={hostel.HostelID} className="hostel-card">
+                            <Carousel>
+                                {hostel.Images.map((image, index) => (
+                                    <div key={index}>
+                                        <img src={image} alt={`${hostel.Name} Image`} className="hostel-image" />
+                                    </div>
+                                ))}
+                            </Carousel>
+                            <div className="card-top-bar">
+                                <span className="guest-favorite-badge">Guest favorite</span>
+                                <button className="heart-icon-button">❤</button> {/* Replace with actual icon if available */}
+                            </div>
+                            <div className="card-content">
+                                <h2 className="hostel-name">{hostel.Name}</h2>
+                                <span className="hostel-location">{hostel.Location}</span>
+                                <p className="hostel-description">{hostel.Description}</p>
+                                <div className="card-bottom-bar">
+                                    <span className="hostel-price">$52 / night</span> {/* Example price, replace with actual data */}
+                                    <span className="hostel-rating">★ 4.88</span> {/* Example rating, replace with actual data */}
+                                </div>
+                                <button className="view-hostel-btn">View Details</button>
+                            </div>
+                        </Card>
+                    ))}
                 </div>
+            </div>
 
 
-                
+
+
+
+
+
+
+
         </div>
+        
     );
 }
