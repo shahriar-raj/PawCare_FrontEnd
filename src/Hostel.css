@@ -1,0 +1,9 @@
+.hostel-search-filters {
+  background-color: black;
+  display: flex;
+  justify-content: center; /* This will space out your field groups evenly */
+}
+
+.field-group{
+  margin: 0 1%; /* Add space between field groups */
+}
