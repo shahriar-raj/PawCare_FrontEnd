@@ -142,7 +142,7 @@ export function Forum(props) {
                 console.log("URLS" + urls);
             }
             catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching data:  ', error);
             }
         };
         // Call the fetchData function
