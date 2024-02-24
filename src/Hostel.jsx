@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Carousel,Button,DatePicker } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCat,faCalendarAlt ,faUsers,faUser, faFilter, faHome, faHandHoldingDollar, faPaw,faDog, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkedAlt,faCat,faCalendarAlt ,faUsers,faUser, faFilter, faHome, faHandHoldingDollar, faPaw,faDog, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -70,7 +70,7 @@ export function Hostel() {
 
             <div className="hostel-search-filters">
                 <div className="field-group"> 
-                    <span><FontAwesomeIcon icon={faCat} /> Location </span> 
+                    <span classname = "filter-option-title"><FontAwesomeIcon icon={faMapMarkedAlt} /> Location </span> 
                     <Select className="reservation-select" placeholder="Select Location">
                         <Option value="dmd">Dhandmondi</Option>
                         <Option value="mdpur">Mohammadpur</Option>
@@ -78,7 +78,7 @@ export function Hostel() {
                     </Select>
                 </div>
                 <div className="field-group"> 
-                    <span><FontAwesomeIcon icon={faCat} />  Pet Type </span> 
+                    <span classname = "filter-option-title"><FontAwesomeIcon icon={faCat} />  Pet Type </span> 
                     <Select className="reservation-select" placeholder="Select Pet Type">
                         <Option value="dog">Dog</Option>
                         <Option value="cat">Cat</Option>
@@ -86,7 +86,7 @@ export function Hostel() {
                     </Select>
                 </div>
                 <div className="field-group">
-                    <span><FontAwesomeIcon icon={faUsers} /> Guests  </span> 
+                    <span classname = "filter-option-title"><FontAwesomeIcon icon={faUsers} /> Guests  </span> 
                     <Select className="reservation-select" placeholder="Guest Count">
                         <Option value="1">1 Pet</Option>
                         <Option value="2">2 Pets</Option>
@@ -95,12 +95,12 @@ export function Hostel() {
                 </div>         
 
                 <div className="field-group">
-                    <span><FontAwesomeIcon icon={faCalendarAlt} /> Check In </span> 
-                    <DatePicker placeholder="Add dates" />
+                    <span classname = "filter-option-title"><FontAwesomeIcon icon={faCalendarAlt} /> Check In </span> 
+                    <DatePicker className="reservation-select" placeholder="Add dates" />
                 </div>
                 <div className="field-group">
-                    <span><FontAwesomeIcon icon={faCalendarAlt} /> Check Out  </span> 
-                    <DatePicker placeholder="Add Dates" />
+                    <span classname = "filter-option-title"><FontAwesomeIcon icon={faCalendarAlt} /> Check Out  </span> 
+                    <DatePicker className="reservation-select" placeholder="Add Dates" />
                 </div>
                
             </div>

@@ -5,7 +5,7 @@
   width: 70%;
   margin-left: 15%;
   margin-top: 1%;
-  border-radius: 15px;
+  border-radius: 75px;
 }
 
 .field-group {
@@ -14,6 +14,7 @@
 
   margin-bottom: 1%;
   margin-top: 1%;
+  min-width: 13%;
 }
 
 
@@ -215,4 +216,36 @@
 /* Target the third card in every row */
 .hostel-scrollable-row .hostel-card:nth-child(3n) {
   margin-right: 5%; /* Adjust the value as needed */
+}
+
+
+
+/* Custom Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Teko:wght@300..700&display=swap');
+
+/* // Add the following to your CSS file for kedo font */
+.hostel-search-filters{
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.reservation-select{
+  margin-top: 3%;
+}
+
+
+/* // Overriding */
+
+/* Target placeholder within the hostel-search-filters and its children */
+.hostel-search-filters .ant-select-selection-placeholder {
+  color: #adadad !important; /* Change to desired color */
+}
+
+/* Target placeholder within the hostel-search-filters and its children */
+.hostel-search-filters .ant-picker-input > input::placeholder {
+  color: #adadad !important; /* Change to desired color */
+  font-size: 1em;
+  font-weight: bold;
 }
