@@ -79,7 +79,7 @@ export function Profile(props) {
                 petID: petID
             }
             console.log(obj);
-            const response = await fetch('http://3.89.30.159:3000:3000/profile/giveAdoption', {
+            const response = await fetch('http://3.89.30.159:3000/profile/giveAdoption', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
