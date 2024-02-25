@@ -179,10 +179,9 @@ export function Profile(props) {
                     <div className="scroll-controls">
                         <Button style={{ 
                             paddingBottom : "1%", paddingTop : "1%",textAlign:'center' ,
-                            width: "20%", height: "50%", backgroundColor: "#192928", 
+                            width: "20%", height: "8vh", backgroundColor: "#192928", 
                             color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }}
                             onClick={() => add()} block icon={<PlusOutlined />}>
-                            
                                 Add Pet
                         </Button>
                     </div>
