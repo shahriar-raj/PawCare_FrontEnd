@@ -10,7 +10,7 @@ import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
-import { faHotel, faUser,faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faHotel, faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -72,6 +72,27 @@ export function Profile(props) {
         fetchData();
     }, []);
 
+    const adoptpet = async (petID) => {
+        try {
+            console.log(petID);
+            let obj = {
+                petID: petID
+            }
+            console.log(obj);
+            const response = await fetch('http://3.89.30.159:3000/profile/giveAdoption', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            const result = await response.json(); // Assuming the response is in JSON format
+            window.location.reload();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
     const deletePet = async (petID) => {
         try {
             console.log(petID);
@@ -97,7 +118,7 @@ export function Profile(props) {
 
     return (
         <div>
-            
+
             <div className="profile_header">
                 <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
                 <Button className='Profile active' icon={<FontAwesomeIcon icon={faUser} />} style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "7%" }} onClick={() => { navigate('/profile') }}>
@@ -168,6 +189,16 @@ export function Profile(props) {
                                             }}>
                                                 View Profile
                                             </Button>
+                                            {
+                                                item.AdoptionStatus === 1 ? <div className="adoption-status">
+                                                    <Button className="adopt-btn" type="primary" onClick={() => adoptpet(item.PetID)} >
+                                                        Give for Adoption
+                                                    </Button>
+                                                </div> : <div>
+                                                    Up for Adoption
+                                                </div>
+
+                                            }
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -177,15 +208,16 @@ export function Profile(props) {
 
                     </div>
                     <div className="scroll-controls">
-                        <Button style={{ 
-                            paddingBottom : "1%", paddingTop : "1%",textAlign:'center' ,
-                            width: "20%", height: "8vh", backgroundColor: "#192928", 
-                            color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large" }}
+                        <Button style={{
+                            paddingBottom: "1%", paddingTop: "1%", textAlign: 'center',
+                            width: "20%", height: "8vh", backgroundColor: "#192928",
+                            color: "#cedfb9", fontFamily: "Baloo Da", fontSize: "x-large"
+                        }}
                             onClick={() => add()} block icon={<PlusOutlined />}>
-                                Add Pet
+                            Add Pet
                         </Button>
                     </div>
-               
+
                 </div>
             </div>
         </div>
