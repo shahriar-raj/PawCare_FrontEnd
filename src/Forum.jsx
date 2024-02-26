@@ -194,6 +194,16 @@ export function Forum(props) {
         setVisibleObjectId(prevId => prevId === id ? null : id);
     };
 
+    function dateConverter(date) {
+        const dateObj = new Date(date);
+        const readable = dateObj.toLocaleString();
+        return (
+            <div>
+                {readable}
+            </div>
+        );
+    }
+
     function renderConditionalDescription(item) {
         if (item.Type === 1) {
             return (
@@ -392,7 +402,11 @@ export function Forum(props) {
                                                     {renderConditionalContent(item)}
                                                 </div>
                                                 <div className="twitter-card-footer">
-                                                    <span className="twitter-card-date">{item.AdoptionDate}</span>
+                                                    <span className="twitter-card-date">
+                                                        <div>
+                                                            {dateConverter(item.AdoptionDate)}
+                                                        </div>
+                                                    </span>
                                                     <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
                                                         {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies" + ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
                                                     </p>
