@@ -79,9 +79,9 @@ export function Users() {
                             <Card.Body>
                                 <Card.Title>{user.Username}</Card.Title>
                                 <Card.Text>
-                                         Email: {user.Email} <Button style={{marginLeft:"20%", color:"white", backgroundColor:"#9b0000", fontFamily:"Baloo Da", fontSize:"large"}} onClick={()=>{banUser(user.UserID)}}>Ban</Button>
-                                         <br />
-                                         Phone: {user.phone}
+                                    Email: {user.Email} <Button style={{ marginLeft: "20%", color: "white", backgroundColor: "#9b0000", fontFamily: "Baloo Da", fontSize: "large" }} onClick={() => { banUser(user.UserID) }}>Ban</Button>
+                                    <br />
+                                    Phone: {user.phone}
                                 </Card.Text>
                             </Card.Body>
                         </Card>

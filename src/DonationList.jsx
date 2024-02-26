@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHotel,faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faHotel, faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 
 
 export function DonationList(props) {
@@ -120,8 +120,8 @@ export function DonationList(props) {
                         ))}
                     </div>
                     <div className="donationbodyright">
-                        <Button style={{ backgroundColor: "#cedfb9", marginLeft: '7%', borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large"}} className="AFD" onClick={() => { navigate('/donationapply') }}>Apply For Donation</Button>
-                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large"}} className="MDA" onClick={() => { navigate('/mydonation') }}>My Donation Applications</Button>
+                        <Button style={{ backgroundColor: "#cedfb9", marginLeft: '7%', borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large" }} className="AFD" onClick={() => { navigate('/donationapply') }}>Apply For Donation</Button>
+                        <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginTop: "10%", fontFamily: "Baloo Da", fontSize: "large" }} className="MDA" onClick={() => { navigate('/mydonation') }}>My Donation Applications</Button>
                     </div>
                 </div>
             </div>

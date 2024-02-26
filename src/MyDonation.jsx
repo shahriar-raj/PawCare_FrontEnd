@@ -40,40 +40,40 @@ export function MyDonation(props) {
 
     return (
         <div>
-                <p style={{ marginLeft: '25%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> My Donation Request List</p>
-                <hr />
-                <div className="mydonationbody">
-                    {data.map((donation) => (
-                        <Card className='donation-card' key={donation.DonationID}>
-                            {/* <Card.Img variant="top" src={donation.Image} /> */}
-                            <Card.Body>
-                                Requested By
-                                <Avatar
-                                    src="./src/assets/cutu.png"
-                                    size={80}
-                                    alt="Pet"
-                                    style={{ position: 'relative', marginLeft: '60%' }}
-                                />
-                                <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{donation.Username} </Card.Title>
-                                <Card.Text style={{ display: 'flex' }}>
+            <p style={{ marginLeft: '25%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> My Donation Request List</p>
+            <hr />
+            <div className="mydonationbody">
+                {data.map((donation) => (
+                    <Card className='donation-card' key={donation.DonationID}>
+                        {/* <Card.Img variant="top" src={donation.Image} /> */}
+                        <Card.Body>
+                            Requested By
+                            <Avatar
+                                src="./src/assets/cutu.png"
+                                size={80}
+                                alt="Pet"
+                                style={{ position: 'relative', marginLeft: '60%' }}
+                            />
+                            <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{donation.Username} </Card.Title>
+                            <Card.Text style={{ display: 'flex' }}>
 
-                                    {donation.Description}
-                                    <br />
-                                    Received Amount: {donation.ReceivedAmount}
-                                    <br />
-                                    Total Amount: {donation.TotalAmount}
+                                {donation.Description}
+                                <br />
+                                Received Amount: {donation.ReceivedAmount}
+                                <br />
+                                Total Amount: {donation.TotalAmount}
 
-                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "50%" }} onClick={() => {
-                                        localStorage.setItem('DonationID', donation.DonationID);
-                                        navigate('/checkpoints');
-                                    }}>Update Checkpoints</Button>
+                                <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "50%" }} onClick={() => {
+                                    localStorage.setItem('DonationID', donation.DonationID);
+                                    navigate('/checkpoints');
+                                }}>Update Checkpoints</Button>
 
-                                </Card.Text>
+                            </Card.Text>
 
-                            </Card.Body>
-                        </Card>
-                    ))}
-                </div>
+                        </Card.Body>
+                    </Card>
+                ))}
             </div>
+        </div>
     )
 }

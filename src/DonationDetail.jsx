@@ -38,7 +38,7 @@ export function DonationDetail(props) {
                 setDonationDetails(result.donation.Description);
                 setDonationAmount(result.donation.TotalAmount);
                 setSteps(result.subSteps);
-                listAll(ref(storage, 'DonationImages/' + result.donation.UserID + '/' + result.donation.Description + '/' )).then((response) => {
+                listAll(ref(storage, 'DonationImages/' + result.donation.UserID + '/' + result.donation.Description + '/')).then((response) => {
                     console.log(response);
                     response.items.forEach((itemRef) => {
                         getDownloadURL(itemRef).then((url) => {
@@ -75,7 +75,7 @@ export function DonationDetail(props) {
                             </span>
                         </div>
                         <div className="back-button">
-                            <Button className="go-back-btn" onClick={()=>{navigate('/donation')}}>
+                            <Button className="go-back-btn" onClick={() => { navigate('/donation') }}>
                                 <LeftOutlined /> Go Back
                             </Button>
                         </div>
@@ -100,7 +100,7 @@ export function DonationDetail(props) {
                                 <Col span={12}>
                                     <h4 className="greenColor">Progress :</h4> <br />
                                     {steps.map((step) => (
-                                        <div key={step.SubStepNumber} style={{fontFamily:"Baloo Da", fontSize:"large"}} >
+                                        <div key={step.SubStepNumber} style={{ fontFamily: "Baloo Da", fontSize: "large" }} >
                                             {step.Checked
                                                 ? <p style={{ color: "green" }}><CheckOutlined />{step.Reason}</p>
                                                 : <p style={{ color: "red" }}><CloseOutlined />{step.Reason}</p>
@@ -129,7 +129,7 @@ export function DonationDetail(props) {
                     </List>
 
                     <div className="donate-button">
-                        <Button block className="donate-btn" size="large" style={{ marginTop: '10px' }} onClick={()=>{navigate('/donationpayment')}}>
+                        <Button block className="donate-btn" size="large" style={{ marginTop: '10px' }} onClick={() => { navigate('/donationpayment') }}>
                             Donate
                         </Button>
                     </div>

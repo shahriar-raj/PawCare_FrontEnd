@@ -34,7 +34,7 @@ export function AddPet(props) {
                 },
                 body: JSON.stringify(obj),
             });
-            
+
             const result = await response.json();
 
             if (response.ok) {

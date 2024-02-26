@@ -95,71 +95,71 @@ export function DonationPayment(props) {
 
     return (
 
-            <div className="donation-payment-container">
-                <div className="profile_header">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
-                    <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
-                        Logout
-                    </Button>
-                    <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
-                        Donation List
-                    </Button>
-                </div>
+        <div className="donation-payment-container">
+            <div className="profile_header">
+                <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
+                <Button className='logout' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={handleLog}>
+                    Logout
+                </Button>
+                <Button className='Donation' style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/donation') }}>
+                    Donation List
+                </Button>
+            </div>
 
-                <Row style={{ margin: '1.5%' }}>
-                    <Col span={4}>
-                    </Col>
-                    <Col span={16}>
-                        {/* First Card */}
-                        <Card>
+            <Row style={{ margin: '1.5%' }}>
+                <Col span={4}>
+                </Col>
+                <Col span={16}>
+                    {/* First Card */}
+                    <Card>
 
-                            <h1>{description}</h1>
+                        <h1>{description}</h1>
 
-                            <h3>Donation Requested By<span style={{ color: "red" }}> {donationMessage} </span></h3>
+                        <h3>Donation Requested By<span style={{ color: "red" }}> {donationMessage} </span></h3>
 
-                            <Progress
-                                percent={progressPercent}
-                                status="active"
-                                className={progressColorClass}
+                        <Progress
+                            percent={progressPercent}
+                            status="active"
+                            className={progressColorClass}
+                        />
+
+                        <h3>Choose amount</h3>
+                        <Radio.Group defaultValue={5} buttonStyle="solid" onChange={onAmountChange}>
+                            <Radio.Button value={10}><span style={{ fontSize: '24px' }}>৳</span>10</Radio.Button>
+                            <Radio.Button value={20}><span style={{ fontSize: '24px' }}>৳</span>20</Radio.Button>
+                            <Radio.Button value={50}><span style={{ fontSize: '24px' }}>৳</span>50</Radio.Button>
+                            <Radio.Button value={75}><span style={{ fontSize: '24px' }}>৳</span>75</Radio.Button>
+                            <Radio.Button value={100}><span style={{ fontSize: '24px' }}>৳</span>100</Radio.Button>
+                            <Radio.Button value={250}><span style={{ fontSize: '24px' }}>৳</span>250</Radio.Button>
+                            <Radio.Button value={500}><span style={{ fontSize: '24px' }}>৳</span>500</Radio.Button>
+                            <Radio.Button value={1000}><span style={{ fontSize: '24px' }}>৳</span>1000</Radio.Button>
+                        </Radio.Group>
+
+                        <Form.Item label="Custom Amount (৳)" className="custom-amount-input">
+                            <Input placeholder="Other" onChange={onAmountChange} />
+                        </Form.Item>
+
+
+                        <Form.Item label="Leave a message (optional)">
+                            <Input.TextArea
+                                placeholder="Your message to the charity"
+                                onChange={onMessageChange}
+                                value={customMessage}
+                                rows={3}
+                                className="optional-msg-text-box"
                             />
+                        </Form.Item>
 
-                            <h3>Choose amount</h3>
-                            <Radio.Group defaultValue={5} buttonStyle="solid" onChange={onAmountChange}>
-                                <Radio.Button value={10}><span style={{ fontSize: '24px' }}>৳</span>10</Radio.Button>
-                                <Radio.Button value={20}><span style={{ fontSize: '24px' }}>৳</span>20</Radio.Button>
-                                <Radio.Button value={50}><span style={{ fontSize: '24px' }}>৳</span>50</Radio.Button>
-                                <Radio.Button value={75}><span style={{ fontSize: '24px' }}>৳</span>75</Radio.Button>
-                                <Radio.Button value={100}><span style={{ fontSize: '24px' }}>৳</span>100</Radio.Button>
-                                <Radio.Button value={250}><span style={{ fontSize: '24px' }}>৳</span>250</Radio.Button>
-                                <Radio.Button value={500}><span style={{ fontSize: '24px' }}>৳</span>500</Radio.Button>
-                                <Radio.Button value={1000}><span style={{ fontSize: '24px' }}>৳</span>1000</Radio.Button>
-                            </Radio.Group>
+                        <Form.Item>
+                            <Checkbox>Allow the charity to contact you?</Checkbox>
+                        </Form.Item>
 
-                            <Form.Item label="Custom Amount (৳)" className="custom-amount-input">
-                                <Input placeholder="Other" onChange={onAmountChange} />
-                            </Form.Item>
-
-
-                            <Form.Item label="Leave a message (optional)">
-                                <Input.TextArea
-                                    placeholder="Your message to the charity"
-                                    onChange={onMessageChange}
-                                    value={customMessage}
-                                    rows={3}
-                                    className="optional-msg-text-box"
-                                />
-                            </Form.Item>
-
-                            <Form.Item>
-                                <Checkbox>Allow the charity to contact you?</Checkbox>
-                            </Form.Item>
-
-                            <Button
-                                type="primary"
-                                className="donate-button"
-                                onClick={payment}
+                        <Button
+                            type="primary"
+                            className="donate-button"
+                            onClick={payment}
                         >
-                                    Donate {donationAmount ? `৳${donationAmount}` : ''}
+                            Donate {donationAmount ? `৳${donationAmount}` : ''}
                         </Button>
 
                         <span className="muted-text">100% of donations go directly to support the cause</span>

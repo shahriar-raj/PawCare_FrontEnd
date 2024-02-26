@@ -42,7 +42,7 @@ export function AddpetPhoto(props) {
                 URL: localStorage.getItem('Url'),
             }),
         });
-        
+
         if (response.ok) {
             console.log("Image Uploaded");
             navigate('/profile');
