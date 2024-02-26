@@ -90,7 +90,7 @@ export function Admin(props) {
         <div>
             <div className="admin_header">
                 <img src="https://firebasestorage.googleapis.com/v0/b/pawcare-7b021.appspot.com/o/images%2FLogo.png?alt=media&token=30124db9-f40a-4ed7-9c8c-a72df3e51132" alt="Logo" width="20%" />
-                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={()=>{navigate('/')}}>
+                <Button className='logout-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "50%" }} onClick={() => { navigate('/') }}>
                     Logout
                 </Button>
                 <Button className='User-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/users') }}>
@@ -130,10 +130,10 @@ export function Admin(props) {
                                         localStorage.setItem('DonationID', donation.DonationID);
                                         navigate('/donationdetails');
                                     }}>Details</Button>
-                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={()=>{approve(donation.DonationID)}}>
+                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={() => { approve(donation.DonationID) }}>
                                         ✔ Accept
                                     </Button>
-                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={()=>{reject(donation.DonationID)}}>
+                                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%" }} onClick={() => { reject(donation.DonationID) }}>
                                         x Reject
                                     </Button>
 

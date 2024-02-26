@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIgloo ,faFilter, faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faIgloo, faFilter, faUser, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Space, Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -26,6 +26,7 @@ export function Forum(props) {
     const [imageUrls, setImageUrls] = useState({});
     const [visibleObjectId, setVisibleObjectId] = useState(null);
     const [replyUpdateTrigger, setReplyUpdateTrigger] = useState(0);
+    const [selectedLocation, setSelectedLocation] = useState("");
     let urls = {};
     const handleNavigate = (path) => () => {
         navigate(path);
@@ -35,10 +36,12 @@ export function Forum(props) {
         setInputReply(event.target.value);
     };
 
-    const locationOptions = [];
-    for (let i = 10; i < 36; i++) {
-        locationOptions.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
-    }
+    const locationOptions = [
+        { value: '', label: 'All' },
+        { value: 'BUET', label: 'BUET' },
+        { value: 'Dhanmondi', label: 'Dhanmondi' },
+        { value: 'Mohammadpur', label: 'Mohammadpur' },
+    ];
 
     const animalOptions = ['Dog', 'Cat', 'Bird'].map(animal => <Option key={animal}>{animal}</Option>);
     const diseaseOptions = ['Rabies', 'Leukemia', 'Distemper'].map(disease => <Option key={disease}>{disease}</Option>);
@@ -299,9 +302,10 @@ export function Forum(props) {
                             <Select
                                 className="custom-select-placeholder"
                                 placeholder="Select Location"
-                            // defaultValue={['User Location', 'Dhanmondi']}
+                                options={locationOptions}
+                                value={selectedLocation}
+                                onChange={setSelectedLocation}
                             >
-                                {locationOptions}
                             </Select>
 
                             <div className="select-header">Animals</div>
@@ -365,78 +369,69 @@ export function Forum(props) {
                         <Col span={1} className="" />
 
                     </Row>
-                    {sortedPosts.map((item) => (
-                        <Row>
-                            <Col span={1} className="" />
-                            <Col span={21} className="twitter-cardholder">
+                    {sortedPosts.map((item) => {
+                        if (selectedLocation === item.Address || selectedLocation === '')
+                            return (
+                                <Row>
+                                    <Col span={1} className="" />
+                                    <Col span={21} className="twitter-cardholder">
 
 
-                                <div className="post-and-replies-container">
-                                    <Card className="twitter-card">
-                                        <Meta
-                                            avatar={<Avatar src={urls[item.Email]} />}
-                                            title={<span className="twitter-card-title">{item.Username}</span>}
-                                            description=" " // Empty string for layout purposes
-                                        />
-                                        <Typography.Paragraph className="twitter-card-content">
-                                            {renderConditionalDescription(item)}
-                                            #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
-                                        </Typography.Paragraph>
-                                        <div>
-                                            {renderConditionalContent(item)}
-                                        </div>
-                                        <div className="twitter-card-footer">
-                                            <span className="twitter-card-date">{item.AdoptionDate}</span>
-                                            <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
-                                                {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies" + ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
-                                            </p>
-                                        </div>
-                                    </Card>
-                                    {visibleObjectId === item.PostID && item.replies[0].ReplyID !== null && (
-                                        <div className="replies-container">
-                                            {item.replies.map((reply, index) => (
-                                                <Card key={index} className="reply-card">
-                                                    <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
-                                                </Card>
-                                            ))}
-                                            {/* <form>
-                                                <Input
-                                                    type="text"
-                                                    id="inputField"
-                                                    value={inputReply}
-                                                    onChange={handleChange}
-                                                    style={{ width: "85%", marginTop: "2%", marginLeft: "5%", marginRight: "2%" }}
+                                        <div className="post-and-replies-container">
+                                            <Card className="twitter-card">
+                                                <Meta
+                                                    avatar={<Avatar src={urls[item.Email]} />}
+                                                    title={<span className="twitter-card-title">{item.Username}</span>}
+                                                    description=" " // Empty string for layout purposes
                                                 />
-                                                <Button style={{ backgroundColor: "#cedfb9" }}>
-                                                    <SendOutlined onClick={() => { addReply(item) }} />
-                                                </Button>
-                                            </form> */}
+                                                <Typography.Paragraph className="twitter-card-content">
+                                                    {renderConditionalDescription(item)}
+                                                    #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
+                                                </Typography.Paragraph>
+                                                <div>
+                                                    {renderConditionalContent(item)}
+                                                </div>
+                                                <div className="twitter-card-footer">
+                                                    <span className="twitter-card-date">{item.AdoptionDate}</span>
+                                                    <p className="text-button" onClick={() => toggleDetails(item.PostID)} style={{ cursor: 'pointer', color: "#24615d", fontFamily: "Baloo Da", fontSize: "larger", marginBottom: "2%" }}>
+                                                        {visibleObjectId === item.PostID ? "Hide Replies" : "See Replies" + ` (${item.replies[0].ReplyID === null ? 0 : item.replies.length})`}
+                                                    </p>
+                                                </div>
+                                            </Card>
+                                            {visibleObjectId === item.PostID && item.replies[0].ReplyID !== null && (
+                                                <div className="replies-container">
+                                                    {item.replies.map((reply, index) => (
+                                                        <Card key={index} className="reply-card">
+                                                            <span className="reply-text">{reply.ReplierUserName}: {reply.ReplyText}</span>
+                                                        </Card>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            {visibleObjectId === item.PostID && (
+                                                <div className="reply-container">
+                                                    <form>
+                                                        <Input
+                                                            type="text"
+                                                            id="inputField"
+                                                            value={inputReply}
+                                                            onChange={handleChange}
+                                                            style={{ width: "85%", marginTop: "2%", marginLeft: "5%", marginRight: "2%" }}
+                                                        />
+                                                        <Button style={{ backgroundColor: "#cedfb9" }}>
+                                                            <SendOutlined onClick={() => { addReply(item) }} />
+                                                        </Button>
+                                                    </form>
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
-                                    {visibleObjectId === item.PostID && (
-                                        <div className="reply-container">
-                                            <form>
-                                                <Input
-                                                    type="text"
-                                                    id="inputField"
-                                                    value={inputReply}
-                                                    onChange={handleChange}
-                                                    style={{ width: "85%", marginTop: "2%", marginLeft: "5%", marginRight: "2%" }}
-                                                />
-                                                <Button style={{ backgroundColor: "#cedfb9" }}>
-                                                    <SendOutlined onClick={() => { addReply(item) }} />
-                                                </Button>
-                                            </form>
-                                        </div>
-                                    )}
-                                </div>
 
 
 
-                            </Col>
-                            <Col span={1} className="" />
-                        </Row>
-                    ))};
+                                    </Col>
+                                    <Col span={1} className="" />
+                                </Row>
+                            )
+                    })};
                 </Col>
             </Row>
         </div>

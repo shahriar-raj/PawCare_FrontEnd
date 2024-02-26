@@ -76,7 +76,8 @@ export function Profile(props) {
         try {
             console.log(petID);
             let obj = {
-                petID: petID
+                petID: petID,
+                userID: localStorage.getItem('userID')
             }
             console.log(obj);
             const response = await fetch('http://3.89.30.159:3000/profile/giveAdoption', {
@@ -191,7 +192,7 @@ export function Profile(props) {
                                             </Button>
                                             {
                                                 item.AdoptionStatus === 1 ? <div className="adoption-status">
-                                                    <Button className="adopt-btn" type="primary" onClick={() => adoptpet(item.PetID)} >
+                                                    <Button className="adopt-btn" type="primary" onClick={() => adoptpet(item.PetID, item.UserID)} >
                                                         Give for Adoption
                                                     </Button>
                                                 </div> : <div>

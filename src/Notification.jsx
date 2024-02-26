@@ -14,7 +14,7 @@ import './AdoptionList.css';
 import './AdoptionCard.css'
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHotel,faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faHotel, faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -49,7 +49,7 @@ export function Notification(props) {
         }
         fetchData();
     }
-        , []);  
+        , []);
 
     return (
         <div>
@@ -78,11 +78,11 @@ export function Notification(props) {
                 </Button>
             </div>
             <div className="notifications-post">
-                
+
                 <div className="notifications-header">
                     <h1>Notifications</h1>
                 </div>
-                
+
                 <div className="notificationList">
                     {data.map((item) => (
                         <div className="notificationCard" key={item.CommentId}>
@@ -100,4 +100,4 @@ export function Notification(props) {
             </div>
         </div>
     )
- }
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHotel,faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faHotel, faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
 import { UserOutlined, SendOutlined } from '@ant-design/icons';
 import { Row, Col, Card, Avatar, Select, Input, Upload, Typography } from 'antd';
 import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-design/icons';
@@ -29,7 +29,7 @@ const AdoptionCard = ({ pet }) => {
 
                 <div className="pet-actions" style={{ marginTop: '3%' }}>
                     {/* Button type primary is overload in DonationList.css */}
-                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() =>{navigate('/adopt') }}>Adopt</Button>
+                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() => { navigate('/adopt') }}>Adopt</Button>
                     <Button className="pet-action-button"> Pet Profile</Button>
                 </div>
             </div>
