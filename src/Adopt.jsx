@@ -16,8 +16,42 @@ export function Adopt() {
         navigate(path);
     };
 
-    const onFinish = (values) => {
-        console.log('Success:', values);
+    const onFinish = async (values) => {
+        try {
+            let obj = {
+                applierID: localStorage.getItem('userID'),
+                petID: localStorage.getItem('PetID'),
+                ageStatus: values['ageConfirmation'],
+                vaccinationStatus: values['petsVaccinationsUpToDate'],
+                sprayedStatus: values['petsSpayedNeutered'],
+                petAloneText: values['petWhenAlone'],
+                reasons: values['reasonForAdoption']
+            }
+            console.log(obj);
+            const response = await fetch('http://3.89.30.159:3000/adoption/applyForAdoption', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+                message.success('Application submitted successfully!');
+                navigate('/adoption');
+            }
+            else if (response.status === 401) {
+                message.error('Application submission failed');
+            }
+            else {
+                console.error("HTTP Error:", response);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
+
         // Here you would handle the form submission to the server
     };
 
@@ -45,20 +79,6 @@ export function Adopt() {
                     onFinishFailed={onFinishFailed}
                 >
                     <h1>Adoption Form</h1>
-                    <Form.Item
-                        name="firstName"
-                        label="First Name"
-                        rules={[{ required: true, message: 'Please input your first name!' }]}
-                    >
-                        <Input placeholder="First Name" />
-                    </Form.Item>
-                    <Form.Item
-                        name="email"
-                        label="E-mail"
-                        rules={[{ required: true, type: 'email', message: 'Please input your e-mail!' }]}
-                    >
-                        <Input placeholder="example@example.com" />
-                    </Form.Item>
                     <Form.Item
                         name="ageConfirmation"
                         label="Are you 18 years of age or older?"
@@ -90,13 +110,13 @@ export function Adopt() {
                         <Checkbox.Group>
                             <Row >
                                 <Col span={8}>
-                                    <Checkbox style={{color:"#cedfb9"}} value="House Pet">Housepet</Checkbox>
+                                    <Checkbox style={{ color: "#cedfb9" }} value="House Pet">Housepet</Checkbox>
                                 </Col>
                                 <Col span={8}>
-                                    <Checkbox style={{color:"#cedfb9"}} value="House Patrol">House Patrol</Checkbox>
+                                    <Checkbox style={{ color: "#cedfb9" }} value="House Patrol">House Patrol</Checkbox>
                                 </Col>
                                 <Col span={8}>
-                                    <Checkbox style={{color:"#cedfb9"}} value="Companion">Companion</Checkbox>
+                                    <Checkbox style={{ color: "#cedfb9" }} value="Companion">Companion</Checkbox>
                                 </Col>
                                 {/* Add other reasons as needed */}
                             </Row>

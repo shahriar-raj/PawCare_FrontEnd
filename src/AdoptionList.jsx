@@ -29,7 +29,7 @@ const AdoptionCard = ({ pet }) => {
 
                 <div className="pet-actions" style={{ marginTop: '3%' }}>
                     {/* Button type primary is overload in DonationList.css */}
-                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() => { navigate('/adopt') }}>Adopt</Button>
+                    <Button className="pet-action-button" style={{ marginRight: '3%' }} onClick={() => { localStorage.setItem('PetID', pet.PetID); navigate('/adopt') }}>Adopt</Button>
                     <Button className="pet-action-button"> Pet Profile</Button>
                 </div>
             </div>
@@ -71,7 +71,6 @@ export function AdoptionList(props) {
     const handleNavigate = (path) => () => {
         navigate(path);
     };
-
 
 
 
