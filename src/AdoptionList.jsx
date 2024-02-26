@@ -84,6 +84,7 @@ export function AdoptionList(props) {
     const [selectedAnimal, setSelectedAnimal] = useState("");
     const [selectedBreed, setSelectedBreed] = useState("");
     const [selectedGender, setSelectedGender] = useState("");
+    const [selectedLocation, setSelectedLocation] = useState("");
 
     // Example options for each Select
     const animalOptions = [
@@ -160,13 +161,13 @@ export function AdoptionList(props) {
                                         filterOption={OptionFilter}
                                         filterSort={OptionSort}
                                         options={[
-                                            { value: '1', label: 'Not Identified' },
-                                            { value: '2', label: 'Closed' },
-                                            { value: '3', label: 'Communicated' },
-                                            { value: '4', label: 'Identified' },
-                                            { value: '5', label: 'Resolved' },
-                                            { value: '6', label: 'Cancelled' },
+                                            { value: '', label: 'All' },
+                                            { value: 'BUET', label: 'BUET' },
+                                            { value: 'Dhanmondi', label: 'Dhanmondi' },
+                                            { value: 'Mohammadpur', label: 'Mohammadpur' },
                                         ]}
+                                        value={selectedLocation}
+                                        onChange={setSelectedLocation}
                                     />
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
@@ -237,14 +238,16 @@ export function AdoptionList(props) {
                     <div className='scrollable-container'>
                         <Row gutter={[16, 16]} justify="start">
                             {pets.map((pet, index) => {
-                                if (pet.Breed === selectedBreed || selectedBreed === "") {
-                                    if (pet.Type === selectedAnimal || selectedAnimal === "") {
-                                        if (pet.Gender === selectedGender || selectedGender === "") {
-                                            return (
-                                                <Col key={index} span={7} className={`scrollable-adoption-card`}>
-                                                    <AdoptionCard pet={pet} />
-                                                </Col>
-                                            );
+                                if (pet.Address === selectedLocation || selectedLocation === "") {
+                                    if (pet.Breed === selectedBreed || selectedBreed === "") {
+                                        if (pet.Type === selectedAnimal || selectedAnimal === "") {
+                                            if (pet.Gender === selectedGender || selectedGender === "") {
+                                                return (
+                                                    <Col key={index} span={7} className={`scrollable-adoption-card`}>
+                                                        <AdoptionCard pet={pet} />
+                                                    </Col>
+                                                );
+                                            }
                                         }
                                     }
                                 }
