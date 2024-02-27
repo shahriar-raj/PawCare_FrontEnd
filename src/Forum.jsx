@@ -396,7 +396,7 @@ export function Forum(props) {
                                                 />
                                                 <Typography.Paragraph className="twitter-card-content">
                                                     {renderConditionalDescription(item)}
-                                                    #{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Normal"}
+                                                    <span style={{ color: "red" }}>#{item.Type === 1 ? "Donation" : item.Type === 2 ? "Adoption" : "Help"}</span>
                                                 </Typography.Paragraph>
                                                 <div>
                                                     {renderConditionalContent(item)}

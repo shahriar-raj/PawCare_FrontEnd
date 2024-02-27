@@ -157,6 +157,9 @@ export function Profile(props) {
                         <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
                             Edit Profile
                         </Button>
+                        <Button className="m_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/getmessages')}>
+                            Messages
+                        </Button>
                     </div>
                 </div>
                 <div className="second-column">

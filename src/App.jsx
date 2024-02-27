@@ -28,6 +28,7 @@ import { About } from './About.jsx';
 import { MyDonation } from './MyDonation.jsx';
 import { MyDonationChecks } from './MyDonationChecks.jsx';
 import { Hostel } from './Hostel.jsx';
+import { GetRequests } from './GetRequests.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -58,6 +59,7 @@ export default function App() {
           <Route path="/mydonation" element={<MyDonation data={data} setData={setData} />} />
           <Route path="/checkpoints" element={<MyDonationChecks data={data} setData={setData} />} />
           <Route path="/hostel" element={<Hostel data={data} setData={setData} />} />
+          <Route path="/getmessages" element={<GetRequests data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
