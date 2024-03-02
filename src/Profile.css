@@ -61,7 +61,7 @@
     text-align: center;
 }
 
-.m_button{
+.m_button {
     margin-top: 4%;
     margin-left: 32.5%;
     width: 35%;
@@ -70,7 +70,7 @@
     border-radius: 8px;
     font-size: 1.5em;
     cursor: pointer;
-    text-align: center; 
+    text-align: center;
 }
 
 .profile_header {
@@ -146,15 +146,15 @@
     border-radius: 8px;
     /* Rounded corners for the button */
     cursor: pointer;
- 
+
     /* Adjust height to match the card content */
     /* Add some padding if needed */
-   
+
     margin-top: 15%;
     margin-left: 6%;
     margin-bottom: 5%;
     transition: background-color 0.3s;
-    
+
 }
 
 /* You may also want to add :hover and :focus styles for better user interaction */
@@ -176,12 +176,63 @@
     /* Other focus styles */
 }
 
+.adopt-btn {
+    background-color: #1f6565;
+    /* Light Green background */
+    color: #ffffff;
+    /* Dark Green text */
+    border: none;
+    /* margin-left: auto; */
+    /* Align the button to the right */
+    font-family: "Baloo Da";
+    font-size: 1.2em;
+    /* Larger font size */
+    border-radius: 8px;
+    /* Rounded corners for the button */
+    cursor: pointer;
+
+    /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    margin-left: 12%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    transition: background-color 0.3s;
+}
+
+.adopt-btn:hover {
+    background-color: #034f48 !important;
+    /* Slightly different color on hover */
+    /* Other hover styles */
+    /* Light Green background */
+    color: #c6dedd !important;
+    /* Dark Green text */
+}
+
+.up-adopt {
+    /* Light Green background */
+    color: #bc9a9a;
+    /* Dark Green text *
+    /* margin-left: auto; */
+    /* Align the button to the right */
+    font-family: "Baloo Da";
+    font-size: 1.3em;
+    /* Larger font size */
+    border-radius: 8px;
+    /* Rounded corners for the button */
+
+    /* Adjust height to match the card content */
+    /* Add some padding if needed */
+    margin-left: 18%;
+    margin-top: 3%;
+    padding-bottom: 5%;
+}
+
 .p_button:hover {
     background-color: #033f3b !important;
     color: #CEDFB9;
 }
 
-.delete-profile-btn{
+.delete-profile-btn {
     background-color: #f46d75 !important;
     /* Light Green background */
     color: #192928;
@@ -195,7 +246,7 @@
     border-radius: 8px;
     /* Rounded corners for the button */
     cursor: pointer;
-  
+
     /* Adjust height to match the card content */
     /* Add some padding if needed */
 
@@ -223,7 +274,7 @@
    
 } */
 
-.scroll-btn{
+.scroll-btn {
     font-weight: bold !important;
 }
 
@@ -251,18 +302,21 @@
     overflow-x: auto;
     white-space: nowrap;
 
-    gap: 16px; /* Adds space between cards */
+    gap: 16px;
+    /* Adds space between cards */
 }
 
 .pet-card-container {
-    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+    flex: 0 0 auto;
+    /* Prevent flex items from growing or shrinking */
 }
 
 /* Styles for .profile_header, .profileImg, .name, .p_button remain unchanged */
 
 .petCard {
-    min-width: 270px; /* Ensures cards have a minimum width */
-    height: auto; 
+    min-width: 270px;
+    /* Ensures cards have a minimum width */
+    height: auto;
     margin: 0% 0% 0% 20%;
     border-radius: 20px;
     background-color: #192928;
@@ -280,7 +334,8 @@
 
 
 .pet-card-container {
-    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+    flex: 0 0 auto;
+    /* Prevent flex items from growing or shrinking */
 }
 
 /* Ensure .scrollable-row has overflow-x: auto; */
@@ -289,15 +344,12 @@
 
 .scroll-controls {
     display: flex;
-    justify-content: center; /* Center the buttons */
+    justify-content: center;
+    /* Center the buttons */
     align-items: center;
     padding: 10px 0;
     margin-bottom: 10%;
-  }
-  
-
-
-  
+}
 
 
 
@@ -305,25 +357,35 @@
 
 
 
-  
-  /* Optional: if you want to hide the scrollbar in Webkit browsers */
-  .scrollable-row::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
-  }
-  
-  .scrollable-row {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
+
+
+
+
+
+/* Optional: if you want to hide the scrollbar in Webkit browsers */
+.scrollable-row::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
+}
+
+.scrollable-row {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
 
 
 
 .scrollable-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates three columns */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 75vh; /* Adjust based on your layout */
+    grid-template-columns: repeat(3, 1fr);
+    /* Creates three columns */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    max-height: 75vh;
+    /* Adjust based on your layout */
 }
 
 
@@ -333,22 +395,28 @@
 
 /* Styles for .profile_header, .profileImg, .name, .p_button remain unchanged */
 .profile_header .ant-btn {
-  font-size: 1em; /* Adjust font size as needed */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  border: 0px ;
+    font-size: 1em;
+    /* Adjust font size as needed */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effects */
+    border: 0px;
 }
 
-.active{
+.active {
     background-color: #6bebc931 !important;
     color: #ffe600 !important;
-    
+
 }
 
 .profile_header .ant-btn:not(.logout):hover {
-  background-color: #6bebc931 !important; /* Darker shade on hover, adjust color as needed */
-  color: #ffffff; /* Keep text color consistent or change as per need */
-  transform: translateY(-2px); /* Slight raise effect on hover */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    background-color: #6bebc931 !important;
+    /* Darker shade on hover, adjust color as needed */
+    color: #ffffff;
+    /* Keep text color consistent or change as per need */
+    transform: translateY(-2px);
+    /* Slight raise effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
 }
 
 .logout {
@@ -356,10 +424,11 @@
     color: #ffffff !important;
 
 }
-.logout:hover{
+
+.logout:hover {
     background-color: #cb1b1e !important;
-    transform: translateY(-2px); /* Slight raise effect on hover */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    transform: translateY(-2px);
+    /* Slight raise effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
 }
-
-

@@ -198,7 +198,7 @@ export function Profile(props) {
                                                     <Button className="adopt-btn" type="primary" onClick={() => adoptpet(item.PetID, item.UserID)} >
                                                         Give for Adoption
                                                     </Button>
-                                                </div> : <div>
+                                                </div> : <div className='up-adopt'>
                                                     Up for Adoption
                                                 </div>
 
