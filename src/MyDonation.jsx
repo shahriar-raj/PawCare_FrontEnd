@@ -40,7 +40,8 @@ export function MyDonation(props) {
 
     return (
         <div>
-            <p style={{ marginLeft: '25%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}> My Donation Request List</p>
+           
+            <p style={{ marginLeft: '10%', color: "#192928", fontFamily: 'Baloo Da', fontSize: '1.5em' }}>  <Button className="back_don" onClick={()=>navigate('/donation')} style={{marginRight:"15%", backgroundColor:"red", fontFamily:"Baloo Da"}}> Back </Button> My Donation Request List</p>
             <hr />
             <div className="mydonationbody">
                 {data.map((donation) => (
