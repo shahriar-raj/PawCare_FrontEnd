@@ -96,6 +96,9 @@ export function Admin(props) {
                 <Button className='User-admin' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/users') }}>
                     Users
                 </Button>
+                <Button className='DonationRequests' style={{ backgroundColor: "#1f4959", color: "white", fontFamily: "Baloo Da", marginLeft: "2%" }} onClick={() => { navigate('/rescuersapplications') }} >
+                    Rescuers Applications
+                </Button>
             </div>
             <div className="container_admin">
                 <div className="first-column-admin">

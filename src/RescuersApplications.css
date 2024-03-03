@@ -1,0 +1,101 @@
+.container_res_app {
+    display: grid;
+    grid-template-columns: 32% 1fr;
+    /* width: 100vw; */
+    height: 95vh;
+    background-color: #5c7c89;
+    /* max-height: 900px; */
+    /* width: 100vw; */
+    /* 33% for the first column, and the rest (1fr) for the second */
+    /* height: 70vh; */
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+.profileImg {
+    padding-top: 0%;
+    padding-left: 37%;
+}
+
+.first-column-res_app {
+    padding-top: 2%;
+    height: 90vh;
+    /* background-color: #f8f8f8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the first column here */
+}
+
+.second-column-res_app {
+    padding-bottom: 3%;
+    border-left: 3px solid #011425;
+    height: 90vh;
+    overflow: auto;
+    /* width: 100%; */
+    /* background-color: #e8e8e8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the second column here */
+}
+
+.name {
+    text-align: center;
+    color: #212121;
+    font-family: "Baloo Da";
+}
+
+.p_button-res_app {
+    margin-top: 4%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.rescue_application_header {
+    background-color: #011425;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
+}
+
+.res_app_admin {
+    width: 65%;
+    background-color: #011425;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.select_status {
+    margin-top: 5%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    text-align: center;
+    color: #011425;
+    font-size: x-large;
+    font-family: "Baloo Da";
+}
+
+.filter_status_res_app {
+    margin-left: 32.5%;
+    width: 35%;
+    height: 5%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    color: #5c7c89;
+    font-family: "Baloo Da";
+}
