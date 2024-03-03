@@ -1,0 +1,61 @@
+.vetbody {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    height: 90vh;
+}
+
+.vet-card {
+    width: 65%;
+    background-color: #192928;
+    margin-top: 4vh;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.AFDV:hover {
+    background-color: #192928 !important;
+    color: #ffffff !important;
+}
+
+.vetbodyleft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.select_location {
+    margin-top: 5%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    text-align: center;
+    color: #011425;
+    font-size: x-large;
+    font-family: "Baloo Da";
+}
+
+.filter_status_loc1 {
+    margin-left: 27.5%;
+    width: 45%;
+    height: 5%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    color: #5c7c89;
+    font-family: "Baloo Da";
+}
+
+.BA:hover{
+    background-color: #192928 !important;
+    color: #ffffff !important;
+}
