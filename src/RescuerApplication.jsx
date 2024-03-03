@@ -67,7 +67,7 @@ export function RescuerApplication() {
     return (
         <div className="rescuer-form-container">
             <h1 className="rescuer-header">Rescuer Application</h1>
-            <Card className="rescuer-card">
+            <Card className="rescuer-card1">
                 <Form
                     form={form}
                     name="rescuer"
@@ -115,7 +115,7 @@ export function RescuerApplication() {
                         </Button>
                     </Form.Item>
                 </Form>
-                <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={() => navigate('/profile')}>
+                <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25" }} onClick={() => navigate('/rescuerslist')}>
                     Back
                 </Button>
             </Card>

@@ -25,6 +25,104 @@
 }
 
 .AFDR:hover {
-    background-color: #192928  !important;
+    background-color: #192928 !important;
     color: #ffffff !important;
+}
+
+.Profile1 {
+    border: 0px;
+}
+
+.Profile1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.Donation1 {
+    border: 0px;
+}
+
+.Donation1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.Adoption1 {
+    border: 0px;
+}
+
+.Adoption1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.Notification1 {
+    border: 0px;
+}
+
+.Notification1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.Forum1 {
+    border: 0px;
+}
+
+.Forum1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.BookHostel1 {
+    border: 0px;
+}
+
+.BookHostel1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.logout1 {
+    border: 0px;
+}
+
+.logout1:hover {
+    background-color: #6bebc931 !important;
+    color: #ffffff !important;
+}
+
+.rescuerbodyleft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.select_location {
+    margin-top: 5%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    text-align: center;
+    color: #011425;
+    font-size: x-large;
+    font-family: "Baloo Da";
+}
+
+.filter_status_loc {
+    margin-left: 27.5%;
+    width: 45%;
+    height: 5%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    color: #5c7c89;
+    font-family: "Baloo Da";
 }
