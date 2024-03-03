@@ -96,7 +96,7 @@ export function VetAppointment(props) {
                             if (location === '' || vet.Location === location) {
                                 return (
                                     <Card className='vet-card' key={vet.ID}>
-                                        <Card.Img variant="top" src={vet.URL} />
+                                        <Card.Img variant="top" src={vet.URL} width={120}/>
                                         <Card.Body>
 
                                             <Card.Title style={{ fontFamily: 'Baloo Da', fontSize: '2.0em' }}>{vet.Name} </Card.Title>
