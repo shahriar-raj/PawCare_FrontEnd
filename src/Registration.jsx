@@ -25,6 +25,7 @@ export function Registration() {
         password: values['password'],
         role: "User",
         address: values['address'],
+        phoneNumber: values['phone'],
       }
       console.log(obj);
       localStorage.setItem('email', obj.email);
