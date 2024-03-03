@@ -32,6 +32,7 @@ import { GetRequests } from './GetRequests.jsx';
 import { RescuerApplication } from './RescuerApplication.jsx';
 import { RescuerImage } from './RescuerImage.jsx';
 import { RescuersApplications } from './RescuersApplications.jsx';
+import { RescuersList } from './RescuersList.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/rescuerapply" element={<RescuerApplication data={data} setData={setData} />} />
           <Route path="/rescuerpicture" element={<RescuerImage data={data} setData={setData} />} />
           <Route path="/rescuersapplications" element={<RescuersApplications data={data} setData={setData} />} />
+          <Route path="/rescuerslist" element={<RescuersList data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

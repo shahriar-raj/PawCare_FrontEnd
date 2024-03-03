@@ -1,0 +1,30 @@
+.rescuerbody {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    height: 90vh;
+}
+
+.rescuer-card {
+    width: 65%;
+    background-color: #192928;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.rescuer_header {
+    background-color: #192928;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
+}
+
+.AFDR:hover {
+    background-color: #192928  !important;
+    color: #ffffff !important;
+}

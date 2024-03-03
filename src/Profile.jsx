@@ -160,7 +160,7 @@ export function Profile(props) {
                         <Button className="m_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/getmessages')}>
                             Messages
                         </Button>
-                        <Button className="r_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerapply')}>
+                        <Button className="r_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerslist')}>
                             Rescuers List
                         </Button>
                     </div>
@@ -183,10 +183,11 @@ export function Profile(props) {
                                                 Age: {item.Age} Months
                                             </div>
 
-
-                                            <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>
-                                                <DeleteOutlined />
-                                            </Button>
+                                            {item.AdoptionStatus === 1 ?
+                                                <Button className="delete-profile-btn" type="primary" onClick={() => deletePet(item.PetID)}>
+                                                    <DeleteOutlined />
+                                                </Button>
+                                                : <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
                                             <Button className="view-profile-btn" type="primary" onClick={() => {
                                                 localStorage.setItem('petID', item.PetID);
                                                 localStorage.setItem('petName', item.Name);
