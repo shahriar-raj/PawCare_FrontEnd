@@ -160,6 +160,9 @@ export function Profile(props) {
                         <Button className="m_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/getmessages')}>
                             Messages
                         </Button>
+                        <Button className="r_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerapply')}>
+                            Rescuers List
+                        </Button>
                     </div>
                 </div>
                 <div className="second-column">

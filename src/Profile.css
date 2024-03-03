@@ -73,6 +73,18 @@
     text-align: center;
 }
 
+.r_button {
+    margin-top: 4%;
+    margin-left: 32.5%;
+    width: 35%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-align: center;
+}
+
 .profile_header {
     background-color: #192928;
     padding-left: 7%;
@@ -228,6 +240,16 @@
 }
 
 .p_button:hover {
+    background-color: #033f3b !important;
+    color: #CEDFB9;
+}
+
+.m_button:hover {
+    background-color: #033f3b !important;
+    color: #CEDFB9;
+}
+
+.r_button:hover {
     background-color: #033f3b !important;
     color: #CEDFB9;
 }
