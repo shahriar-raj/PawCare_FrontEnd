@@ -61,7 +61,7 @@ export function Adopt() {
 
     return (
         <div className="adopt-container">
-            <div className="profile_header">
+            {/* <div className="profile_header">
                 <div className="navigation-buttons">
                     <span className="forum-title">Paw Adoption</span>
                     <Button icon={<FontAwesomeIcon icon={faHome} />} onClick={handleNavigate('/home')} />
@@ -69,7 +69,7 @@ export function Adopt() {
                     <Button icon={<FontAwesomeIcon icon={faUsers} />} onClick={handleNavigate('/community')} />
                     <FontAwesomeIcon icon={faPaw} size="2x" className="paw-icon" />
                 </div>
-            </div>
+            </div> */}
 
             <div className='adoption-form'>
                 <Form
