@@ -28,8 +28,15 @@ export function Login(props) {
                 const data = await response.json();
                 console.log(data);
                 props.setData(data);
-                localStorage.setItem('userID', data.userID);
-                navigate('/profile');
+                if (data.type === 2) {
+                    localStorage.setItem('VetID', data.vetid);
+                    navigate('/vet');
+                }
+                else {
+                    localStorage.setItem('userID', data.userID);
+                    navigate('/profile');
+                }
+
                 // Handle response here
             }
             else if (response.status === 401) {

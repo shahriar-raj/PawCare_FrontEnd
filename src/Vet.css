@@ -1,0 +1,62 @@
+.container_vet {
+    display: grid;
+    grid-template-columns: 32% 1fr;
+    /* width: 100vw; */
+    height: 95vh;
+    background-color: #5c7c89;
+    /* max-height: 900px; */
+    /* width: 100vw; */
+    /* 33% for the first column, and the rest (1fr) for the second */
+    /* height: 70vh; */
+    /* This makes the container take the full height of the viewport. Adjust as needed. */
+}
+
+.profileImg {
+    padding-top: 0%;
+    padding-left: 37%;
+}
+
+.first-column-vet {
+    padding-top: 2%;
+    height: 90vh;
+    /* background-color: #f8f8f8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the first column here */
+}
+
+.second-column-vet {
+    padding-bottom: 3%;
+    border-left: 3px solid #011425;
+    height: 90vh;
+    overflow: auto;
+    /* width: 100%; */
+    /* background-color: #e8e8e8; */
+    /* Just for visual differentiation, you can change or remove this */
+    /* Add your styling for the second column here */
+}
+
+.name {
+    text-align: center;
+    color: #212121;
+    font-family: "Baloo Da";
+}
+
+.vet_header {
+    background-color: #011425;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 10vh;
+}
+
+.app-card-vet {
+    width: 65%;
+    background-color: #011425;
+    margin-top: 4%;
+    margin-left: 8%;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
