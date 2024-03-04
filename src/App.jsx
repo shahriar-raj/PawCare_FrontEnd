@@ -38,6 +38,7 @@ import { VetAppointmentForm } from './VetAppointmentForm.jsx';
 import { Vet } from './Vet.jsx';
 import { AddVaccine } from './AddVaccine.jsx';
 import { VaccinationSchedule } from './VaccinationSchedule.jsx';
+import { Wishlist } from './Wishlist.jsx';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -78,6 +79,7 @@ export default function App() {
           <Route path="/vet" element={<Vet data={data} setData={setData} />} />
           <Route path="/addvaccine" element={<AddVaccine data={data} setData={setData} />} />
           <Route path="/vaccineschedule" element={<VaccinationSchedule data={data} setData={setData} />} />
+          <Route path="/wishlist" element={<Wishlist data={data} setData={setData} />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

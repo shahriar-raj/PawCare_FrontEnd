@@ -88,9 +88,9 @@ export function AdoptionList(props) {
     // Example options for each Select
     const animalOptions = [
         { value: '', label: 'All' },
-        { value: 'dog', label: 'Dog' },
-        { value: 'cat', label: 'Cat' },
-        { value: 'bird', label: 'Bird' },
+        { value: 'Dog', label: 'Dog' },
+        { value: 'Cat', label: 'Cat' },
+        { value: 'Bird', label: 'Bird' },
         { value: 'Others', label: 'Others' },
     ];
     const breedOptions = [
