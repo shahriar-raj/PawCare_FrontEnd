@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Button, Card, Tabs, List } from 'antd';
+import { Avatar, Button, Card, Tabs, List, Empty} from 'antd';
 import { PlusOutlined, PlusSquareFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './PetProfile.css'; // Make sure to create this CSS file
@@ -63,6 +63,7 @@ export function PetProfile(props) {
                         renderItem={item => (
                             <List.Item><span className="item-date">{item.Date.split('T')[0]}</span>  <span className="item-disease">{item.ShortMsg}</span></List.Item>
                         )}
+                        locale={{ emptyText: <Empty description="No Vaccination History" /> }}
                     />
                 </TabPane>
             </Tabs>

@@ -169,6 +169,9 @@ export function Profile(props) {
                         <Button className="s_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/vaccineschedule')}>
                             Vaccination Schedules
                         </Button>
+                        <Button className="w_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/wishlist')}>
+                            Wishlist
+                        </Button>
                     </div>
                 </div>
                 <div className="second-column">

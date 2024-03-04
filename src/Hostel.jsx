@@ -12,31 +12,23 @@ import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutli
 
 import './Hostel.css'; // Make sure to include the correct path to your CSS file
 
-import HostelImage from './assets/ghor.png';
-
-import ghor1 from './assets/ghor.png';
-import ghor2 from './assets/ghor2.png';
-import ghor3 from './assets/ghor3.png';
-
 
 export function Hostel() {
     const navigate = useNavigate();
     const { Option } = Select;
 
     const [data, setData] = useState([]);
-
-    const imageSources = [ghor1, ghor2, ghor3];
     const hostels = [
-        { HostelID: 'hstl1', Name: 'Cozy Paws', Location: 'Dhaka', Description: 'A cozy place for your pets.', Images: imageSources },
-        { HostelID: 'hstl2', Name: 'Sunny Retreat', Location: 'Chittagong', Description: 'Bright and airy accommodations.', Images: imageSources },
-        { HostelID: 'hstl3', Name: 'Mountain Hideout', Location: 'Sylhet', Description: 'Quiet spot in the mountains.', Images: imageSources },
-        { HostelID: 'hstl4', Name: 'City Lights', Location: 'Khulna', Description: 'Stay in the heart of the city.', Images: imageSources },
-        { HostelID: 'hstl5', Name: 'Beach Haven', Location: 'Cox\'s Bazar', Description: 'Ocean views and sandy beaches.', Images: imageSources },
-        { HostelID: 'hstl6', Name: 'Historic Inn', Location: 'Rajshahi', Description: 'Experience rich history and culture.', Images: imageSources },
-        { HostelID: 'hstl7', Name: 'Jungle Lodge', Location: 'Bandarban', Description: 'Escape to the wilderness.', Images: imageSources },
-        { HostelID: 'hstl8', Name: 'Riverfront Stay', Location: 'Barisal', Description: 'Relax by the water.', Images: imageSources },
-        { HostelID: 'hstl9', Name: 'Urban Pod', Location: 'Mymensingh', Description: 'Modern and minimalist urban stay.', Images: imageSources },
-        { HostelID: 'hstl10', Name: 'Country Charm', Location: 'Rangpur', Description: 'A quaint and cozy country home.', Images: imageSources }
+        { HostelID: 'hstl1', Name: 'Cozy Paws', Location: 'Dhaka', Description: 'A cozy place for your pets.'},
+        { HostelID: 'hstl2', Name: 'Sunny Retreat', Location: 'Chittagong', Description: 'Bright and airy accommodations.'},
+        { HostelID: 'hstl3', Name: 'Mountain Hideout', Location: 'Sylhet', Description: 'Quiet spot in the mountains.'},
+        { HostelID: 'hstl4', Name: 'City Lights', Location: 'Khulna', Description: 'Stay in the heart of the city.'},
+        { HostelID: 'hstl5', Name: 'Beach Haven', Location: 'Cox\'s Bazar', Description: 'Ocean views and sandy beaches.' },
+        { HostelID: 'hstl6', Name: 'Historic Inn', Location: 'Rajshahi', Description: 'Experience rich history and culture.' },
+        { HostelID: 'hstl7', Name: 'Jungle Lodge', Location: 'Bandarban', Description: 'Escape to the wilderness.'},
+        { HostelID: 'hstl8', Name: 'Riverfront Stay', Location: 'Barisal', Description: 'Relax by the water.'},
+        { HostelID: 'hstl9', Name: 'Urban Pod', Location: 'Mymensingh', Description: 'Modern and minimalist urban stay.' },
+        { HostelID: 'hstl10', Name: 'Country Charm', Location: 'Rangpur', Description: 'A quaint and cozy country home.'}
         // Add other unique hostels here...
     ];
 
@@ -118,13 +110,13 @@ export function Hostel() {
                 <div className="hostel-scrollable-row">
                     {hostels.map((hostel) => (
                         <Card key={hostel.HostelID} className="hostel-card">
-                            <Carousel>
+                            {/* <Carousel>
                                 {hostel.Images.map((image, index) => (
                                     <div key={index}>
                                         <img src={image} alt={`${hostel.Name} Image`} className="hostel-image" />
                                     </div>
                                 ))}
-                            </Carousel>
+                            </Carousel> */}
                             <div className="card-top-bar">
                                 <span className="guest-favorite-badge">Guest favorite</span>
                                 <button className="heart-icon-button">❤</button> {/* Replace with actual icon if available */}
