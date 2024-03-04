@@ -13,8 +13,7 @@ import { TwitterOutlined, PlayCircleOutlined, PictureOutlined } from '@ant-desig
 import { LogoutOutlined, HeartOutlined, HomeOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHotel, faUser, faFilter, faHorse, faCat, faCrow, faMapMarkerAlt, faDog, faUsers, faComments, faCheckCircle, faHome, faHandHoldingDollar, faPaw, faImage, faPlayCircle, faHeart, faRetweet, faComment } from '@fortawesome/free-solid-svg-icons';
-
-
+import { render } from 'react-dom';
 
 export function GetRequests(props) {
     const [data, setData] = useState([]);
@@ -47,6 +46,79 @@ export function GetRequests(props) {
         fetchData();
     }
         , []);
+
+    function renderButtons(item) {
+        if (item.AcceptStatus === 2) {
+            return (
+                <div>
+                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginBottom: "1%" }} onClick={() => {approve(item.RequestID) }}>
+                        ✔ Accept
+                    </Button>
+                    <Button style={{ backgroundColor: "#cedfb9", borderColor: "#192928", marginLeft: "5%", marginBottom: "1%" }} onClick={() => { reject(item.RequestID) }}>
+                        x Reject
+                    </Button>
+                </div>
+            )
+        }
+        else if (item.AcceptStatus === 1) {
+            return (
+                <div>
+                    <span style={{ color: "green", fontFamily: "Baloo Da", fontSize: "large" }}>✔ Accepted</span>
+                </div>
+            )
+        }
+        else if (item.AcceptStatus === 0) {
+            return (
+                <div>
+                    <span style={{ color: "red", fontFamily: "Baloo Da", fontSize: "large" }}>x Rejected</span>
+                </div>
+            )
+        }
+    }
+
+    const approve = async (ReqID) => {
+        try {
+            let obj = {
+                requestID: ReqID,
+            }
+            const response = await fetch('http://3.89.30.159:3000/profile/acceptAdoptionMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            if (response.ok) {
+                alert('Adoption Approved');
+                window.location.reload();
+            }
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    const reject = async (ReqID) => {
+        try {
+            let obj = {
+                requestID: ReqID,
+            }
+            const response = await fetch('http://3.89.30.159:3000/profile/rejectAdoptionMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            });
+            if (response.ok) {
+                alert('Adoption Rejected');
+                window.location.reload();
+            }
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
 
     return (
         <div>
@@ -87,7 +159,16 @@ export function GetRequests(props) {
                                 <Card.Body>
                                     <Card.Title>{item.Username}</Card.Title>
                                     <Card.Text>
-                                        {item.PetAloneText}
+                                        Pet Name: {item.Name}
+                                        <br />
+                                        Are you an adult ?: {item.AgeStatus === 1 ? "Yes" : "No"}
+                                        <br />
+                                        Are your pets vaccinated?: {item.VaccinationStatus === 1 ? "Yes" : "No"}
+                                        <br />
+                                        Where will the pet stay when Alone? : {item.PetAloneText}
+                                        <br />
+                                        <br/>
+                                        {renderButtons(item)}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
