@@ -157,14 +157,17 @@ export function Profile(props) {
                         </div>
                         <h2 className="name">{name}</h2>
                         <h3 className="name">{address}</h3>
-                        <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
+                        {/* <Button className="p_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} >
                             Edit Profile
-                        </Button>
+                        </Button> */}
                         <Button className="m_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/getmessages')}>
                             Messages
                         </Button>
                         <Button className="r_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerslist')}>
                             Rescuers List
+                        </Button>
+                        <Button className="s_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerslist')}>
+                            Vaccination Schedules
                         </Button>
                     </div>
                 </div>

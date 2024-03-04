@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Card, Tabs, List } from 'antd';
 import { PlusOutlined, PlusSquareFilled } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import './PetProfile.css'; // Make sure to create this CSS file
 
 
@@ -12,7 +13,8 @@ export function PetProfile(props) {
         // ... vaccination history data
     ];
 
-    // Function to render add button text based on active tab
+    // Function to  render add button text based on active tab
+    const navigate = useNavigate();
 
     return (
         <div className="pet-profile-container">
@@ -28,12 +30,15 @@ export function PetProfile(props) {
                 </div>
             </div>
             <List
-                // dataSource={diseaseHistory}
-                // renderItem={item => (
-                //     <List.Item><span className="item-date">{item.date}</span>  <span className="item-disease">{item.disease}</span></List.Item>
-                // )}
+            // dataSource={diseaseHistory}
+            // renderItem={item => (
+            //     <List.Item><span className="item-date">{item.date}</span>  <span className="item-disease">{item.disease}</span></List.Item>
+            // )}
             />
-            <Button icon={<PlusSquareFilled style={{ fontSize: '15px' }} />} className="add-button">
+            <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25", marginLeft:"10%" }} onClick={() => navigate('/profile')}>
+                Back
+            </Button>
+            <Button icon={<PlusSquareFilled style={{ fontSize: '15px' }} />} className="add-button" onClick={() => { navigate('/addvaccine') }}>
                 Add Vaccination
             </Button>
         </div>
