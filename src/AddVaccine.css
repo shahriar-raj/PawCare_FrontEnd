@@ -1,0 +1,51 @@
+.vac-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* This makes sure that the div takes at least the full height of the viewport */
+    width: 100vw;
+    /* This ensures the div takes the full width of the viewport */
+    padding-left: 0px;
+  
+  }
+  
+  .vac-header {
+    padding-right: 100px;
+    /*Add padding to the right  */
+    padding-bottom: 250px;
+    font-family: "Baloo Da";
+    color: #000;
+  }
+  
+  
+  .vac-card {
+    max-width: 500px;
+    /* Adjust the width of the card as needed */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a subtle shadow to the card */
+    border-radius: 15px;
+    /* Optional: rounds the corners of the card */
+    padding: 20px;
+    /* Optional: adds some padding inside the card */
+  }
+  
+  /* Add any additional global styles you might need */
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  
+  .ant-form-item {
+    margin-bottom: 16px;
+    /* Reduce this value to decrease the space between form items */
+  }
+  
+  /* Optional: Adjust the padding inside the Card if needed */
+  

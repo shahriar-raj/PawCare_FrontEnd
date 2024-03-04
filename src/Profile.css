@@ -85,6 +85,18 @@
     text-align: center;
 }
 
+.s_button {
+    margin-top: 4%;
+    margin-left: 22.5%;
+    width: 55%;
+    height: 7%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-align: center;
+}
+
 .profile_header {
     background-color: #192928;
     padding-left: 2%;
@@ -250,6 +262,11 @@
 }
 
 .r_button:hover {
+    background-color: #033f3b !important;
+    color: #CEDFB9;
+}
+
+.s_button:hover {
     background-color: #033f3b !important;
     color: #CEDFB9;
 }

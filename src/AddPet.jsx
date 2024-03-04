@@ -99,10 +99,10 @@ export function AddPet(props) {
                         rules={[{ required: true, message: "Please select your pet's type!" }]}
                     >
                         <Select placeholder="Select a type">
-                            <Select.Option value="dog">Dog</Select.Option>
-                            <Select.Option value="cat">Cat</Select.Option>
-                            <Select.Option value="bird">Bird</Select.Option>
-                            <Select.Option value="other">Other</Select.Option>
+                            <Select.Option value="Dog">Dog</Select.Option>
+                            <Select.Option value="Cat">Cat</Select.Option>
+                            <Select.Option value="Bird">Bird</Select.Option>
+                            <Select.Option value="Other">Other</Select.Option>
                         </Select>
                     </Form.Item>
 
