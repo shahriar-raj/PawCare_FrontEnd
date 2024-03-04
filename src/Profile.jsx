@@ -196,6 +196,7 @@ export function Profile(props) {
                                                 localStorage.setItem('petName', item.Name);
                                                 localStorage.setItem('petAge', item.Age);
                                                 localStorage.setItem('petBreed', item.Breed);
+                                                localStorage.setItem('petURL', item.URL);
                                                 navigate('/petprofile')
                                             }}>
                                                 View Profile
