@@ -1,20 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, Button, Card, Tabs, List } from 'antd';
 import { PlusOutlined, PlusSquareFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './PetProfile.css'; // Make sure to create this CSS file
 
+const { TabPane } = Tabs;
 
 export function PetProfile(props) {
     // Default to the first tab
-
+    const [activeTab, setActiveTab] = useState('1');
     // Mock data for tabs content
     const vaccinationHistory = [
         // ... vaccination history data
     ];
 
+    const [data, setData] = useState([]); // [1]
+
     // Function to  render add button text based on active tab
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let obj = {
+                    petID: localStorage.getItem('petID'),
+                }
+                const response = await fetch('http://3.89.30.159:3000/profile/viewAllVaccineMessages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(obj),
+                });
+                const result = await response.json(); // Assuming the response is in JSON format
+                console.log(result);
+                setData(result.result);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        // Call the fetchData function
+        fetchData();
+    }, []);
 
     return (
         <div className="pet-profile-container">
@@ -29,13 +56,17 @@ export function PetProfile(props) {
                     Age: {localStorage.getItem('petAge')}
                 </div>
             </div>
-            <List
-            // dataSource={diseaseHistory}
-            // renderItem={item => (
-            //     <List.Item><span className="item-date">{item.date}</span>  <span className="item-disease">{item.disease}</span></List.Item>
-            // )}
-            />
-            <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25", marginLeft:"10%" }} onClick={() => navigate('/profile')}>
+            <Tabs defaultActiveKey="1" onChange={setActiveTab}>
+                <TabPane tab="Vaccination History" key="1">
+                    <List
+                        dataSource={data}
+                        renderItem={item => (
+                            <List.Item><span className="item-date">{item.Date.split('T')[0]}</span>  <span className="item-disease">{item.ShortMsg}</span></List.Item>
+                        )}
+                    />
+                </TabPane>
+            </Tabs>
+            <Button style={{ backgroundColor: "red", color: "white", fontFamily: "Baloo Da", fontSize: "25", marginLeft: "10%" }} onClick={() => navigate('/profile')}>
                 Back
             </Button>
             <Button icon={<PlusSquareFilled style={{ fontSize: '15px' }} />} className="add-button" onClick={() => { navigate('/addvaccine') }}>
