@@ -166,7 +166,7 @@ export function Profile(props) {
                         <Button className="r_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerslist')}>
                             Rescuers List
                         </Button>
-                        <Button className="s_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/rescuerslist')}>
+                        <Button className="s_button" style={{ backgroundColor: "#192928", color: "white", fontFamily: "Baloo Da" }} onClick={() => navigate('/vaccineschedule')}>
                             Vaccination Schedules
                         </Button>
                     </div>
