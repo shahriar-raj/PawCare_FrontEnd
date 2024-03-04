@@ -321,7 +321,7 @@ export function Forum(props) {
                             >
                             </Select>
 
-                            <div className="select-header">Animals</div>
+                            {/* <div className="select-header">Animals</div>
                             <Select
                                 className="custom-select-placeholder"
                                 placeholder="Select Animals"
@@ -337,7 +337,8 @@ export function Forum(props) {
                             // defaultValue={['User Pet Vaccine']}
                             >
                                 {vaccineOptions}
-                            </Select>
+                            </Select> */}
+                            
                         </div>
                     </Row>
                 </Col>
